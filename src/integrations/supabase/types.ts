@@ -14,7 +14,122 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      orders: {
+        Row: {
+          amount: number
+          created_at: string
+          id: string
+          notes: string | null
+          payment_proof_url: string | null
+          product_id: string
+          product_name: string
+          status: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          amount: number
+          created_at?: string
+          id?: string
+          notes?: string | null
+          payment_proof_url?: string | null
+          product_id: string
+          product_name: string
+          status?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          amount?: number
+          created_at?: string
+          id?: string
+          notes?: string | null
+          payment_proof_url?: string | null
+          product_id?: string
+          product_name?: string
+          status?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "orders_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      products: {
+        Row: {
+          badge: string | null
+          category: string
+          created_at: string
+          description: string | null
+          description_id: string | null
+          id: string
+          name: string
+          name_id: string
+          price: number
+          stock_status: string
+        }
+        Insert: {
+          badge?: string | null
+          category: string
+          created_at?: string
+          description?: string | null
+          description_id?: string | null
+          id?: string
+          name: string
+          name_id: string
+          price: number
+          stock_status?: string
+        }
+        Update: {
+          badge?: string | null
+          category?: string
+          created_at?: string
+          description?: string | null
+          description_id?: string | null
+          id?: string
+          name?: string
+          name_id?: string
+          price?: number
+          stock_status?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          full_name: string | null
+          id: string
+          updated_at: string
+          user_id: string
+          username: string | null
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          full_name?: string | null
+          id?: string
+          updated_at?: string
+          user_id: string
+          username?: string | null
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          full_name?: string | null
+          id?: string
+          updated_at?: string
+          user_id?: string
+          username?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
