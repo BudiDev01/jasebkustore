@@ -2,95 +2,119 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Deep Navy Premium — Light Mode */
+    --background: 210 30% 96%;
+    --foreground: 220 40% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 220 40% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 220 40% 10%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Gold accent as primary */
+    --primary: 43 90% 52%;
+    --primary-foreground: 220 40% 10%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 220 25% 88%;
+    --secondary-foreground: 220 40% 10%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 20% 92%;
+    --muted-foreground: 220 15% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 43 90% 52%;
+    --accent-foreground: 220 40% 10%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 20% 85%;
+    --input: 220 20% 85%;
+    --ring: 43 90% 52%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --navy: 220 45% 12%;
+    --navy-light: 220 35% 18%;
+    --navy-muted: 220 25% 28%;
+    --gold: 43 90% 52%;
+    --gold-light: 43 90% 65%;
+    --gold-dark: 38 85% 40%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(220 45% 8%), hsl(220 35% 16%), hsl(225 40% 22%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(220 20% 97%));
+    --gradient-gold: linear-gradient(135deg, hsl(43 90% 52%), hsl(38 85% 44%));
+
+    --shadow-card: 0 4px 24px -4px hsl(220 40% 10% / 0.12);
+    --shadow-gold: 0 4px 20px -4px hsl(43 90% 52% / 0.4);
+    --shadow-navy: 0 8px 32px -8px hsl(220 45% 12% / 0.3);
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 43 90% 52%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Deep Navy Premium — Dark Mode */
+    --background: 220 45% 8%;
+    --foreground: 210 30% 93%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 220 40% 12%;
+    --card-foreground: 210 30% 93%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 220 40% 12%;
+    --popover-foreground: 210 30% 93%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 43 90% 52%;
+    --primary-foreground: 220 45% 8%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 220 35% 18%;
+    --secondary-foreground: 210 30% 93%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 220 35% 16%;
+    --muted-foreground: 220 15% 55%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 43 90% 52%;
+    --accent-foreground: 220 45% 8%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 210 30% 93%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 220 30% 20%;
+    --input: 220 30% 20%;
+    --ring: 43 90% 52%;
+
+    --navy: 220 45% 8%;
+    --navy-light: 220 35% 14%;
+    --navy-muted: 220 25% 22%;
+    --gold: 43 90% 52%;
+    --gold-light: 43 90% 65%;
+    --gold-dark: 38 85% 40%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(220 50% 5%), hsl(220 45% 10%), hsl(225 40% 15%));
+    --gradient-card: linear-gradient(145deg, hsl(220 40% 13%), hsl(220 35% 16%));
+    --gradient-gold: linear-gradient(135deg, hsl(43 90% 52%), hsl(38 85% 44%));
+
+    --shadow-card: 0 4px 24px -4px hsl(220 50% 4% / 0.5);
+    --shadow-gold: 0 4px 20px -4px hsl(43 90% 52% / 0.35);
+    --shadow-navy: 0 8px 32px -8px hsl(220 50% 4% / 0.6);
+
+    --sidebar-background: 220 45% 8%;
+    --sidebar-foreground: 210 30% 93%;
+    --sidebar-primary: 43 90% 52%;
+    --sidebar-primary-foreground: 220 45% 8%;
+    --sidebar-accent: 220 35% 14%;
+    --sidebar-accent-foreground: 210 30% 93%;
+    --sidebar-border: 220 30% 18%;
+    --sidebar-ring: 43 90% 52%;
   }
 }
 
@@ -98,8 +122,44 @@ All colors MUST be HSL.
   * {
     @apply border-border;
   }
-
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+  .gradient-gold {
+    background: var(--gradient-gold);
+  }
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  .shadow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+  .shadow-navy {
+    box-shadow: var(--shadow-navy);
+  }
+  .text-gold {
+    color: hsl(var(--gold));
+  }
+  .bg-navy {
+    background-color: hsl(var(--navy));
+  }
+  .bg-navy-light {
+    background-color: hsl(var(--navy-light));
+  }
+  .border-gold {
+    border-color: hsl(var(--gold));
+  }
+  .glow-gold {
+    box-shadow: 0 0 20px hsl(var(--gold) / 0.3), 0 0 40px hsl(var(--gold) / 0.15);
   }
 }
