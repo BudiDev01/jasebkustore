@@ -26,26 +26,8 @@ const Payment = () => {
   const formatPrice = (price: number) =>
     new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR", minimumFractionDigits: 0 }).format(price);
 
-  const handleConfirm = async () => {
-    if (!user) {
-      toast({ title: "Please login first", description: "You need to be logged in to purchase.", variant: "destructive" });
-      navigate("/login");
-      return;
-    }
-    setLoading(true);
-    const { error } = await supabase.from("orders").insert({
-      user_id: user.id,
-      product_id: product.id,
-      product_name: product.name,
-      amount: product.price,
-      status: "pending",
-    });
-    setLoading(false);
-    if (error) {
-      toast({ title: "Error", description: error.message, variant: "destructive" });
-    } else {
-      setSuccess(true);
-    }
+  const handleConfirm = () => {
+    window.open("https://wa.me/628157088769", "_blank");
   };
 
   return (
