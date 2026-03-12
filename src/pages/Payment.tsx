@@ -1,22 +1,14 @@
-import React, { useState } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
-import { CheckCircle2, ArrowLeft, Loader2, MessageCircle } from "lucide-react";
+import React from "react";
+import { useParams, Link } from "react-router-dom";
+import { ArrowLeft, MessageCircle } from "lucide-react";
 import qrisImage from "@/assets/qris-gopay.jpg";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useAuth } from "@/contexts/AuthContext";
-import { supabase } from "@/integrations/supabase/client";
 import { PRODUCTS } from "@/data/products";
-import { useToast } from "@/hooks/use-toast";
 
 const Payment = () => {
   const { productId } = useParams();
   const { t, language } = useLanguage();
-  const { user } = useAuth();
-  const navigate = useNavigate();
-  const { toast } = useToast();
-  const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
 
   const product = PRODUCTS.find((p) => p.id === productId);
   if (!product) return <div className="min-h-screen gradient-hero flex items-center justify-center text-white">Product not found</div>;
