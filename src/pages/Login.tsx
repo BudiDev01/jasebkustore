@@ -88,11 +88,13 @@ const Login = () => {
             <div className="flex-1 h-px bg-white/10" />
           </div>
 
-          <form onSubmit={handleLogin} className="space-y-4">
+          <form onSubmit={handleLogin} className="space-y-4" autoComplete="on">
             <div>
               <Label className="text-white/70 text-sm">{t.emailLabel}</Label>
               <Input
                 type="email"
+                name="email"
+                autoComplete="username"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -105,6 +107,8 @@ const Login = () => {
               <div className="relative mt-1">
                 <Input
                   type={showPassword ? "text" : "password"}
+                  name="password"
+                  autoComplete="current-password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
