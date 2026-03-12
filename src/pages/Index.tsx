@@ -77,12 +77,10 @@ const Index = () => {
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
             <div className="animate-fade-in">
               <Badge className="gradient-gold text-primary-foreground border-0 mb-6 text-xs px-3 py-1 shadow-gold">
-                <Sparkles className="w-3 h-3 mr-1" /> Premium Digital Marketplace
+                <Sparkles className="w-3 h-3 mr-1" /> JasebKu Store
               </Badge>
               <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tight mb-6 text-white leading-tight">
                 {t.heroTitle}
-                <br />
-                <span className="text-gold">Marketplace</span>
               </h1>
               <p className="text-base sm:text-lg text-white/70 max-w-2xl mx-auto mb-10 leading-relaxed">
                 {t.heroSubtitle}
