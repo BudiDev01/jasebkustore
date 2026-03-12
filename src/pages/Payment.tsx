@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
-import { CheckCircle2, ArrowLeft, Upload, Loader2, QrCode } from "lucide-react";
+import { CheckCircle2, ArrowLeft, Loader2 } from "lucide-react";
+import qrisImage from "@/assets/qris-gopay.jpg";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
@@ -90,24 +91,14 @@ const Payment = () => {
                 <div className="text-gold font-black text-lg">{formatPrice(product.price)}</div>
               </div>
 
-              {/* QRIS QR Code Placeholder */}
+              {/* QRIS QR Code */}
               <div className="text-center">
                 <div className="inline-flex flex-col items-center gap-3 p-6 rounded-xl border border-white/10 bg-white/5">
-                  <div className="w-48 h-48 rounded-lg bg-white flex items-center justify-center relative overflow-hidden">
-                    {/* Placeholder QR */}
-                    <div className="flex flex-col items-center gap-2">
-                      <QrCode className="w-20 h-20 text-gray-800" />
-                      <span className="text-[10px] text-gray-500 font-medium">QRIS GoPay</span>
-                    </div>
-                    {/* Overlay watermark */}
-                    <div className="absolute inset-0 flex items-center justify-center bg-white/80">
-                      <div className="text-center">
-                        <QrCode className="w-16 h-16 text-gray-700 mx-auto mb-1" />
-                        <p className="text-xs text-gray-500 font-medium">Upload your QRIS</p>
-                        <p className="text-[10px] text-gray-400">via Cloud Storage</p>
-                      </div>
-                    </div>
-                  </div>
+                  <img
+                    src={qrisImage}
+                    alt="QRIS GoPay - Dama Pay"
+                    className="w-56 rounded-lg shadow-lg"
+                  />
                   <div className="text-center">
                     <p className="text-white font-semibold text-sm">DigiStore</p>
                     <p className="text-gold font-black text-xl">{formatPrice(product.price)}</p>
