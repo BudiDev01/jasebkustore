@@ -1,27 +1,20 @@
 import React from "react";
-import { MessageCircle } from "lucide-react";
+import whatsappIcon from "@/assets/whatsapp.svg";
 
 const WHATSAPP_NUMBER = "6281570887690";
-const DEFAULT_MESSAGE = encodeURIComponent(
-  "Hello Admin, I need help with your digital products."
-);
 
 const WhatsAppButton = () => {
   const handleClick = () => {
-    window.open(
-      `https://wa.me/${WHATSAPP_NUMBER}?text=${DEFAULT_MESSAGE}`,
-      "_blank"
-    );
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}`, "_blank");
   };
 
   return (
     <button
       onClick={handleClick}
-      className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center shadow-navy hover:scale-110 transition-transform duration-200 glow-gold"
-      style={{ background: "#25D366" }}
+      className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-200 shadow-navy"
       aria-label="Chat on WhatsApp"
     >
-      <MessageCircle className="w-7 h-7 text-white fill-white" />
+      <img src={whatsappIcon} alt="WhatsApp" className="w-14 h-14" />
     </button>
   );
 };
