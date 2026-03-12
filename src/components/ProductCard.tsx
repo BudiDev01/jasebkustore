@@ -61,7 +61,11 @@ const ProductCard = ({ product }: ProductCardProps) => {
         <div className="flex items-center justify-between">
           <div>
             <span className="text-xs text-muted-foreground block">{t.price}</span>
-            <span className="text-base font-bold text-gold">{formatPrice(product.price)}</span>
+            {product.price_hidden ? (
+              <span className="text-base font-bold text-gold">Hubungi Kami</span>
+            ) : (
+              <span className="text-base font-bold text-gold">{formatPrice(product.price)}</span>
+            )}
           </div>
           <Button
             size="sm"
@@ -70,7 +74,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
             className="gradient-gold text-primary-foreground hover:opacity-90 shadow-gold text-xs gap-1.5 disabled:opacity-40"
           >
             <ShoppingCart className="w-3 h-3" />
-            {t.buyNow}
+            {product.price_hidden ? "Order" : t.buyNow}
           </Button>
         </div>
       </div>
