@@ -100,7 +100,7 @@ const Payment = () => {
                     className="w-56 rounded-lg shadow-lg"
                   />
                   <div className="text-center">
-                    <p className="text-white font-semibold text-sm">DigiStore</p>
+                    <p className="text-white font-semibold text-sm">JasebKu Store</p>
                     <p className="text-gold font-black text-xl">{formatPrice(product.price)}</p>
                   </div>
                 </div>

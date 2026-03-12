@@ -37,8 +37,8 @@ const Navbar = ({ theme, toggleTheme }: NavbarProps) => {
               <ShoppingBag className="w-4 h-4 text-primary-foreground" />
             </div>
             <span className="font-bold text-lg tracking-tight">
-              <span className="text-gold">Digi</span>
-              <span className="text-foreground">Store</span>
+              <span className="text-gold">JasebKu</span>
+              <span className="text-foreground"> Store</span>
             </span>
           </Link>
 
