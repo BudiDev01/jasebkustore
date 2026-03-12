@@ -128,6 +128,7 @@ const translations: Record<Language, Translations> = {
     paymentStep3: "Enter the exact amount shown",
     paymentStep4: "Complete payment and confirm below",
     confirmPayment: "I Have Paid",
+    askFirst: "Ask First",
     paymentSuccess: "Payment Submitted!",
     paymentSuccessMsg: "Thank you! Your order has been received. We'll deliver your product within 1–24 hours via WhatsApp or email.",
     backHome: "Back to Home",
