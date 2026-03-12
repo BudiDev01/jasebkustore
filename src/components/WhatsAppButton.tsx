@@ -1,7 +1,7 @@
 import React from "react";
 import whatsappIcon from "@/assets/whatsapp.svg";
 
-const WHATSAPP_NUMBER = "6281570887690";
+const WHATSAPP_NUMBER = "628157088769";
 
 const WhatsAppButton = () => {
   const handleClick = () => {
