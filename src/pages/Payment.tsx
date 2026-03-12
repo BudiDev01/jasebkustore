@@ -3,7 +3,6 @@ import { useParams, Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import whatsappIcon from "@/assets/whatsapp.svg";
 import qrisImage from "@/assets/qris-gopay.jpg";
-import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { PRODUCTS } from "@/data/products";
 
