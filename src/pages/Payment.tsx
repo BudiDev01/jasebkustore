@@ -87,7 +87,7 @@ const Payment = () => {
               onClick={handleConfirm}
               className="w-full gradient-gold text-primary-foreground hover:opacity-90 shadow-gold font-semibold text-base glow-gold"
             >
-              <MessageCircle className="w-5 h-5 mr-2" />
+              <img src={whatsappIcon} alt="WhatsApp" className="w-5 h-5 mr-2" />
               {t.confirmPayment}
             </Button>
           </div>
