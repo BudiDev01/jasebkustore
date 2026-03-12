@@ -37,7 +37,7 @@ const Register = () => {
     } else {
       toast({
         title: "Account created!",
-        description: "Welcome to DigiStore. You can now start shopping.",
+        description: "Welcome to JasebKu Store. You can now start shopping.",
       });
       navigate("/");
     }

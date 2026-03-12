@@ -17,8 +17,8 @@ const Footer = () => {
                 <ShoppingBag className="w-4 h-4 text-primary-foreground" />
               </div>
               <span className="font-bold text-lg">
-                <span className="text-gold">Digi</span>
-                <span className="text-foreground">Store</span>
+                <span className="text-gold">JasebKu</span>
+                <span className="text-foreground"> Store</span>
               </span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">{t.footerTagline}</p>
@@ -64,7 +64,7 @@ const Footer = () => {
 
         <div className="mt-8 pt-6 border-t border-border/50 flex flex-col sm:flex-row items-center justify-between gap-2">
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} DigiStore. {t.footerRights}
+            © {new Date().getFullYear()} JasebKu Store. {t.footerRights}
           </p>
           <div className="flex items-center gap-1">
             <span className="text-xs text-muted-foreground">Made with</span>
