@@ -198,6 +198,7 @@ const translations: Record<Language, Translations> = {
     paymentStep3: "Masukkan nominal yang tertera",
     paymentStep4: "Selesaikan pembayaran dan konfirmasi di bawah",
     confirmPayment: "Saya Sudah Bayar",
+    askFirst: "Tanya Dulu",
     paymentSuccess: "Pembayaran Terkirim!",
     paymentSuccessMsg: "Terima kasih! Pesanan Anda telah diterima. Produk akan dikirim dalam 1–24 jam melalui WhatsApp atau email.",
     backHome: "Kembali ke Beranda",
