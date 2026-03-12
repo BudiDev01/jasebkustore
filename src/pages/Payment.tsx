@@ -15,6 +15,9 @@ const Payment = () => {
 
   const name = language === "id" ? product.name_id : product.name;
 
+  const formatPrice = (price: number) =>
+    new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR", minimumFractionDigits: 0 }).format(price);
+
   return (
     <div className="min-h-screen gradient-hero flex items-center justify-center px-4 py-16">
       <div className="w-full max-w-lg">
