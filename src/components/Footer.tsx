@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ShoppingBag, MessageCircle, Mail } from "lucide-react";
+import { ShoppingBag, MessageCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
@@ -47,15 +47,6 @@ const Footer = () => {
                 >
                   <MessageCircle className="w-4 h-4" />
                   +62 815-7088-769
-                </a>
-              </li>
-              <li>
-                <a
-                  href="mailto:admin@digistore.id"
-                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-gold transition-colors"
-                >
-                  <Mail className="w-4 h-4" />
-                  admin@digistore.id
                 </a>
               </li>
             </ul>
