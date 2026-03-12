@@ -53,6 +53,7 @@ interface Translations {
   paymentStep3: string;
   paymentStep4: string;
   confirmPayment: string;
+  askFirst: string;
   paymentSuccess: string;
   paymentSuccessMsg: string;
   backHome: string;
