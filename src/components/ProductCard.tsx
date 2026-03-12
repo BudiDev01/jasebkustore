@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ShoppingCart, Star } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Product } from "@/data/products";
+import whatsappIcon from "@/assets/whatsapp.svg";
+
+const ADMIN_WA = "https://wa.me/628157088769";
 
 interface ProductCardProps {
   product: Product;
@@ -13,16 +16,20 @@ interface ProductCardProps {
 const ProductCard = ({ product }: ProductCardProps) => {
   const { t, language } = useLanguage();
   const navigate = useNavigate();
+  const [showWa, setShowWa] = useState(false);
 
   const name = language === "id" ? product.name_id : product.name;
   const description = language === "id" ? product.description_id : product.description;
 
-  const formatPrice = (price: number) => {
-    return new Intl.NumberFormat("id-ID", {
-      style: "currency",
-      currency: "IDR",
-      minimumFractionDigits: 0,
-    }).format(price);
+  const formatPrice = (price: number) =>
+    new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR", minimumFractionDigits: 0 }).format(price);
+
+  const handleBuyClick = () => {
+    if (product.price_hidden) {
+      setShowWa(true);
+    } else {
+      navigate(`/payment/${product.id}`);
+    }
   };
 
   return (
@@ -67,15 +74,40 @@ const ProductCard = ({ product }: ProductCardProps) => {
               <span className="text-base font-bold text-gold">{formatPrice(product.price)}</span>
             )}
           </div>
-          <Button
-            size="sm"
-            disabled={product.stock_status !== "available"}
-            onClick={() => navigate(`/payment/${product.id}`)}
-            className="gradient-gold text-primary-foreground hover:opacity-90 shadow-gold text-xs gap-1.5 disabled:opacity-40"
-          >
-            <ShoppingCart className="w-3 h-3" />
-            {product.price_hidden ? "Order" : t.buyNow}
-          </Button>
+
+          {/* CTA area */}
+          {product.price_hidden ? (
+            showWa ? (
+              <a
+                href={ADMIN_WA}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-md gradient-gold text-primary-foreground text-xs font-semibold shadow-gold hover:opacity-90 transition-opacity"
+              >
+                <img src={whatsappIcon} alt="WhatsApp" className="w-4 h-4" />
+                WhatsApp
+              </a>
+            ) : (
+              <Button
+                size="sm"
+                disabled={product.stock_status !== "available"}
+                onClick={handleBuyClick}
+                className="gradient-gold text-primary-foreground hover:opacity-90 shadow-gold text-xs gap-1.5 disabled:opacity-40"
+              >
+                Tanya Dulu
+              </Button>
+            )
+          ) : (
+            <Button
+              size="sm"
+              disabled={product.stock_status !== "available"}
+              onClick={handleBuyClick}
+              className="gradient-gold text-primary-foreground hover:opacity-90 shadow-gold text-xs gap-1.5 disabled:opacity-40"
+            >
+              <ShoppingCart className="w-3 h-3" />
+              {t.buyNow}
+            </Button>
+          )}
         </div>
       </div>
     </div>

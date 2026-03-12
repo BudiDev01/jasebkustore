@@ -53,6 +53,7 @@ interface Translations {
   paymentStep3: string;
   paymentStep4: string;
   confirmPayment: string;
+  askFirst: string;
   paymentSuccess: string;
   paymentSuccessMsg: string;
   backHome: string;
@@ -127,6 +128,7 @@ const translations: Record<Language, Translations> = {
     paymentStep3: "Enter the exact amount shown",
     paymentStep4: "Complete payment and confirm below",
     confirmPayment: "I Have Paid",
+    askFirst: "Ask First",
     paymentSuccess: "Payment Submitted!",
     paymentSuccessMsg: "Thank you! Your order has been received. We'll deliver your product within 1–24 hours via WhatsApp or email.",
     backHome: "Back to Home",
@@ -196,6 +198,7 @@ const translations: Record<Language, Translations> = {
     paymentStep3: "Masukkan nominal yang tertera",
     paymentStep4: "Selesaikan pembayaran dan konfirmasi di bawah",
     confirmPayment: "Saya Sudah Bayar",
+    askFirst: "Tanya Dulu",
     paymentSuccess: "Pembayaran Terkirim!",
     paymentSuccessMsg: "Terima kasih! Pesanan Anda telah diterima. Produk akan dikirim dalam 1–24 jam melalui WhatsApp atau email.",
     backHome: "Kembali ke Beranda",

@@ -3,7 +3,6 @@ import { useParams, Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import whatsappIcon from "@/assets/whatsapp.svg";
 import qrisImage from "@/assets/qris-gopay.jpg";
-import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { PRODUCTS } from "@/data/products";
 
@@ -18,10 +17,6 @@ const Payment = () => {
 
   const formatPrice = (price: number) =>
     new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR", minimumFractionDigits: 0 }).format(price);
-
-  const handleConfirm = () => {
-    window.open("https://wa.me/628157088769", "_blank");
-  };
 
   return (
     <div className="min-h-screen gradient-hero flex items-center justify-center px-4 py-16">
@@ -82,14 +77,16 @@ const Payment = () => {
               </ol>
             </div>
 
-            {/* Confirm via WhatsApp Button */}
-            <Button
-              onClick={handleConfirm}
-              className="w-full gradient-gold text-primary-foreground hover:opacity-90 shadow-gold font-semibold text-base glow-gold"
+            {/* Ask First via WhatsApp Button */}
+            <a
+              href="https://wa.me/628157088769"
+              target="_blank"
+              rel="noreferrer"
+              className="w-full flex items-center justify-center gap-2 gradient-gold text-primary-foreground hover:opacity-90 shadow-gold font-semibold text-base glow-gold rounded-md px-4 py-3 transition-opacity"
             >
-              <img src={whatsappIcon} alt="WhatsApp" className="w-5 h-5 mr-2" />
-              {t.confirmPayment}
-            </Button>
+              <img src={whatsappIcon} alt="WhatsApp" className="w-5 h-5" />
+              {t.askFirst}
+            </a>
           </div>
         </div>
       </div>
