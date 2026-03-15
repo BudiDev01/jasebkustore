@@ -17,13 +17,8 @@ const SoundBoard = () => {
   const [animating, setAnimating] = useState(false);
 
   const speakText = useCallback((text: string) => {
-    if (!soundEnabled || !("speechSynthesis" in window)) return;
-    window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = "id-ID";
-    utterance.rate = 1;
-    utterance.pitch = 1.1;
-    window.speechSynthesis.speak(utterance);
+    if (!soundEnabled) return;
+    speak(text, "id-ID");
   }, [soundEnabled]);
 
   const handleClick = (sound: typeof SOUNDS[0]) => {
