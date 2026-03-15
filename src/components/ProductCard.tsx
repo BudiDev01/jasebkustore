@@ -14,13 +14,14 @@ const ADMIN_WA = "https://wa.me/628157088769";
 
 interface ProductCardProps {
   product: Product;
+  onTouch?: (productId: string) => void;
 }
 
 const speakText = (text: string) => {
   speak(text, "id-ID");
 };
 
-const ProductCard = ({ product }: ProductCardProps) => {
+const ProductCard = ({ product, onTouch }: ProductCardProps) => {
   const { t, language } = useLanguage();
   const { user } = useAuth();
   const { toast } = useToast();
@@ -31,6 +32,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
   const handleCardTouch = () => {
     setTouched(true);
     speakText("JasebKu");
+    onTouch?.(product.id);
     setTimeout(() => setTouched(false), 400);
   };
 

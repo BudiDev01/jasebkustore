@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Sparkles, ArrowRight, Shield, Zap, HeadphonesIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -13,6 +13,7 @@ import VideoSection from "@/components/VideoSection";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import SoundBoard from "@/components/SoundBoard";
 import { PRODUCTS } from "@/data/products";
+import confetti from "canvas-confetti";
 
 
 const CATEGORIES = [
@@ -34,6 +35,23 @@ const Index = () => {
     return (localStorage.getItem("theme") as "light" | "dark") || "dark";
   });
   const [activeCategory, setActiveCategory] = useState("all");
+  const touchedProducts = useRef<Set<string>>(new Set());
+  const confettiFired = useRef(false);
+
+  const handleProductTouch = useCallback((productId: string) => {
+    if (confettiFired.current) return;
+    touchedProducts.current.add(productId);
+    if (touchedProducts.current.size >= PRODUCTS.length) {
+      confettiFired.current = true;
+      // Fire confetti burst
+      const end = Date.now() + 2000;
+      const fire = () => {
+        confetti({ particleCount: 80, spread: 100, origin: { y: 0.6 }, colors: ["#D4A017", "#FFD700", "#1a2744", "#ffffff"] });
+        if (Date.now() < end) requestAnimationFrame(fire);
+      };
+      fire();
+    }
+  }, []);
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", theme === "dark");
@@ -179,7 +197,7 @@ const Index = () => {
           {/* Products Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {filteredProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
+              <ProductCard key={product.id} product={product} onTouch={handleProductTouch} />
             ))}
           </div>
         </div>
