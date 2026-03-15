@@ -35,17 +35,12 @@ const Index = () => {
     if (welcomed) return;
 
     const speakWelcome = () => {
-      if ("speechSynthesis" in window) {
-        sessionStorage.setItem("jasebku-welcomed", "true");
-        const isId = language === "id";
-        const utterance = new SpeechSynthesisUtterance(
-          isId ? "Selamat datang di JasebKu Store" : "Welcome to JasebKu Store"
-        );
-        utterance.rate = 1;
-        utterance.pitch = 1.1;
-        utterance.lang = isId ? "id-ID" : "en-US";
-        window.speechSynthesis.speak(utterance);
-      }
+      sessionStorage.setItem("jasebku-welcomed", "true");
+      const isId = language === "id";
+      speak(
+        isId ? "Selamat datang di JasebKu Store" : "Welcome to JasebKu Store",
+        isId ? "id-ID" : "en-US"
+      );
       document.removeEventListener("click", speakWelcome);
       document.removeEventListener("touchstart", speakWelcome);
     };
