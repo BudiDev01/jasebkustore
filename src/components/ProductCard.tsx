@@ -92,7 +92,21 @@ const ProductCard = ({ product, onTouch }: ProductCardProps) => {
         </div>
 
         {/* Product name */}
-        <h3 className="font-semibold text-foreground text-sm leading-tight mb-2 line-clamp-2 group-hover:text-gold transition-colors">
+        <h3
+          className="font-semibold text-foreground text-sm leading-tight mb-2 line-clamp-2 group-hover:text-gold transition-colors cursor-pointer"
+          onClick={(e) => {
+            e.stopPropagation();
+            if (!hasConfettied.current) {
+              hasConfettied.current = true;
+              confetti({
+                particleCount: 60,
+                spread: 70,
+                origin: { y: 0.7 },
+                colors: ["#D4A017", "#FFD700", "#1a2744", "#ffffff"],
+              });
+            }
+          }}
+        >
           {name}
         </h3>
 
