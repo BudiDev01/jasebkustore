@@ -182,6 +182,7 @@ const Index = () => {
         </div>
       </section>
 
+      <VideoSection />
       <MusicPlayer />
       <Footer />
       <WhatsAppButton />
