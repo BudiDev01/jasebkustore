@@ -112,6 +112,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
                 href={ADMIN_WA}
                 target="_blank"
                 rel="noreferrer"
+                onClick={(e) => e.stopPropagation()}
                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-md gradient-gold text-primary-foreground text-xs font-semibold shadow-gold hover:opacity-90 transition-opacity"
               >
                 <img src={whatsappIcon} alt="WhatsApp" className="w-4 h-4" />
