@@ -60,7 +60,10 @@ const ProductCard = ({ product }: ProductCardProps) => {
   };
 
   return (
-    <div className="group relative rounded-xl border border-border bg-card shadow-card hover:shadow-navy transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+    <div
+      onClick={handleCardTouch}
+      className={`group relative rounded-xl border border-border bg-card shadow-card hover:shadow-navy transition-all duration-300 hover:-translate-y-1 overflow-hidden cursor-pointer ${touched ? "animate-scale-in ring-2 ring-gold/50" : ""}`}
+    >
       {/* Top accent line */}
       <div className="h-0.5 gradient-gold" />
 
