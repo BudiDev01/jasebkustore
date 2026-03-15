@@ -3,12 +3,20 @@ import { Volume2, VolumeX, Sparkles } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 import { speak } from "@/lib/speak";
 
-const SOUNDS = [
-  { id: 1, label: "Selamat Datang!", text: "Selamat datang di JasebKu Store", emoji: "👋", color: "from-yellow-500 to-amber-600" },
-  { id: 2, label: "Beli Sekarang!", text: "Beli sekarang, harga terbaik!", emoji: "🛒", color: "from-green-500 to-emerald-600" },
-  { id: 3, label: "Promo Spesial!", text: "Promo spesial hari ini!", emoji: "🔥", color: "from-red-500 to-rose-600" },
-  { id: 4, label: "Terima Kasih!", text: "Terima kasih sudah berkunjung!", emoji: "🙏", color: "from-blue-500 to-indigo-600" },
-  { id: 5, label: "Gas Langsung!", text: "Gas langsung order sekarang!", emoji: "🚀", color: "from-purple-500 to-violet-600" },
+interface Sound {
+  id: number;
+  label: string;
+  text: string;
+  emoji: string;
+  audio?: string;
+}
+
+const SOUNDS: Sound[] = [
+  { id: 1, label: "Selamat Datang!", text: "Selamat datang di JasebKu Store", emoji: "👋", audio: "/audio/selamat-datang-jasebku.wav" },
+  { id: 2, label: "Beli Sekarang!", text: "Beli sekarang, harga terbaik!", emoji: "🛒" },
+  { id: 3, label: "Promo Spesial!", text: "Promo spesial hari ini!", emoji: "🔥" },
+  { id: 4, label: "Terima Kasih!", text: "Terima kasih sudah berkunjung!", emoji: "🙏" },
+  { id: 5, label: "Gas Langsung!", text: "Gas langsung order sekarang!", emoji: "🚀" },
 ];
 
 const SoundBoard = () => {
@@ -16,15 +24,20 @@ const SoundBoard = () => {
   const [activeId, setActiveId] = useState<number | null>(null);
   const [animating, setAnimating] = useState(false);
 
-  const speakText = useCallback((text: string) => {
+  const playSound = useCallback((sound: Sound) => {
     if (!soundEnabled) return;
-    speak(text, "id-ID");
+    if (sound.audio) {
+      const audio = new Audio(sound.audio);
+      audio.play().catch(() => speak(sound.text, "id-ID"));
+    } else {
+      speak(sound.text, "id-ID");
+    }
   }, [soundEnabled]);
 
-  const handleClick = (sound: typeof SOUNDS[0]) => {
+  const handleClick = (sound: Sound) => {
     setActiveId(sound.id);
     setAnimating(true);
-    speakText(sound.text);
+    playSound(sound);
     setTimeout(() => {
       setActiveId(null);
       setAnimating(false);
@@ -33,7 +46,7 @@ const SoundBoard = () => {
 
   const handleLogoClick = () => {
     setAnimating(true);
-    speakText("JasebKu Store, toko digital paling lengkap!");
+    speak("JasebKu Store, toko digital paling lengkap!", "id-ID");
     setTimeout(() => setAnimating(false), 800);
   };
 
