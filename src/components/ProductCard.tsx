@@ -4,6 +4,8 @@ import { ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useAuth } from "@/contexts/AuthContext";
+import { useToast } from "@/hooks/use-toast";
 import { Product } from "@/data/products";
 import whatsappIcon from "@/assets/whatsapp.svg";
 
@@ -15,6 +17,8 @@ interface ProductCardProps {
 
 const ProductCard = ({ product }: ProductCardProps) => {
   const { t, language } = useLanguage();
+  const { user } = useAuth();
+  const { toast } = useToast();
   const navigate = useNavigate();
   const [showWa, setShowWa] = useState(false);
 
@@ -25,6 +29,11 @@ const ProductCard = ({ product }: ProductCardProps) => {
     new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR", minimumFractionDigits: 0 }).format(price);
 
   const handleBuyClick = () => {
+    if (!user) {
+      toast({ title: "Please register first", description: "You need an account to make a purchase.", variant: "destructive" });
+      navigate("/register");
+      return;
+    }
     if (product.price_hidden) {
       setShowWa(true);
     } else {

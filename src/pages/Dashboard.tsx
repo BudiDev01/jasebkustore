@@ -5,10 +5,12 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
+import { useProfile } from "@/hooks/useProfile";
 import { supabase } from "@/integrations/supabase/client";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import AvatarUpload from "@/components/AvatarUpload";
 
 interface Order {
   id: string;
@@ -21,6 +23,7 @@ interface Order {
 const Dashboard = () => {
   const { t } = useLanguage();
   const { user, signOut, loading: authLoading } = useAuth();
+  const { profile, refresh: refreshProfile } = useProfile();
   const navigate = useNavigate();
   const [theme, setTheme] = useState<"light" | "dark">(() =>
     (localStorage.getItem("theme") as "light" | "dark") || "dark"
@@ -117,14 +120,18 @@ const Dashboard = () => {
           <TabsContent value="profile">
             <div className="rounded-xl border border-border bg-card shadow-card p-6">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 rounded-full gradient-gold flex items-center justify-center shadow-gold">
-                  <User className="w-8 h-8 text-primary-foreground" />
-                </div>
+                <AvatarUpload
+                  currentUrl={profile?.avatar_url ?? null}
+                  fallback={(profile?.username || user?.email || "U")[0].toUpperCase()}
+                  size="w-20 h-20"
+                  onUploaded={() => refreshProfile()}
+                />
                 <div>
                   <div className="font-semibold text-foreground text-lg">
-                    {user?.user_metadata?.username || user?.user_metadata?.full_name || user?.email?.split("@")[0]}
+                    {profile?.username || profile?.full_name || user?.user_metadata?.full_name || user?.email?.split("@")[0]}
                   </div>
                   <div className="text-muted-foreground text-sm">{user?.email}</div>
+                  <p className="text-xs text-muted-foreground mt-1">Click photo to change</p>
                 </div>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
