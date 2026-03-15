@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from "react";
 import { Volume2, VolumeX, Sparkles } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
+import { speak } from "@/lib/speak";
 
 const SOUNDS = [
   { id: 1, label: "Selamat Datang!", text: "Selamat datang di JasebKu Store", emoji: "👋", color: "from-yellow-500 to-amber-600" },
