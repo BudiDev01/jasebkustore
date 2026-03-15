@@ -185,7 +185,10 @@ const Index = () => {
             {CATEGORIES.map((cat) => (
               <button
                 key={cat.key}
-                onClick={() => setActiveCategory(cat.key)}
+                onClick={() => {
+                  setActiveCategory(cat.key);
+                  confetti({ particleCount: 40, spread: 60, origin: { y: 0.6 }, colors: ["#D4A017", "#FFD700", "#1a2744", "#ffffff"] });
+                }}
                 className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                   activeCategory === cat.key
                     ? "gradient-gold text-primary-foreground shadow-gold"
