@@ -14,7 +14,7 @@ const Register = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
+  
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -27,7 +27,6 @@ const Register = () => {
       email,
       password,
       options: {
-        data: { username, full_name: username },
         emailRedirectTo: window.location.origin,
       },
     });
@@ -101,17 +100,6 @@ const Register = () => {
           </div>
 
           <form onSubmit={handleRegister} className="space-y-4">
-            <div>
-              <Label className="text-white/70 text-sm">{t.usernameLabel}</Label>
-              <Input
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                required
-                className="mt-1 bg-white/5 border-white/20 text-white placeholder:text-white/30 focus:border-gold"
-                placeholder="johndoe"
-              />
-            </div>
             <div>
               <Label className="text-white/70 text-sm">{t.emailLabel}</Label>
               <Input
