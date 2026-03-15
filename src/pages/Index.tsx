@@ -11,6 +11,7 @@ import Footer from "@/components/Footer";
 import MusicPlayer from "@/components/MusicPlayer";
 import VideoSection from "@/components/VideoSection";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import SoundBoard from "@/components/SoundBoard";
 import { PRODUCTS } from "@/data/products";
 
 const CATEGORIES = [
@@ -212,6 +213,7 @@ const Index = () => {
         </div>
       </section>
 
+      <SoundBoard />
       <VideoSection />
       <MusicPlayer />
       <Footer />
