@@ -73,6 +73,23 @@ export default {
         "slide-in": { from: { opacity: "0", transform: "translateX(-16px)" }, to: { opacity: "1", transform: "translateX(0)" } },
         shimmer: { "0%": { backgroundPosition: "-200% 0" }, "100%": { backgroundPosition: "200% 0" } },
         float: { "0%, 100%": { transform: "translateY(0)" }, "50%": { transform: "translateY(-6px)" } },
+        "cartoon-bounce": {
+          "0%": { transform: "scale(1) rotate(0deg)" },
+          "20%": { transform: "scale(1.3) rotate(-8deg)" },
+          "40%": { transform: "scale(0.85) rotate(6deg)" },
+          "60%": { transform: "scale(1.15) rotate(-4deg)" },
+          "80%": { transform: "scale(0.95) rotate(2deg)" },
+          "100%": { transform: "scale(1) rotate(0deg)" },
+        },
+        "cartoon-wiggle": {
+          "0%": { transform: "translateX(0) skewX(0deg)" },
+          "15%": { transform: "translateX(-4px) skewX(-6deg)" },
+          "30%": { transform: "translateX(3px) skewX(4deg)" },
+          "45%": { transform: "translateX(-2px) skewX(-3deg)" },
+          "60%": { transform: "translateX(2px) skewX(2deg)" },
+          "75%": { transform: "translateX(-1px) skewX(-1deg)" },
+          "100%": { transform: "translateX(0) skewX(0deg)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -81,6 +98,8 @@ export default {
         "slide-in": "slide-in 0.4s ease-out forwards",
         shimmer: "shimmer 2.5s infinite linear",
         float: "float 3s ease-in-out infinite",
+        "cartoon-bounce": "cartoon-bounce 0.6s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards",
+        "cartoon-wiggle": "cartoon-wiggle 0.6s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards",
       },
       backgroundImage: {
         "gradient-hero": "var(--gradient-hero)",

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Moon, Sun, Globe, Menu, X, ShoppingBag } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -24,6 +24,12 @@ const Navbar = ({ theme, toggleTheme }: NavbarProps) => {
   const { profile } = useProfile();
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [logoAnimating, setLogoAnimating] = useState(false);
+
+  const handleLogoClick = useCallback(() => {
+    setLogoAnimating(true);
+    setTimeout(() => setLogoAnimating(false), 600);
+  }, []);
 
   const handleSignOut = async () => {
     await signOut();
@@ -35,11 +41,11 @@ const Navbar = ({ theme, toggleTheme }: NavbarProps) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-lg gradient-gold flex items-center justify-center shadow-gold">
+          <Link to="/" className="flex items-center gap-2 group" onClick={handleLogoClick}>
+            <div className={`w-8 h-8 rounded-lg gradient-gold flex items-center justify-center shadow-gold transition-transform ${logoAnimating ? "animate-cartoon-bounce" : ""}`}>
               <ShoppingBag className="w-4 h-4 text-primary-foreground" />
             </div>
-            <span className="font-bold text-lg tracking-tight">
+            <span className={`font-bold text-lg tracking-tight transition-transform ${logoAnimating ? "animate-cartoon-wiggle" : ""}`}>
               <span className="text-gold">JasebKu</span>
               <span className="text-foreground"> Store</span>
             </span>
