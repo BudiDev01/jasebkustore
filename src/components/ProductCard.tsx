@@ -132,7 +132,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
             <Button
               size="sm"
               disabled={product.stock_status !== "available"}
-              onClick={(e) => { e.stopPropagation(); handleBuyClick(); }}
+              onClick={(e) => { e.stopPropagation(); speakText("beli sekarang"); handleBuyClick(); }}
               className="gradient-gold text-primary-foreground hover:opacity-90 shadow-gold text-xs gap-1.5 disabled:opacity-40"
             >
               <ShoppingCart className="w-3 h-3" />
