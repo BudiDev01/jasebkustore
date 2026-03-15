@@ -27,7 +27,6 @@ const Register = () => {
       email,
       password,
       options: {
-        data: { username, full_name: username },
         emailRedirectTo: window.location.origin,
       },
     });
