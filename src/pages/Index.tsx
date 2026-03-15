@@ -39,14 +39,18 @@ const Index = () => {
   const confettiFired = useRef(false);
 
   const handleProductTouch = useCallback((productId: string) => {
-    if (confettiFired.current) return;
-    touchedProducts.current.add(productId);
-    if (touchedProducts.current.size >= PRODUCTS.length) {
+    // Small confetti on each new product touch
+    if (!touchedProducts.current.has(productId)) {
+      touchedProducts.current.add(productId);
+      confetti({ particleCount: 20, spread: 50, origin: { y: 0.7 }, colors: ["#D4A017", "#FFD700"] });
+    }
+
+    // Big confetti when ALL products touched
+    if (!confettiFired.current && touchedProducts.current.size >= PRODUCTS.length) {
       confettiFired.current = true;
-      // Fire confetti burst
-      const end = Date.now() + 2000;
+      const end = Date.now() + 2500;
       const fire = () => {
-        confetti({ particleCount: 80, spread: 100, origin: { y: 0.6 }, colors: ["#D4A017", "#FFD700", "#1a2744", "#ffffff"] });
+        confetti({ particleCount: 100, spread: 120, origin: { y: 0.5 }, colors: ["#D4A017", "#FFD700", "#1a2744", "#ffffff"] });
         if (Date.now() < end) requestAnimationFrame(fire);
       };
       fire();
