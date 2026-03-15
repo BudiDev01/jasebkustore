@@ -16,7 +16,7 @@ const SOUNDS: Sound[] = [
   { id: 2, label: "Beli Sekarang!", text: "Beli sekarang, harga terbaik!", emoji: "🛒", audio: "/audio/beli-sekarang-tts.wav" },
   { id: 3, label: "Promo Spesial!", text: "Promo spesial hari ini!", emoji: "🔥", audio: "/audio/promo-spesial-tts.wav" },
   { id: 4, label: "Terima Kasih!", text: "Terima kasih sudah berkunjung!", emoji: "🙏", audio: "/audio/terima-kasih-tts.wav" },
-  { id: 5, label: "Gas Langsung!", text: "Gas langsung order sekarang!", emoji: "🚀" },
+  { id: 5, label: "Gas Langsung!", text: "Gas langsung order sekarang!", emoji: "🚀", audio: "/audio/gas-langsung-tts.wav" },
 ];
 
 const SoundBoard = () => {
