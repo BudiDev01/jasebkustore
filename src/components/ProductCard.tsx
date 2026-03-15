@@ -21,7 +21,7 @@ const speakText = (text: string) => {
   speak(text, "id-ID");
 };
 
-const ProductCard = ({ product }: ProductCardProps) => {
+const ProductCard = ({ product, onTouch }: ProductCardProps) => {
   const { t, language } = useLanguage();
   const { user } = useAuth();
   const { toast } = useToast();
