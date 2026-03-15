@@ -9,6 +9,7 @@ import Navbar from "@/components/Navbar";
 import ProductCard from "@/components/ProductCard";
 import Footer from "@/components/Footer";
 import MusicPlayer from "@/components/MusicPlayer";
+import VideoSection from "@/components/VideoSection";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { PRODUCTS } from "@/data/products";
 
@@ -181,6 +182,7 @@ const Index = () => {
         </div>
       </section>
 
+      <VideoSection />
       <MusicPlayer />
       <Footer />
       <WhatsAppButton />
