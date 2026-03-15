@@ -98,6 +98,8 @@ export default {
         "slide-in": "slide-in 0.4s ease-out forwards",
         shimmer: "shimmer 2.5s infinite linear",
         float: "float 3s ease-in-out infinite",
+        "cartoon-bounce": "cartoon-bounce 0.6s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards",
+        "cartoon-wiggle": "cartoon-wiggle 0.6s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards",
       },
       backgroundImage: {
         "gradient-hero": "var(--gradient-hero)",
