@@ -29,6 +29,15 @@ const Navbar = ({ theme, toggleTheme }: NavbarProps) => {
   const handleLogoClick = useCallback(() => {
     setLogoAnimating(true);
     setTimeout(() => setLogoAnimating(false), 600);
+
+    if ("speechSynthesis" in window) {
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance("Welcome to JasebKu Store");
+      utterance.rate = 1;
+      utterance.pitch = 1.1;
+      utterance.lang = "en-US";
+      window.speechSynthesis.speak(utterance);
+    }
   }, []);
 
   const handleSignOut = async () => {
