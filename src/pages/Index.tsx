@@ -213,6 +213,7 @@ const Index = () => {
         </div>
       </section>
 
+      <SoundBoard />
       <VideoSection />
       <MusicPlayer />
       <Footer />
