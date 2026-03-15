@@ -13,7 +13,7 @@ import VideoSection from "@/components/VideoSection";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import SoundBoard from "@/components/SoundBoard";
 import { PRODUCTS } from "@/data/products";
-import { speak } from "@/lib/speak";
+
 
 const CATEGORIES = [
   { key: "all", icon: "✨" },
