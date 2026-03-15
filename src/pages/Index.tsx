@@ -8,6 +8,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import Navbar from "@/components/Navbar";
 import ProductCard from "@/components/ProductCard";
 import Footer from "@/components/Footer";
+import MusicPlayer from "@/components/MusicPlayer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { PRODUCTS } from "@/data/products";
 
