@@ -32,6 +32,7 @@ const ProductCard = ({ product, onTouch }: ProductCardProps) => {
   const handleCardTouch = () => {
     setTouched(true);
     speakText("JasebKu");
+    onTouch?.(product.id);
     setTimeout(() => setTouched(false), 400);
   };
 
