@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -9,6 +9,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Product } from "@/data/products";
 import whatsappIcon from "@/assets/whatsapp.svg";
 import { speak } from "@/lib/speak";
+import confetti from "canvas-confetti";
 
 const ADMIN_WA = "https://wa.me/628157088769";
 
@@ -28,11 +29,21 @@ const ProductCard = ({ product, onTouch }: ProductCardProps) => {
   const navigate = useNavigate();
   const [showWa, setShowWa] = useState(false);
   const [touched, setTouched] = useState(false);
+  const hasConfettied = useRef(false);
 
   const handleCardTouch = () => {
     setTouched(true);
     speakText("JasebKu");
     onTouch?.(product.id);
+    if (!hasConfettied.current) {
+      hasConfettied.current = true;
+      confetti({
+        particleCount: 60,
+        spread: 70,
+        origin: { y: 0.7 },
+        colors: ["#D4A017", "#FFD700", "#1a2744", "#ffffff"],
+      });
+    }
     setTimeout(() => setTouched(false), 400);
   };
 
