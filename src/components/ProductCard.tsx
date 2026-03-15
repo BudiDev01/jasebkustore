@@ -15,12 +15,30 @@ interface ProductCardProps {
   product: Product;
 }
 
+const speakText = (text: string) => {
+  if ("speechSynthesis" in window) {
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.rate = 1.1;
+    u.pitch = 1.2;
+    u.lang = "id-ID";
+    window.speechSynthesis.speak(u);
+  }
+};
+
 const ProductCard = ({ product }: ProductCardProps) => {
   const { t, language } = useLanguage();
   const { user } = useAuth();
   const { toast } = useToast();
   const navigate = useNavigate();
   const [showWa, setShowWa] = useState(false);
+  const [touched, setTouched] = useState(false);
+
+  const handleCardTouch = () => {
+    setTouched(true);
+    speakText("JasebKu");
+    setTimeout(() => setTouched(false), 400);
+  };
 
   const name = language === "id" ? product.name_id : product.name;
   const description = language === "id" ? product.description_id : product.description;
