@@ -15,12 +15,30 @@ interface ProductCardProps {
   product: Product;
 }
 
+const speakText = (text: string) => {
+  if ("speechSynthesis" in window) {
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.rate = 1.1;
+    u.pitch = 1.2;
+    u.lang = "id-ID";
+    window.speechSynthesis.speak(u);
+  }
+};
+
 const ProductCard = ({ product }: ProductCardProps) => {
   const { t, language } = useLanguage();
   const { user } = useAuth();
   const { toast } = useToast();
   const navigate = useNavigate();
   const [showWa, setShowWa] = useState(false);
+  const [touched, setTouched] = useState(false);
+
+  const handleCardTouch = () => {
+    setTouched(true);
+    speakText("JasebKu");
+    setTimeout(() => setTouched(false), 400);
+  };
 
   const name = language === "id" ? product.name_id : product.name;
   const description = language === "id" ? product.description_id : product.description;
@@ -42,7 +60,10 @@ const ProductCard = ({ product }: ProductCardProps) => {
   };
 
   return (
-    <div className="group relative rounded-xl border border-border bg-card shadow-card hover:shadow-navy transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+    <div
+      onClick={handleCardTouch}
+      className={`group relative rounded-xl border border-border bg-card shadow-card hover:shadow-navy transition-all duration-300 hover:-translate-y-1 overflow-hidden cursor-pointer ${touched ? "animate-scale-in ring-2 ring-gold/50" : ""}`}
+    >
       {/* Top accent line */}
       <div className="h-0.5 gradient-gold" />
 
@@ -91,6 +112,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
                 href={ADMIN_WA}
                 target="_blank"
                 rel="noreferrer"
+                onClick={(e) => e.stopPropagation()}
                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-md gradient-gold text-primary-foreground text-xs font-semibold shadow-gold hover:opacity-90 transition-opacity"
               >
                 <img src={whatsappIcon} alt="WhatsApp" className="w-4 h-4" />
@@ -100,7 +122,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
               <Button
                 size="sm"
                 disabled={product.stock_status !== "available"}
-                onClick={handleBuyClick}
+                onClick={(e) => { e.stopPropagation(); speakText("gas"); handleBuyClick(); }}
                 className="gradient-gold text-primary-foreground hover:opacity-90 shadow-gold text-xs gap-1.5 disabled:opacity-40"
               >
                 Tanya Dulu
@@ -110,7 +132,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
             <Button
               size="sm"
               disabled={product.stock_status !== "available"}
-              onClick={handleBuyClick}
+              onClick={(e) => { e.stopPropagation(); handleBuyClick(); }}
               className="gradient-gold text-primary-foreground hover:opacity-90 shadow-gold text-xs gap-1.5 disabled:opacity-40"
             >
               <ShoppingCart className="w-3 h-3" />
