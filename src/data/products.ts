@@ -84,6 +84,18 @@ export const PRODUCTS: Product[] = [
     icon: "🤖",
   },
   {
+    id: "jaseb-001",
+    name: "Jaseb (Broadcast Service)",
+    name_id: "Jaseb (Layanan Broadcast)",
+    description: "Promotion broadcast targeting up to 60 groups. Buyers can request custom targets. Active for 1 month.",
+    description_id: "Promosi broadcast ke hingga 60 grup. Pembeli bisa request target sesuai keinginan. Aktif selama 1 bulan.",
+    price: 15000,
+    category: "other",
+    badge: "New",
+    stock_status: "available",
+    icon: "📢",
+  },
+  {
     id: "web-001",
     name: "Website Creation Service",
     name_id: "Jasa Pembuatan Website",
