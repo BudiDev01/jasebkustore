@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Sparkles, ArrowRight, Shield, Zap, HeadphonesIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -13,6 +13,7 @@ import VideoSection from "@/components/VideoSection";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import SoundBoard from "@/components/SoundBoard";
 import { PRODUCTS } from "@/data/products";
+import confetti from "canvas-confetti";
 
 
 const CATEGORIES = [
