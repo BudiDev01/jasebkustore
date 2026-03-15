@@ -9,6 +9,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Product } from "@/data/products";
 import whatsappIcon from "@/assets/whatsapp.svg";
 import { speak } from "@/lib/speak";
+import confetti from "canvas-confetti";
 
 const ADMIN_WA = "https://wa.me/628157088769";
 
