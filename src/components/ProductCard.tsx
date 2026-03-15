@@ -29,13 +29,14 @@ const ProductCard = ({ product, onTouch }: ProductCardProps) => {
   const navigate = useNavigate();
   const [showWa, setShowWa] = useState(false);
   const [touched, setTouched] = useState(false);
+  const hasConfettied = useRef(false);
 
   const handleCardTouch = () => {
     setTouched(true);
     speakText("JasebKu");
     onTouch?.(product.id);
-    // Confetti on every first touch
-    if (!touched) {
+    if (!hasConfettied.current) {
+      hasConfettied.current = true;
       confetti({
         particleCount: 60,
         spread: 70,
