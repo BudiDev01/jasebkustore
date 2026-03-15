@@ -4,12 +4,12 @@ import { Switch } from "@/components/ui/switch";
 import { speak } from "@/lib/speak";
 
 const SOUNDS = [
-  { id: 1, label: "Selamat Datang!", text: "Selamat datang di JasebKu Store", emoji: "👋", color: "from-yellow-500 to-amber-600" },
-  { id: 2, label: "Beli Sekarang!", text: "Beli sekarang, harga terbaik!", emoji: "🛒", color: "from-green-500 to-emerald-600" },
-  { id: 3, label: "Promo Spesial!", text: "Promo spesial hari ini!", emoji: "🔥", color: "from-red-500 to-rose-600" },
-  { id: 4, label: "Terima Kasih!", text: "Terima kasih sudah berkunjung!", emoji: "🙏", color: "from-blue-500 to-indigo-600" },
-  { id: 5, label: "Gas Langsung!", text: "Gas langsung order sekarang!", emoji: "🚀", color: "from-purple-500 to-violet-600" },
-];
+  { id: 1, label: "Selamat Datang!", text: "Selamat datang di JasebKu Store", emoji: "👋", audio: "/audio/selamat-datang-jasebku.wav" },
+  { id: 2, label: "Beli Sekarang!", text: "Beli sekarang, harga terbaik!", emoji: "🛒" },
+  { id: 3, label: "Promo Spesial!", text: "Promo spesial hari ini!", emoji: "🔥" },
+  { id: 4, label: "Terima Kasih!", text: "Terima kasih sudah berkunjung!", emoji: "🙏" },
+  { id: 5, label: "Gas Langsung!", text: "Gas langsung order sekarang!", emoji: "🚀" },
+] as const;
 
 const SoundBoard = () => {
   const [soundEnabled, setSoundEnabled] = useState(true);
