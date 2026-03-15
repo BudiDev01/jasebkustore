@@ -24,6 +24,12 @@ const Navbar = ({ theme, toggleTheme }: NavbarProps) => {
   const { profile } = useProfile();
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [logoAnimating, setLogoAnimating] = useState(false);
+
+  const handleLogoClick = useCallback(() => {
+    setLogoAnimating(true);
+    setTimeout(() => setLogoAnimating(false), 600);
+  }, []);
 
   const handleSignOut = async () => {
     await signOut();
