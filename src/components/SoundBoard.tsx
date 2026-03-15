@@ -13,7 +13,7 @@ interface Sound {
 
 const SOUNDS: Sound[] = [
   { id: 1, label: "Selamat Datang!", text: "Selamat datang di JasebKu Store", emoji: "👋", audio: "/audio/selamat-datang-jasebku.wav" },
-  { id: 2, label: "Beli Sekarang!", text: "Beli sekarang, harga terbaik!", emoji: "🛒" },
+  { id: 2, label: "Beli Sekarang!", text: "Beli sekarang, harga terbaik!", emoji: "🛒", audio: "/audio/beli-sekarang-tts.wav" },
   { id: 3, label: "Promo Spesial!", text: "Promo spesial hari ini!", emoji: "🔥" },
   { id: 4, label: "Terima Kasih!", text: "Terima kasih sudah berkunjung!", emoji: "🙏" },
   { id: 5, label: "Gas Langsung!", text: "Gas langsung order sekarang!", emoji: "🚀" },
