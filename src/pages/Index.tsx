@@ -57,7 +57,6 @@ const Index = () => {
       document.removeEventListener("touchstart", speakWelcome);
     };
   }, [language]);
-  const navigate = useNavigate();
   const [theme, setTheme] = useState<"light" | "dark">(() => {
     return (localStorage.getItem("theme") as "light" | "dark") || "dark";
   });
