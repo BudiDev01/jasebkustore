@@ -13,7 +13,7 @@ import VideoSection from "@/components/VideoSection";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import SoundBoard from "@/components/SoundBoard";
 import { PRODUCTS } from "@/data/products";
-import { speak } from "@/lib/speak";
+
 
 const CATEGORIES = [
   { key: "all", icon: "✨" },
@@ -30,30 +30,6 @@ const Index = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
 
-  // Auto welcome voice on first visit (triggers on first user interaction due to browser policy)
-  useEffect(() => {
-    const welcomed = sessionStorage.getItem("jasebku-welcomed");
-    if (welcomed) return;
-
-    const speakWelcome = () => {
-      sessionStorage.setItem("jasebku-welcomed", "true");
-      const isId = language === "id";
-      speak(
-        isId ? "Selamat datang di JasebKu Store" : "Welcome to JasebKu Store",
-        isId ? "id-ID" : "en-US"
-      );
-      document.removeEventListener("click", speakWelcome);
-      document.removeEventListener("touchstart", speakWelcome);
-    };
-
-    document.addEventListener("click", speakWelcome, { once: true });
-    document.addEventListener("touchstart", speakWelcome, { once: true });
-
-    return () => {
-      document.removeEventListener("click", speakWelcome);
-      document.removeEventListener("touchstart", speakWelcome);
-    };
-  }, [language]);
   const [theme, setTheme] = useState<"light" | "dark">(() => {
     return (localStorage.getItem("theme") as "light" | "dark") || "dark";
   });
