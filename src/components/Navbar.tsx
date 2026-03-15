@@ -41,7 +41,7 @@ const Navbar = ({ theme, toggleTheme }: NavbarProps) => {
       utterance.lang = isId ? "id-ID" : "en-US";
       window.speechSynthesis.speak(utterance);
     }
-  }, []);
+  }, [language]);
 
   const handleSignOut = async () => {
     await signOut();
