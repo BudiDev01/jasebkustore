@@ -23,6 +23,7 @@ interface Order {
 const Dashboard = () => {
   const { t } = useLanguage();
   const { user, signOut, loading: authLoading } = useAuth();
+  const { profile, refresh: refreshProfile } = useProfile();
   const navigate = useNavigate();
   const [theme, setTheme] = useState<"light" | "dark">(() =>
     (localStorage.getItem("theme") as "light" | "dark") || "dark"
