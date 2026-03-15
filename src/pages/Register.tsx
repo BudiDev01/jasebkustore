@@ -101,17 +101,6 @@ const Register = () => {
 
           <form onSubmit={handleRegister} className="space-y-4">
             <div>
-              <Label className="text-white/70 text-sm">{t.usernameLabel}</Label>
-              <Input
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                required
-                className="mt-1 bg-white/5 border-white/20 text-white placeholder:text-white/30 focus:border-gold"
-                placeholder="johndoe"
-              />
-            </div>
-            <div>
               <Label className="text-white/70 text-sm">{t.emailLabel}</Label>
               <Input
                 type="email"
