@@ -29,6 +29,11 @@ const ProductCard = ({ product }: ProductCardProps) => {
     new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR", minimumFractionDigits: 0 }).format(price);
 
   const handleBuyClick = () => {
+    if (!user) {
+      toast({ title: "Please register first", description: "You need an account to make a purchase.", variant: "destructive" });
+      navigate("/register");
+      return;
+    }
     if (product.price_hidden) {
       setShowWa(true);
     } else {

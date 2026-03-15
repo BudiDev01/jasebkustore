@@ -89,9 +89,19 @@ const Navbar = ({ theme, toggleTheme }: NavbarProps) => {
               {user ? (
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Button variant="outline" size="sm" className="border-gold/40 text-foreground hover:border-gold">
-                      {user.email?.split("@")[0]}
-                    </Button>
+                    <button className="flex items-center gap-2 px-2 py-1 rounded-lg border border-gold/40 hover:border-gold transition-colors">
+                      <Avatar className="w-7 h-7 border border-gold/30">
+                        {profile?.avatar_url ? (
+                          <AvatarImage src={profile.avatar_url} alt="Profile" />
+                        ) : null}
+                        <AvatarFallback className="gradient-gold text-primary-foreground text-xs font-bold">
+                          {(profile?.username || user.email || "U")[0].toUpperCase()}
+                        </AvatarFallback>
+                      </Avatar>
+                      <span className="text-sm font-medium text-foreground max-w-[100px] truncate">
+                        {profile?.username || profile?.full_name || user.email?.split("@")[0]}
+                      </span>
+                    </button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="end">
                     <DropdownMenuItem onClick={() => navigate("/dashboard")}>
