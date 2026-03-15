@@ -21,6 +21,7 @@ interface NavbarProps {
 const Navbar = ({ theme, toggleTheme }: NavbarProps) => {
   const { t, language, setLanguage } = useLanguage();
   const { user, signOut } = useAuth();
+  const { profile } = useProfile();
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
 
