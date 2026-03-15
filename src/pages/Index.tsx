@@ -24,8 +24,39 @@ const CATEGORIES = [
 ];
 
 const Index = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { user } = useAuth();
+  const navigate = useNavigate();
+
+  // Auto welcome voice on first visit (triggers on first user interaction due to browser policy)
+  useEffect(() => {
+    const welcomed = sessionStorage.getItem("jasebku-welcomed");
+    if (welcomed) return;
+
+    const speakWelcome = () => {
+      if ("speechSynthesis" in window) {
+        sessionStorage.setItem("jasebku-welcomed", "true");
+        const isId = language === "id";
+        const utterance = new SpeechSynthesisUtterance(
+          isId ? "Selamat datang di JasebKu Store" : "Welcome to JasebKu Store"
+        );
+        utterance.rate = 1;
+        utterance.pitch = 1.1;
+        utterance.lang = isId ? "id-ID" : "en-US";
+        window.speechSynthesis.speak(utterance);
+      }
+      document.removeEventListener("click", speakWelcome);
+      document.removeEventListener("touchstart", speakWelcome);
+    };
+
+    document.addEventListener("click", speakWelcome, { once: true });
+    document.addEventListener("touchstart", speakWelcome, { once: true });
+
+    return () => {
+      document.removeEventListener("click", speakWelcome);
+      document.removeEventListener("touchstart", speakWelcome);
+    };
+  }, [language]);
   const navigate = useNavigate();
   const [theme, setTheme] = useState<"light" | "dark">(() => {
     return (localStorage.getItem("theme") as "light" | "dark") || "dark";
