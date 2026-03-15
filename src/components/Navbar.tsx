@@ -32,13 +32,16 @@ const Navbar = ({ theme, toggleTheme }: NavbarProps) => {
 
     if ("speechSynthesis" in window) {
       window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance("Welcome to JasebKu Store");
+      const isId = language === "id";
+      const utterance = new SpeechSynthesisUtterance(
+        isId ? "Selamat datang di JasebKu Store" : "Welcome to JasebKu Store"
+      );
       utterance.rate = 1;
       utterance.pitch = 1.1;
-      utterance.lang = "en-US";
+      utterance.lang = isId ? "id-ID" : "en-US";
       window.speechSynthesis.speak(utterance);
     }
-  }, []);
+  }, [language]);
 
   const handleSignOut = async () => {
     await signOut();
