@@ -14,6 +14,7 @@ const ADMIN_WA = "https://wa.me/628157088769";
 
 interface ProductCardProps {
   product: Product;
+  onTouch?: (productId: string) => void;
 }
 
 const speakText = (text: string) => {
