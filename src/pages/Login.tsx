@@ -88,7 +88,7 @@ const Login = () => {
             <div className="flex-1 h-px bg-white/10" />
           </div>
 
-          <form onSubmit={handleLogin} className="space-y-4" autoComplete="on">
+          <form onSubmit={handleLogin} className="space-y-4" autoComplete="on" id="login-form">
             <div>
               <Label className="text-white/70 text-sm">{t.emailLabel}</Label>
               <Input
