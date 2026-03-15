@@ -35,15 +35,6 @@ const ProductCard = ({ product, onTouch }: ProductCardProps) => {
     setTouched(true);
     speakText("JasebKu");
     onTouch?.(product.id);
-    if (!hasConfettied.current) {
-      hasConfettied.current = true;
-      confetti({
-        particleCount: 60,
-        spread: 70,
-        origin: { y: 0.7 },
-        colors: ["#D4A017", "#FFD700", "#1a2744", "#ffffff"],
-      });
-    }
     setTimeout(() => setTouched(false), 400);
   };
 
