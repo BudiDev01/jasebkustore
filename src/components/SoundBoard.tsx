@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from "react";
 import { Volume2, VolumeX, Sparkles } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
+import { speak } from "@/lib/speak";
 
 const SOUNDS = [
   { id: 1, label: "Selamat Datang!", text: "Selamat datang di JasebKu Store", emoji: "👋", color: "from-yellow-500 to-amber-600" },
@@ -17,13 +17,8 @@ const SoundBoard = () => {
   const [animating, setAnimating] = useState(false);
 
   const speakText = useCallback((text: string) => {
-    if (!soundEnabled || !("speechSynthesis" in window)) return;
-    window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = "id-ID";
-    utterance.rate = 1;
-    utterance.pitch = 1.1;
-    window.speechSynthesis.speak(utterance);
+    if (!soundEnabled) return;
+    speak(text, "id-ID");
   }, [soundEnabled]);
 
   const handleClick = (sound: typeof SOUNDS[0]) => {

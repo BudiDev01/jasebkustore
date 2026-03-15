@@ -8,6 +8,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useToast } from "@/hooks/use-toast";
 import { Product } from "@/data/products";
 import whatsappIcon from "@/assets/whatsapp.svg";
+import { speak } from "@/lib/speak";
 
 const ADMIN_WA = "https://wa.me/628157088769";
 
@@ -16,14 +17,7 @@ interface ProductCardProps {
 }
 
 const speakText = (text: string) => {
-  if ("speechSynthesis" in window) {
-    window.speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(text);
-    u.rate = 1.1;
-    u.pitch = 1.2;
-    u.lang = "id-ID";
-    window.speechSynthesis.speak(u);
-  }
+  speak(text, "id-ID");
 };
 
 const ProductCard = ({ product }: ProductCardProps) => {
