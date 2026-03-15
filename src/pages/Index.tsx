@@ -35,6 +35,23 @@ const Index = () => {
     return (localStorage.getItem("theme") as "light" | "dark") || "dark";
   });
   const [activeCategory, setActiveCategory] = useState("all");
+  const touchedProducts = useRef<Set<string>>(new Set());
+  const confettiFired = useRef(false);
+
+  const handleProductTouch = useCallback((productId: string) => {
+    if (confettiFired.current) return;
+    touchedProducts.current.add(productId);
+    if (touchedProducts.current.size >= PRODUCTS.length) {
+      confettiFired.current = true;
+      // Fire confetti burst
+      const end = Date.now() + 2000;
+      const fire = () => {
+        confetti({ particleCount: 80, spread: 100, origin: { y: 0.6 }, colors: ["#D4A017", "#FFD700", "#1a2744", "#ffffff"] });
+        if (Date.now() < end) requestAnimationFrame(fire);
+      };
+      fire();
+    }
+  }, []);
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", theme === "dark");
