@@ -133,6 +133,12 @@ const Navbar = ({ theme, toggleTheme }: NavbarProps) => {
                     <DropdownMenuItem onClick={() => navigate("/dashboard")}>
                       {t.dashboard}
                     </DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => navigate("/topup")}>
+                      {t.topUp}
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => navigate("/topup/history")}>
+                      {t.topUpHistory}
+                    </DropdownMenuItem>
                     <DropdownMenuItem onClick={handleSignOut} className="text-destructive">
                       {t.logout}
                     </DropdownMenuItem>
