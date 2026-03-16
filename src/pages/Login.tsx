@@ -217,7 +217,7 @@ const Login = () => {
           >
             <div>
               <Label className="text-white/70 text-sm">
-                {isVip ? "Username (Email)" : t.emailLabel}
+                {isVip ? "Username" : t.emailLabel}
               </Label>
               <Input
                 type="email"
