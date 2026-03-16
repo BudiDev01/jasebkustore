@@ -1,6 +1,3 @@
-# Memory: index.md
-Updated: now
-
 /* Memory: DigiStore project design system and key preferences */
 
 # Design System
@@ -17,6 +14,7 @@ Updated: now
 - WhatsApp admin: +62 815-7088-769 → wa.me/6281570887690
 - QRIS: real GoPay QR image at src/assets/qris-gopay.jpg
 - Project name: JasebKu Store (was DigiStore)
+- Email confirmation disabled (auto-confirm enabled)
 
 # Architecture
 - Contexts: LanguageContext (i18n), AuthContext (supabase auth)
@@ -31,6 +29,7 @@ Updated: now
 - / → Index (homepage)
 - /login → Login (select Regular/VIP, then form)
 - /register → Register
+- /forgot-password → ForgotPassword (regular user OTP recovery)
 - /payment/:productId → Payment
 - /dashboard → Dashboard (protected)
 - /topup → TopUp (select amount, pay via QRIS)

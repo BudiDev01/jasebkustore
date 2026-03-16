@@ -75,6 +75,10 @@ interface Translations {
   footerContact: string;
   footerLinks: string;
   footerRights: string;
+  // TopUp
+  topUp: string;
+  topUpHistory: string;
+  forgotPassword: string;
   // General
   loading: string;
   error: string;
@@ -148,6 +152,9 @@ const translations: Record<Language, Translations> = {
     footerContact: "Contact Us",
     footerLinks: "Quick Links",
     footerRights: "All rights reserved.",
+    topUp: "Top Up",
+    topUpHistory: "Top Up History",
+    forgotPassword: "Forgot Password?",
     loading: "Loading...",
     error: "Something went wrong",
     price: "Price",
@@ -218,6 +225,9 @@ const translations: Record<Language, Translations> = {
     footerContact: "Hubungi Kami",
     footerLinks: "Tautan Cepat",
     footerRights: "Semua hak dilindungi.",
+    topUp: "Top Up",
+    topUpHistory: "Riwayat Top Up",
+    forgotPassword: "Lupa Password?",
     loading: "Memuat...",
     error: "Terjadi kesalahan",
     price: "Harga",

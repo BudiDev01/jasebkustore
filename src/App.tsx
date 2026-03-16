@@ -13,6 +13,7 @@ import Dashboard from "./pages/Dashboard";
 import VipLogin from "./pages/VipLogin";
 import VipDashboard from "./pages/VipDashboard";
 import VipForgotPassword from "./pages/VipForgotPassword";
+import ForgotPassword from "./pages/ForgotPassword";
 import TopUp from "./pages/TopUp";
 import TopUpSuccess from "./pages/TopUpSuccess";
 import TopUpCancel from "./pages/TopUpCancel";
@@ -39,6 +40,7 @@ const App = () => (
               <Route path="/topup/success" element={<TopUpSuccess />} />
               <Route path="/topup/cancel" element={<TopUpCancel />} />
               <Route path="/topup/history" element={<TopUpHistory />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="/vip" element={<VipLogin />} />
               <Route path="/vip/dashboard" element={<VipDashboard />} />
               <Route path="/vip/forgot-password" element={<VipForgotPassword />} />

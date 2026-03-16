@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Moon, Sun, Globe, Menu, X, ShoppingBag } from "lucide-react";
+import { Moon, Sun, Globe, Menu, X, ShoppingBag, Wallet, History } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { useProfile } from "@/hooks/useProfile";
@@ -72,9 +72,17 @@ const Navbar = ({ theme, toggleTheme }: NavbarProps) => {
               {t.products}
             </a>
             {user && (
-              <Link to="/dashboard" className="px-3 py-2 rounded-md text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-colors">
-                {t.dashboard}
-              </Link>
+              <>
+                <Link to="/dashboard" className="px-3 py-2 rounded-md text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-colors">
+                  {t.dashboard}
+                </Link>
+                <Link to="/topup" className="px-3 py-2 rounded-md text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-colors">
+                  {t.topUp}
+                </Link>
+                <Link to="/topup/history" className="px-3 py-2 rounded-md text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-colors">
+                  {t.topUpHistory}
+                </Link>
+              </>
             )}
           </div>
 
@@ -125,6 +133,12 @@ const Navbar = ({ theme, toggleTheme }: NavbarProps) => {
                     <DropdownMenuItem onClick={() => navigate("/dashboard")}>
                       {t.dashboard}
                     </DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => navigate("/topup")}>
+                      {t.topUp}
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => navigate("/topup/history")}>
+                      {t.topUpHistory}
+                    </DropdownMenuItem>
                     <DropdownMenuItem onClick={handleSignOut} className="text-destructive">
                       {t.logout}
                     </DropdownMenuItem>
@@ -161,9 +175,17 @@ const Navbar = ({ theme, toggleTheme }: NavbarProps) => {
               {t.products}
             </a>
             {user && (
-              <Link to="/dashboard" onClick={() => setMenuOpen(false)} className="block px-3 py-2 rounded-md text-sm font-medium hover:bg-muted transition-colors">
-                {t.dashboard}
-              </Link>
+              <>
+                <Link to="/dashboard" onClick={() => setMenuOpen(false)} className="block px-3 py-2 rounded-md text-sm font-medium hover:bg-muted transition-colors">
+                  {t.dashboard}
+                </Link>
+                <Link to="/topup" onClick={() => setMenuOpen(false)} className="block px-3 py-2 rounded-md text-sm font-medium hover:bg-muted transition-colors">
+                  {t.topUp}
+                </Link>
+                <Link to="/topup/history" onClick={() => setMenuOpen(false)} className="block px-3 py-2 rounded-md text-sm font-medium hover:bg-muted transition-colors">
+                  {t.topUpHistory}
+                </Link>
+              </>
             )}
             <div className="pt-2 border-t border-border/40 flex flex-col gap-2">
               {user ? (
