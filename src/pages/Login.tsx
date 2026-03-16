@@ -39,9 +39,9 @@ const Login = () => {
     e.preventDefault();
     setLoading(true);
 
-    // VIP uses email field as username-style email
+    const vipEmail = `${username}@vip.jasebku.local`;
     const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
-      email,
+      email: vipEmail,
       password,
     });
 
