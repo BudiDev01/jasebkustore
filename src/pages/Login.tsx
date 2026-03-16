@@ -83,6 +83,7 @@ const Login = () => {
 
   const resetForm = () => {
     setEmail("");
+    setUsername("");
     setPassword("");
     setShowPassword(false);
   };
