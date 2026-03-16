@@ -17,6 +17,7 @@ const Login = () => {
   const { toast } = useToast();
   const [mode, setMode] = useState<LoginMode>("select");
   const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
