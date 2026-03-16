@@ -175,9 +175,17 @@ const Navbar = ({ theme, toggleTheme }: NavbarProps) => {
               {t.products}
             </a>
             {user && (
-              <Link to="/dashboard" onClick={() => setMenuOpen(false)} className="block px-3 py-2 rounded-md text-sm font-medium hover:bg-muted transition-colors">
-                {t.dashboard}
-              </Link>
+              <>
+                <Link to="/dashboard" onClick={() => setMenuOpen(false)} className="block px-3 py-2 rounded-md text-sm font-medium hover:bg-muted transition-colors">
+                  {t.dashboard}
+                </Link>
+                <Link to="/topup" onClick={() => setMenuOpen(false)} className="block px-3 py-2 rounded-md text-sm font-medium hover:bg-muted transition-colors">
+                  {t.topUp}
+                </Link>
+                <Link to="/topup/history" onClick={() => setMenuOpen(false)} className="block px-3 py-2 rounded-md text-sm font-medium hover:bg-muted transition-colors">
+                  {t.topUpHistory}
+                </Link>
+              </>
             )}
             <div className="pt-2 border-t border-border/40 flex flex-col gap-2">
               {user ? (
