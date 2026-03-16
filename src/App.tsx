@@ -13,6 +13,10 @@ import Dashboard from "./pages/Dashboard";
 import VipLogin from "./pages/VipLogin";
 import VipDashboard from "./pages/VipDashboard";
 import VipForgotPassword from "./pages/VipForgotPassword";
+import TopUp from "./pages/TopUp";
+import TopUpSuccess from "./pages/TopUpSuccess";
+import TopUpCancel from "./pages/TopUpCancel";
+import TopUpHistory from "./pages/TopUpHistory";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
