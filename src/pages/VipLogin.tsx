@@ -66,16 +66,16 @@ const VipLogin = () => {
 
           <form onSubmit={handleLogin} className="space-y-4" autoComplete="on" id="vip-login-form">
             <div>
-              <Label className="text-white/70 text-sm">Email</Label>
+              <Label className="text-white/70 text-sm">Username</Label>
               <Input
-                type="email"
-                name="email"
+                type="text"
+                name="username"
                 autoComplete="username"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={username}
+                onChange={(e) => setUsername(e.target.value.replace(/\s/g, ""))}
                 required
                 className="mt-1 bg-white/5 border-white/20 text-white placeholder:text-white/30 focus:border-gold"
-                placeholder="admin@example.com"
+                placeholder="username"
               />
             </div>
             <div>
