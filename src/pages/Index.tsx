@@ -57,6 +57,15 @@ const Index = () => {
     }
   }, []);
 
+  // Track page visit
+  useEffect(() => {
+    supabase.from("page_visits").insert({
+      page_path: window.location.pathname,
+      user_agent: navigator.userAgent,
+      referrer: document.referrer || null,
+    }).then(() => {});
+  }, []);
+
   useEffect(() => {
     document.documentElement.classList.toggle("dark", theme === "dark");
     localStorage.setItem("theme", theme);
