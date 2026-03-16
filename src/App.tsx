@@ -13,6 +13,7 @@ import Dashboard from "./pages/Dashboard";
 import VipLogin from "./pages/VipLogin";
 import VipDashboard from "./pages/VipDashboard";
 import VipForgotPassword from "./pages/VipForgotPassword";
+import ForgotPassword from "./pages/ForgotPassword";
 import TopUp from "./pages/TopUp";
 import TopUpSuccess from "./pages/TopUpSuccess";
 import TopUpCancel from "./pages/TopUpCancel";
