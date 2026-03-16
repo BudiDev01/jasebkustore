@@ -21,16 +21,22 @@ Updated: now
 # Architecture
 - Contexts: LanguageContext (i18n), AuthContext (supabase auth)
 - Data: src/data/products.ts (static product catalog)
-- DB tables: profiles, products, orders, user_roles, page_visits
+- DB tables: profiles, products, orders, user_roles, page_visits, topups
 - Google OAuth via Lovable managed social auth (lovable.auth.signInWithOAuth)
 - VIP admin panel at /vip (requires admin role in user_roles table)
+- VIP login uses username (mapped to username@vip.jasebku.local internally)
+- VIP admin account: username "Admin", password "Owner"
 
 # Routes
 - / → Index (homepage)
-- /login → Login
+- /login → Login (select Regular/VIP, then form)
 - /register → Register
 - /payment/:productId → Payment
 - /dashboard → Dashboard (protected)
+- /topup → TopUp (select amount, pay via QRIS)
+- /topup/success → TopUpSuccess
+- /topup/cancel → TopUpCancel
+- /topup/history → TopUpHistory
 - /vip → VipLogin (admin login)
 - /vip/dashboard → VipDashboard (visitor analytics)
 - /vip/forgot-password → VipForgotPassword (OTP recovery)
