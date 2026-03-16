@@ -19,7 +19,8 @@ const VipLogin = () => {
     e.preventDefault();
     setLoading(true);
 
-    const { data: authData, error: authError } = await supabase.auth.signInWithPassword({ email, password });
+    const vipEmail = `${username}@vip.jasebku.local`;
+    const { data: authData, error: authError } = await supabase.auth.signInWithPassword({ email: vipEmail, password });
     
     if (authError) {
       setLoading(false);
