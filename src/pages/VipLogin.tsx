@@ -16,6 +16,33 @@ const VipLogin = () => {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [checking, setChecking] = useState(true);
+
+  // Auto-redirect if already logged in as admin
+  useEffect(() => {
+    const checkExistingAdmin = async () => {
+      if (!user) { setChecking(false); return; }
+      const { data: roles } = await supabase
+        .from("user_roles")
+        .select("role")
+        .eq("user_id", user.id)
+        .eq("role", "admin");
+      if (roles && roles.length > 0) {
+        navigate("/vip/dashboard", { replace: true });
+      } else {
+        setChecking(false);
+      }
+    };
+    checkExistingAdmin();
+  }, [user]);
+
+  if (checking) {
+    return (
+      <div className="min-h-screen gradient-hero flex items-center justify-center">
+        <Loader2 className="w-8 h-8 text-gold animate-spin" />
+      </div>
+    );
+  }
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
