@@ -13,6 +13,7 @@ import VideoSection from "@/components/VideoSection";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import SoundBoard from "@/components/SoundBoard";
 import { PRODUCTS } from "@/data/products";
+import { supabase } from "@/integrations/supabase/client";
 import confetti from "canvas-confetti";
 
 
@@ -55,6 +56,15 @@ const Index = () => {
       };
       fire();
     }
+  }, []);
+
+  // Track page visit
+  useEffect(() => {
+    supabase.from("page_visits").insert({
+      page_path: window.location.pathname,
+      user_agent: navigator.userAgent,
+      referrer: document.referrer || null,
+    }).then(() => {});
   }, []);
 
   useEffect(() => {

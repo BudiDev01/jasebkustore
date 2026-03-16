@@ -10,6 +10,9 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Payment from "./pages/Payment";
 import Dashboard from "./pages/Dashboard";
+import VipLogin from "./pages/VipLogin";
+import VipDashboard from "./pages/VipDashboard";
+import VipForgotPassword from "./pages/VipForgotPassword";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +31,9 @@ const App = () => (
               <Route path="/register" element={<Register />} />
               <Route path="/payment/:productId" element={<Payment />} />
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/vip" element={<VipLogin />} />
+              <Route path="/vip/dashboard" element={<VipDashboard />} />
+              <Route path="/vip/forgot-password" element={<VipForgotPassword />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
