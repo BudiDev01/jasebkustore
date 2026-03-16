@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { User, Package, LogOut, ShoppingBag, Clock, CheckCircle, AlertCircle } from "lucide-react";
+import { User, Package, LogOut, ShoppingBag, Clock, CheckCircle, AlertCircle, Wallet, History } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useLanguage } from "@/contexts/LanguageContext";
