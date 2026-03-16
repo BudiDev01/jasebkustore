@@ -10,6 +10,9 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Payment from "./pages/Payment";
 import Dashboard from "./pages/Dashboard";
+import VipLogin from "./pages/VipLogin";
+import VipDashboard from "./pages/VipDashboard";
+import VipForgotPassword from "./pages/VipForgotPassword";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
