@@ -1,19 +1,48 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Eye, EyeOff, Crown, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { supabase } from "@/integrations/supabase/client";
+import { useAuth } from "@/contexts/AuthContext";
 import { useToast } from "@/hooks/use-toast";
 
 const VipLogin = () => {
   const navigate = useNavigate();
+  const { user } = useAuth();
   const { toast } = useToast();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [checking, setChecking] = useState(true);
+
+  // Auto-redirect if already logged in as admin
+  useEffect(() => {
+    const checkExistingAdmin = async () => {
+      if (!user) { setChecking(false); return; }
+      const { data: roles } = await supabase
+        .from("user_roles")
+        .select("role")
+        .eq("user_id", user.id)
+        .eq("role", "admin");
+      if (roles && roles.length > 0) {
+        navigate("/vip/dashboard", { replace: true });
+      } else {
+        setChecking(false);
+      }
+    };
+    checkExistingAdmin();
+  }, [user]);
+
+  if (checking) {
+    return (
+      <div className="min-h-screen gradient-hero flex items-center justify-center">
+        <Loader2 className="w-8 h-8 text-gold animate-spin" />
+      </div>
+    );
+  }
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
