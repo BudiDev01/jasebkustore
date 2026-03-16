@@ -17,6 +17,7 @@ const Login = () => {
   const { toast } = useToast();
   const [mode, setMode] = useState<LoginMode>("select");
   const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -38,9 +39,9 @@ const Login = () => {
     e.preventDefault();
     setLoading(true);
 
-    // VIP uses email field as username-style email
+    const vipEmail = `${username}@vip.jasebku.local`;
     const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
-      email,
+      email: vipEmail,
       password,
     });
 
@@ -82,6 +83,7 @@ const Login = () => {
 
   const resetForm = () => {
     setEmail("");
+    setUsername("");
     setPassword("");
     setShowPassword(false);
   };
@@ -219,16 +221,29 @@ const Login = () => {
               <Label className="text-white/70 text-sm">
                 {isVip ? "Username" : t.emailLabel}
               </Label>
-              <Input
-                type="email"
-                name="email"
-                autoComplete="username"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="mt-1 bg-white/5 border-white/20 text-white placeholder:text-white/30 focus:border-gold"
-                placeholder={isVip ? "admin@example.com" : "you@example.com"}
-              />
+              {isVip ? (
+                <Input
+                  type="text"
+                  name="username"
+                  autoComplete="username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value.replace(/\s/g, ""))}
+                  required
+                  className="mt-1 bg-white/5 border-white/20 text-white placeholder:text-white/30 focus:border-gold"
+                  placeholder="username"
+                />
+              ) : (
+                <Input
+                  type="email"
+                  name="email"
+                  autoComplete="username"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="mt-1 bg-white/5 border-white/20 text-white placeholder:text-white/30 focus:border-gold"
+                  placeholder="you@example.com"
+                />
+              )}
             </div>
             <div>
               <Label className="text-white/70 text-sm">{t.passwordLabel}</Label>
