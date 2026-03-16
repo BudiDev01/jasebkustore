@@ -75,6 +75,10 @@ interface Translations {
   footerContact: string;
   footerLinks: string;
   footerRights: string;
+  // TopUp
+  topUp: string;
+  topUpHistory: string;
+  forgotPassword: string;
   // General
   loading: string;
   error: string;
