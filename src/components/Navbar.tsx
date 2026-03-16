@@ -72,9 +72,17 @@ const Navbar = ({ theme, toggleTheme }: NavbarProps) => {
               {t.products}
             </a>
             {user && (
-              <Link to="/dashboard" className="px-3 py-2 rounded-md text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-colors">
-                {t.dashboard}
-              </Link>
+              <>
+                <Link to="/dashboard" className="px-3 py-2 rounded-md text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-colors">
+                  {t.dashboard}
+                </Link>
+                <Link to="/topup" className="px-3 py-2 rounded-md text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-colors">
+                  {t.topUp}
+                </Link>
+                <Link to="/topup/history" className="px-3 py-2 rounded-md text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-colors">
+                  {t.topUpHistory}
+                </Link>
+              </>
             )}
           </div>
 
