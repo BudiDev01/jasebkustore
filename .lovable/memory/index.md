@@ -21,8 +21,9 @@ Updated: now
 # Architecture
 - Contexts: LanguageContext (i18n), AuthContext (supabase auth)
 - Data: src/data/products.ts (static product catalog)
-- DB tables: profiles, products, orders
+- DB tables: profiles, products, orders, user_roles, page_visits
 - Google OAuth via Lovable managed social auth (lovable.auth.signInWithOAuth)
+- VIP admin panel at /vip (requires admin role in user_roles table)
 
 # Routes
 - / → Index (homepage)
@@ -30,3 +31,6 @@ Updated: now
 - /register → Register
 - /payment/:productId → Payment
 - /dashboard → Dashboard (protected)
+- /vip → VipLogin (admin login)
+- /vip/dashboard → VipDashboard (visitor analytics)
+- /vip/forgot-password → VipForgotPassword (OTP recovery)
