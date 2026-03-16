@@ -31,6 +31,9 @@ const App = () => (
               <Route path="/register" element={<Register />} />
               <Route path="/payment/:productId" element={<Payment />} />
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/vip" element={<VipLogin />} />
+              <Route path="/vip/dashboard" element={<VipDashboard />} />
+              <Route path="/vip/forgot-password" element={<VipForgotPassword />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
