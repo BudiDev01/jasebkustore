@@ -311,7 +311,7 @@ const VipDashboard = () => {
                   <h1 className="text-3xl font-black text-white mb-1">{t.manageTopUp}</h1>
                   <p className="text-white/50">{t.manageTopUpDesc}</p>
                 </div>
-                <Button onClick={loadTopups} variant="outline" size="sm" className="border-white/20 text-white/60 hover:bg-white/10">
+                <Button onClick={loadTopups} variant="outline" size="sm" className="border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/10 font-semibold">
                   {t.refresh}
                 </Button>
               </div>
