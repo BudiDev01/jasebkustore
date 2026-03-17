@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { Crown, Users, LogOut, ArrowLeft, Wallet, CheckCircle, XCircle, Clock, Loader2, Globe } from "lucide-react";
+import { Crown, Users, LogOut, ArrowLeft, Wallet, CheckCircle, XCircle, Clock, Loader2, Search } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { useToast } from "@/hooks/use-toast";
+import UserSearch from "@/components/vip/UserSearch";
 
 type Lang = "en" | "id";
 
@@ -35,6 +36,8 @@ const labels: Record<Lang, Record<string, string>> = {
     success: "Success",
     cancelled: "Rejected",
     waiting: "Waiting",
+    searchUsers: "Search Users",
+    searchUsersDesc: "Search users by email address",
   },
   id: {
     vipDashboard: "Dashboard VIP",
@@ -60,6 +63,8 @@ const labels: Record<Lang, Record<string, string>> = {
     success: "Berhasil",
     cancelled: "Ditolak",
     waiting: "Menunggu",
+    searchUsers: "Cari Pengguna",
+    searchUsersDesc: "Cari pengguna berdasarkan alamat email",
   },
 };
 
@@ -202,6 +207,9 @@ const VipDashboard = () => {
               <TabsTrigger value="analytics" className="data-[state=active]:bg-gold data-[state=active]:text-primary-foreground text-white/60">
                 <Users className="w-4 h-4 mr-1" /> {t.analytics}
               </TabsTrigger>
+            <TabsTrigger value="search" className="data-[state=active]:bg-gold data-[state=active]:text-primary-foreground text-white/60">
+                <Search className="w-4 h-4 mr-1" /> {t.searchUsers}
+              </TabsTrigger>
               <TabsTrigger value="topups" className="data-[state=active]:bg-gold data-[state=active]:text-primary-foreground text-white/60">
                 <Wallet className="w-4 h-4 mr-1" /> {t.topUp}
                 {pendingTopups.length > 0 && (
@@ -225,6 +233,15 @@ const VipDashboard = () => {
                   <div className="text-4xl font-black text-gold">{totalUsers.toLocaleString()}</div>
                 </CardContent>
               </Card>
+            </TabsContent>
+
+            {/* User Search Tab */}
+            <TabsContent value="search">
+              <div className="mb-6">
+                <h1 className="text-3xl font-black text-white mb-1">{t.searchUsers}</h1>
+                <p className="text-white/50">{t.searchUsersDesc}</p>
+              </div>
+              <UserSearch lang={lang} />
             </TabsContent>
 
             {/* Top Up Management Tab */}

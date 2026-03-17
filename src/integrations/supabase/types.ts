@@ -213,6 +213,15 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      admin_search_users: {
+        Args: { search_term: string }
+        Returns: {
+          created_at: string
+          email: string
+          user_id: string
+        }[]
+      }
+      get_user_balance: { Args: { uid: string }; Returns: number }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]

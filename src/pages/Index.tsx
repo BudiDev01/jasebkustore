@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Sparkles, ArrowRight, Shield, Zap, HeadphonesIcon } from "lucide-react";
+import whatsappIcon from "@/assets/whatsapp.svg";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -174,6 +175,32 @@ const Index = () => {
                 <span>{item.label}</span>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact & Action Buttons */}
+      <section className="py-10 bg-card/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a
+              href="https://wa.me/628157088769"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-2 px-6 py-3 rounded-xl gradient-gold text-primary-foreground font-semibold shadow-gold hover:opacity-90 transition-opacity text-sm"
+            >
+              <img src={whatsappIcon} alt="WhatsApp" className="w-5 h-5" />
+              {language === "id" ? "Tanya Admin" : "Ask Questions"}
+            </a>
+            <a
+              href="https://t.me/Fadgww"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-2 px-6 py-3 rounded-xl border border-gold/30 bg-gold/10 text-gold font-semibold hover:bg-gold/20 transition-colors text-sm"
+            >
+              <span className="text-lg">✈️</span>
+              {language === "id" ? "Klaim Deposit" : "Claim Deposits"}
+            </a>
           </div>
         </div>
       </section>
