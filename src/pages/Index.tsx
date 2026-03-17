@@ -33,9 +33,7 @@ const Index = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
 
-  const [theme, setTheme] = useState<"light" | "dark">(() => {
-    return (localStorage.getItem("theme") as "light" | "dark") || "dark";
-  });
+  const [theme] = useState<"light" | "dark">("light");
   const [activeCategory, setActiveCategory] = useState("all");
   const touchedProducts = useRef<Set<string>>(new Set());
   const confettiFired = useRef(false);
@@ -69,11 +67,11 @@ const Index = () => {
   }, []);
 
   useEffect(() => {
-    document.documentElement.classList.toggle("dark", theme === "dark");
-    localStorage.setItem("theme", theme);
-  }, [theme]);
+    document.documentElement.classList.remove("dark");
+    localStorage.setItem("theme", "light");
+  }, []);
 
-  const toggleTheme = () => setTheme((t) => (t === "dark" ? "light" : "dark"));
+  const toggleTheme = () => {};
 
   const filteredProducts =
     activeCategory === "all"
@@ -99,7 +97,7 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="relative pt-16 overflow-hidden">
-        <div className="gradient-hero min-h-[88vh] flex items-center relative">
+        <div className="bg-gradient-to-br from-background via-secondary to-background min-h-[88vh] flex items-center relative">
           {/* Background grid */}
           <div
             className="absolute inset-0 opacity-[0.04]"
@@ -117,10 +115,10 @@ const Index = () => {
               <Badge className="gradient-gold text-primary-foreground border-0 mb-6 text-xs px-3 py-1 shadow-gold">
                 <Sparkles className="w-3 h-3 mr-1" /> JasebKu Store
               </Badge>
-              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tight mb-6 text-white leading-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tight mb-6 text-foreground leading-tight">
                 {t.heroTitle}
               </h1>
-              <p className="text-base sm:text-lg text-white/70 max-w-2xl mx-auto mb-10 leading-relaxed">
+              <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
                 {t.heroSubtitle}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -135,7 +133,7 @@ const Index = () => {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="border-white/30 text-white hover:bg-white/10 hover:border-white/50 text-base font-semibold"
+                    className="border-border text-foreground hover:bg-muted text-base font-semibold"
                     onClick={() => navigate("/register")}
                   >
                     {t.register}
@@ -151,9 +149,9 @@ const Index = () => {
                 { value: "1K+", label: t.heroStats2 },
                 { value: "24/7", label: t.heroStats3 },
               ].map((stat, i) => (
-                <div key={i} className="text-center p-3 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm">
+                <div key={i} className="text-center p-3 rounded-xl border border-border bg-card backdrop-blur-sm">
                   <div className="text-2xl font-black text-gold">{stat.value}</div>
-                  <div className="text-xs text-white/60 mt-0.5">{stat.label}</div>
+                  <div className="text-xs text-muted-foreground mt-0.5">{stat.label}</div>
                 </div>
               ))}
             </div>

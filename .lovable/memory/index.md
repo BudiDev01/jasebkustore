@@ -1,41 +1,31 @@
 /* Memory: DigiStore project design system and key preferences */
 
 # Design System
-- Style: Deep Navy Premium (user's choice)
+- Style: Clean White Premium (light mode ONLY — no dark mode)
 - Primary color: Gold HSL(43 90% 52%)
-- Background dark: HSL(220 45% 8%) — deep navy
-- Background light: HSL(210 30% 96%)
+- Background: light mode only, HSL(210 30% 96%)
 - Font convention: use Tailwind semantic tokens only, never hardcode colors
-- Class conventions: gradient-gold, gradient-hero, shadow-gold, shadow-navy, text-gold, glow-gold
+- Class conventions: gradient-gold, shadow-gold, shadow-navy, text-gold, glow-gold
 
 # Key Decisions
-- Dark mode default (saved to localStorage as "theme")
+- Light mode ONLY (no dark toggle, forced light)
 - Language saved to localStorage as "language" — en/id
-- WhatsApp admin: +62 815-7088-769 → wa.me/6281570887690
-- QRIS: real GoPay QR image at src/assets/qris-gopay.jpg
-- Project name: JasebKu Store (was DigiStore)
-- Email confirmation disabled (auto-confirm enabled)
+- WhatsApp admin: +62 815-7088-769 → wa.me/628157088769
+- QRIS: placeholder shown, user will upload their real QR later
+- Project name: JasebKu Store
 
 # Architecture
 - Contexts: LanguageContext (i18n), AuthContext (supabase auth)
 - Data: src/data/products.ts (static product catalog)
-- DB tables: profiles, products, orders, user_roles, page_visits, topups
-- Google OAuth via Lovable managed social auth (lovable.auth.signInWithOAuth)
-- VIP admin panel at /vip (requires admin role in user_roles table)
-- VIP login uses username (mapped to username@vip.jasebku.local internally)
-- VIP admin account: username "Admin", password "Owner"
+- DB tables: profiles, products, orders, topups, page_visits, user_roles
+- Google OAuth via Lovable managed social auth
 
 # Routes
 - / → Index (homepage)
-- /login → Login (select Regular/VIP, then form)
+- /login → Login
 - /register → Register
-- /forgot-password → ForgotPassword (regular user OTP recovery)
 - /payment/:productId → Payment
 - /dashboard → Dashboard (protected)
-- /topup → TopUp (select amount, pay via QRIS)
-- /topup/success → TopUpSuccess
-- /topup/cancel → TopUpCancel
+- /topup → TopUp
 - /topup/history → TopUpHistory
-- /vip → VipLogin (admin login)
-- /vip/dashboard → VipDashboard (visitor analytics)
-- /vip/forgot-password → VipForgotPassword (OTP recovery)
+- /vip → VipLogin/VipDashboard
