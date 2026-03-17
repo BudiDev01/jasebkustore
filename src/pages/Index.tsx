@@ -115,10 +115,10 @@ const Index = () => {
               <Badge className="gradient-gold text-primary-foreground border-0 mb-6 text-xs px-3 py-1 shadow-gold">
                 <Sparkles className="w-3 h-3 mr-1" /> JasebKu Store
               </Badge>
-              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tight mb-6 text-white leading-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tight mb-6 text-foreground leading-tight">
                 {t.heroTitle}
               </h1>
-              <p className="text-base sm:text-lg text-white/70 max-w-2xl mx-auto mb-10 leading-relaxed">
+              <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
                 {t.heroSubtitle}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
