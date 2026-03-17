@@ -36,6 +36,8 @@ const labels: Record<Lang, Record<string, string>> = {
     success: "Success",
     cancelled: "Rejected",
     waiting: "Waiting",
+    searchUsers: "Search Users",
+    searchUsersDesc: "Search users by email address",
   },
   id: {
     vipDashboard: "Dashboard VIP",
