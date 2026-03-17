@@ -149,9 +149,9 @@ const Index = () => {
                 { value: "1K+", label: t.heroStats2 },
                 { value: "24/7", label: t.heroStats3 },
               ].map((stat, i) => (
-                <div key={i} className="text-center p-3 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm">
+                <div key={i} className="text-center p-3 rounded-xl border border-border bg-card backdrop-blur-sm">
                   <div className="text-2xl font-black text-gold">{stat.value}</div>
-                  <div className="text-xs text-white/60 mt-0.5">{stat.label}</div>
+                  <div className="text-xs text-muted-foreground mt-0.5">{stat.label}</div>
                 </div>
               ))}
             </div>
