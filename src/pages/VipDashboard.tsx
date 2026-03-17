@@ -361,7 +361,7 @@ const VipDashboard = () => {
         )}
 
         <div className="mt-4 flex justify-end">
-          <Button onClick={loadAll} variant="outline" size="sm" className="border-white/20 text-white/60 hover:bg-white/10">
+          <Button onClick={loadAll} variant="outline" size="sm" className="border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/10 font-semibold">
             {t.refreshAll}
           </Button>
         </div>
