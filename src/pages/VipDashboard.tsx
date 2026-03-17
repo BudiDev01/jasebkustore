@@ -203,6 +203,9 @@ const VipDashboard = () => {
               <TabsTrigger value="analytics" className="data-[state=active]:bg-gold data-[state=active]:text-primary-foreground text-white/60">
                 <Users className="w-4 h-4 mr-1" /> {t.analytics}
               </TabsTrigger>
+            <TabsTrigger value="search" className="data-[state=active]:bg-gold data-[state=active]:text-primary-foreground text-white/60">
+                <Search className="w-4 h-4 mr-1" /> {t.searchUsers}
+              </TabsTrigger>
               <TabsTrigger value="topups" className="data-[state=active]:bg-gold data-[state=active]:text-primary-foreground text-white/60">
                 <Wallet className="w-4 h-4 mr-1" /> {t.topUp}
                 {pendingTopups.length > 0 && (
