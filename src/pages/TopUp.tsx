@@ -128,7 +128,7 @@ const TopUp = () => {
 
                 <Button
                   onClick={handleProceed}
-                  disabled={selectedAmount < 1000}
+                  disabled={selectedAmount < 5000}
                   className="w-full gradient-gold text-primary-foreground hover:opacity-90 shadow-gold font-semibold"
                 >
                   Lanjutkan — {selectedAmount > 0 ? formatPrice(selectedAmount) : "Rp 0"}
