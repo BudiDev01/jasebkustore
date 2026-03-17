@@ -28,8 +28,8 @@ const TopUp = () => {
   const selectedAmount = typeof amount === "number" ? amount : parseInt(customAmount) || 0;
 
   const handleProceed = () => {
-    if (selectedAmount < 1000) {
-      toast({ title: "Error", description: "Minimum top-up Rp 1.000", variant: "destructive" });
+    if (selectedAmount < 5000) {
+      toast({ title: "Error", description: "Minimum top-up Rp 5.000", variant: "destructive" });
       return;
     }
     setStep("pay");
