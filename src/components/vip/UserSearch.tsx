@@ -79,7 +79,7 @@ const UserSearch = ({ lang }: UserSearchProps) => {
       {results.length > 0 && (
         <div className="space-y-2">
           {results.map((u) => (
-            <Card key={u.user_id} className="bg-white/5 border-white/10">
+            <Card key={u.user_id} className="bg-card border-border">
               <CardContent className="p-4 flex items-center justify-between">
                 <div>
                   <p className="text-white font-medium text-sm">{u.email}</p>
