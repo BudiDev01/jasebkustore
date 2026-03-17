@@ -87,7 +87,7 @@ const UserSearch = ({ lang }: UserSearchProps) => {
                     {t.registered}: {formatDate(u.created_at)}
                   </p>
                 </div>
-                <p className="text-white/20 text-xs font-mono">{u.user_id.slice(0, 8)}</p>
+                <p className="text-muted-foreground text-xs font-mono">{u.user_id.slice(0, 8)}</p>
               </CardContent>
             </Card>
           ))}
