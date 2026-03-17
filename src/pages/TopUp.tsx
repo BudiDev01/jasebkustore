@@ -28,8 +28,8 @@ const TopUp = () => {
   const selectedAmount = typeof amount === "number" ? amount : parseInt(customAmount) || 0;
 
   const handleProceed = () => {
-    if (selectedAmount < 1000) {
-      toast({ title: "Error", description: "Minimum top-up Rp 1.000", variant: "destructive" });
+    if (selectedAmount < 5000) {
+      toast({ title: "Error", description: "Minimum top-up Rp 5.000", variant: "destructive" });
       return;
     }
     setStep("pay");
@@ -120,15 +120,15 @@ const TopUp = () => {
                     type="number"
                     value={customAmount}
                     onChange={(e) => { setCustomAmount(e.target.value); setAmount(""); }}
-                    min={1000}
+                    min={5000}
                     className="mt-1 bg-white/5 border-white/20 text-white placeholder:text-white/30 focus:border-gold"
-                    placeholder="Minimal Rp 1.000"
+                    placeholder="Minimal Rp 5.000"
                   />
                 </div>
 
                 <Button
                   onClick={handleProceed}
-                  disabled={selectedAmount < 1000}
+                  disabled={selectedAmount < 5000}
                   className="w-full gradient-gold text-primary-foreground hover:opacity-90 shadow-gold font-semibold"
                 >
                   Lanjutkan — {selectedAmount > 0 ? formatPrice(selectedAmount) : "Rp 0"}
