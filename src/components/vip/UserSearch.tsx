@@ -82,8 +82,8 @@ const UserSearch = ({ lang }: UserSearchProps) => {
             <Card key={u.user_id} className="bg-card border-border">
               <CardContent className="p-4 flex items-center justify-between">
                 <div>
-                  <p className="text-white font-medium text-sm">{u.email}</p>
-                  <p className="text-white/40 text-xs">
+                  <p className="text-foreground font-medium text-sm">{u.email}</p>
+                  <p className="text-muted-foreground text-xs">
                     {t.registered}: {formatDate(u.created_at)}
                   </p>
                 </div>
