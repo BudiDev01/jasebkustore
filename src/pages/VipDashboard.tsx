@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { Crown, Users, LogOut, ArrowLeft, Wallet, CheckCircle, XCircle, Clock, Loader2, Search } from "lucide-react";
+import { Crown, Users, LogOut, ArrowLeft, Wallet, CheckCircle, XCircle, Clock, Loader2, Search, Trash2 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -86,6 +86,7 @@ const VipDashboard = () => {
   const [allUsers, setAllUsers] = useState<{ user_id: string; email: string; created_at: string }[]>([]);
   const [showAllUsers, setShowAllUsers] = useState(false);
   const [loadingUsers, setLoadingUsers] = useState(false);
+  const [deletingId, setDeletingId] = useState<string | null>(null);
   const [topups, setTopups] = useState<TopUpRecord[]>([]);
   const [loading, setLoading] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
@@ -141,6 +142,22 @@ const VipDashboard = () => {
     } else {
       toast({ title: t.updated, description: status === "completed" ? t.approved : t.rejected });
       await loadTopups();
+    }
+  };
+
+  const handleDeleteUser = async (targetUserId: string, email: string) => {
+    if (!confirm(`Hapus user ${email}? Data user akan dihapus permanen.`)) return;
+    setDeletingId(targetUserId);
+    const { data, error } = await supabase.functions.invoke("delete-user", {
+      body: { target_user_id: targetUserId },
+    });
+    setDeletingId(null);
+    if (error || data?.error) {
+      toast({ title: t.error, description: error?.message || data?.error, variant: "destructive" });
+    } else {
+      toast({ title: t.updated, description: `User ${email} berhasil dihapus.` });
+      setAllUsers((prev) => prev.filter((u) => u.user_id !== targetUserId));
+      setTotalUsers((prev) => prev - 1);
     }
   };
 
@@ -253,13 +270,24 @@ const VipDashboard = () => {
                   {allUsers.map((u) => (
                     <Card key={u.user_id} className="bg-white/5 border-white/10">
                       <CardContent className="p-4 flex items-center justify-between">
-                        <div>
+                        <div className="min-w-0 flex-1">
                           <p className="text-gold font-medium text-sm">{u.email}</p>
                           <p className="text-white/50 text-xs">
                             {t.totalUsers}: {formatDate(u.created_at)}
                           </p>
                         </div>
-                        <p className="text-white/30 text-xs font-mono">{u.user_id.slice(0, 8)}</p>
+                        <div className="flex items-center gap-2 shrink-0">
+                          <p className="text-white/30 text-xs font-mono">{u.user_id.slice(0, 8)}</p>
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            onClick={(e) => { e.stopPropagation(); handleDeleteUser(u.user_id, u.email); }}
+                            disabled={deletingId === u.user_id}
+                            className="border-red-500/30 text-red-400 hover:bg-red-500/10 gap-1 h-7 px-2"
+                          >
+                            {deletingId === u.user_id ? <Loader2 className="w-3 h-3 animate-spin" /> : <Trash2 className="w-3 h-3" />}
+                          </Button>
+                        </div>
                       </CardContent>
                     </Card>
                   ))}
@@ -283,7 +311,7 @@ const VipDashboard = () => {
                   <h1 className="text-3xl font-black text-white mb-1">{t.manageTopUp}</h1>
                   <p className="text-white/50">{t.manageTopUpDesc}</p>
                 </div>
-                <Button onClick={loadTopups} variant="outline" size="sm" className="border-white/20 text-white/60 hover:bg-white/10">
+                <Button onClick={loadTopups} variant="outline" size="sm" className="border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/10 font-semibold">
                   {t.refresh}
                 </Button>
               </div>
@@ -333,7 +361,7 @@ const VipDashboard = () => {
         )}
 
         <div className="mt-4 flex justify-end">
-          <Button onClick={loadAll} variant="outline" size="sm" className="border-white/20 text-white/60 hover:bg-white/10">
+          <Button onClick={loadAll} variant="outline" size="sm" className="border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/10 font-semibold">
             {t.refreshAll}
           </Button>
         </div>
