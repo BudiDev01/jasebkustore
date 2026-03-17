@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Sparkles, ArrowRight, Shield, Zap, HeadphonesIcon } from "lucide-react";
-import whatsappIcon from "@/assets/whatsapp.svg";
+import whatsappIcon from "@/assets/whatsapp.svg"; // WhatsApp icon
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useLanguage } from "@/contexts/LanguageContext";
