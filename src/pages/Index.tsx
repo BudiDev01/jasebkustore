@@ -247,6 +247,71 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Example Websites Section */}
+      <section id="examples" className="py-20 bg-card/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <Badge className="bg-gold/10 text-gold border-gold/20 mb-3">
+              {language === "id" ? "Contoh Website" : "Website Examples"}
+            </Badge>
+            <h2 className="text-3xl sm:text-4xl font-black text-foreground mb-3">
+              {language === "id" ? "Lihat Contoh Website Kami" : "See Our Website Examples"}
+            </h2>
+            <p className="text-muted-foreground max-w-xl mx-auto">
+              {language === "id"
+                ? "Berikut beberapa contoh website yang sudah kami buat. Anda bisa request sesuai kebutuhan!"
+                : "Here are some websites we've built. You can request one tailored to your needs!"}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { title: "Landing Page Bisnis", titleEn: "Business Landing Page", desc: "Website profil bisnis modern & responsif", descEn: "Modern & responsive business profile site" },
+              { title: "Toko Online", titleEn: "Online Store", desc: "E-commerce lengkap dengan keranjang & checkout", descEn: "Full e-commerce with cart & checkout" },
+              { title: "Portfolio Pribadi", titleEn: "Personal Portfolio", desc: "Tampilkan karya & skill profesional Anda", descEn: "Showcase your work & professional skills" },
+              { title: "Company Profile", titleEn: "Company Profile", desc: "Website perusahaan elegan & informatif", descEn: "Elegant & informative corporate website" },
+              { title: "Blog & Media", titleEn: "Blog & Media", desc: "Platform konten dengan CMS yang mudah", descEn: "Content platform with easy CMS" },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="group rounded-xl border border-border bg-card overflow-hidden shadow-card hover:shadow-navy hover:-translate-y-1 transition-all duration-300"
+              >
+                {/* Video placeholder */}
+                <div className="aspect-video bg-muted/30 flex items-center justify-center relative overflow-hidden">
+                  <div className="absolute inset-0 gradient-hero opacity-80" />
+                  <div className="relative text-center z-10">
+                    <span className="text-4xl mb-2 block">🎬</span>
+                    <p className="text-white/60 text-xs">{language === "id" ? "Video segera hadir" : "Video coming soon"}</p>
+                  </div>
+                </div>
+                {/* Info */}
+                <div className="p-4">
+                  <h3 className="font-semibold text-foreground text-sm mb-1 group-hover:text-gold transition-colors">
+                    {language === "id" ? item.title : item.titleEn}
+                  </h3>
+                  <p className="text-xs text-muted-foreground mb-3">
+                    {language === "id" ? item.desc : item.descEn}
+                  </p>
+                  <a
+                    href={`https://wa.me/628157088769?text=${encodeURIComponent(
+                      language === "id"
+                        ? `Halo, saya tertarik request website "${item.title}". Bisa info lebih lanjut?`
+                        : `Hi, I'm interested in requesting a "${item.titleEn}" website. Can you share more info?`
+                    )}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md gradient-gold text-primary-foreground text-xs font-semibold shadow-gold hover:opacity-90 transition-opacity"
+                  >
+                    <img src={whatsappIcon} alt="WhatsApp" className="w-3.5 h-3.5" />
+                    {language === "id" ? "Request Sekarang" : "Request Now"}
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <SoundBoard />
       <VideoSection />
       <MusicPlayer />
