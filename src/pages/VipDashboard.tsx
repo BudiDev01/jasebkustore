@@ -224,8 +224,18 @@ const VipDashboard = () => {
             </TabsList>
 
             {/* Analytics Tab */}
-            <TabsContent value="analytics">
-              <Card className="bg-white/5 border-white/10 backdrop-blur-sm max-w-sm">
+            <TabsContent value="analytics" className="space-y-4">
+              <Card
+                className="bg-white/5 border-white/10 backdrop-blur-sm max-w-sm cursor-pointer hover:border-gold/40 transition-colors"
+                onClick={async () => {
+                  if (showAllUsers) { setShowAllUsers(false); return; }
+                  setLoadingUsers(true);
+                  const { data } = await supabase.rpc("admin_search_users", { search_term: "" });
+                  setAllUsers((data as { user_id: string; email: string; created_at: string }[]) ?? []);
+                  setShowAllUsers(true);
+                  setLoadingUsers(false);
+                }}
+              >
                 <CardHeader className="pb-2">
                   <CardTitle className="text-sm font-medium text-white/60 flex items-center gap-2">
                     <Users className="w-4 h-4 text-gold" />
@@ -234,8 +244,27 @@ const VipDashboard = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="text-4xl font-black text-gold">{totalUsers.toLocaleString()}</div>
+                  <p className="text-white/40 text-xs mt-1">{loadingUsers ? t.loading : (showAllUsers ? "▲ Tutup daftar" : "▼ Klik untuk lihat semua")}</p>
                 </CardContent>
               </Card>
+
+              {showAllUsers && allUsers.length > 0 && (
+                <div className="space-y-2">
+                  {allUsers.map((u) => (
+                    <Card key={u.user_id} className="bg-white/5 border-white/10">
+                      <CardContent className="p-4 flex items-center justify-between">
+                        <div>
+                          <p className="text-gold font-medium text-sm">{u.email}</p>
+                          <p className="text-white/50 text-xs">
+                            {t.totalUsers}: {formatDate(u.created_at)}
+                          </p>
+                        </div>
+                        <p className="text-white/30 text-xs font-mono">{u.user_id.slice(0, 8)}</p>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              )}
             </TabsContent>
 
             {/* User Search Tab */}
