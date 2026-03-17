@@ -32,6 +32,7 @@ const Footer = () => {
               <li><a href="#products" className="text-sm text-muted-foreground hover:text-gold transition-colors">{t.products}</a></li>
               <li><Link to="/dashboard" className="text-sm text-muted-foreground hover:text-gold transition-colors">{t.dashboard}</Link></li>
               <li><Link to="/vip" className="text-sm text-muted-foreground hover:text-gold transition-colors">VIP</Link></li>
+              <li><a href="https://wa.me/6281570887690?text=Halo%20JasebKu,%20saya%20tertarik%20dengan%20layanan%20Domain%20dan%20Hosting" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-gold transition-colors">Domain & Hosting</a></li>
             </ul>
           </div>
         </div>
