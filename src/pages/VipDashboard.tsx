@@ -86,6 +86,7 @@ const VipDashboard = () => {
   const [allUsers, setAllUsers] = useState<{ user_id: string; email: string; created_at: string }[]>([]);
   const [showAllUsers, setShowAllUsers] = useState(false);
   const [loadingUsers, setLoadingUsers] = useState(false);
+  const [deletingId, setDeletingId] = useState<string | null>(null);
   const [topups, setTopups] = useState<TopUpRecord[]>([]);
   const [loading, setLoading] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
