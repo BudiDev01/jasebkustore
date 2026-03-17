@@ -97,7 +97,7 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="relative pt-16 overflow-hidden">
-        <div className="gradient-hero min-h-[88vh] flex items-center relative">
+        <div className="bg-gradient-to-br from-background via-secondary to-background min-h-[88vh] flex items-center relative">
           {/* Background grid */}
           <div
             className="absolute inset-0 opacity-[0.04]"
