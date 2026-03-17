@@ -120,9 +120,9 @@ const TopUp = () => {
                     type="number"
                     value={customAmount}
                     onChange={(e) => { setCustomAmount(e.target.value); setAmount(""); }}
-                    min={1000}
+                    min={5000}
                     className="mt-1 bg-white/5 border-white/20 text-white placeholder:text-white/30 focus:border-gold"
-                    placeholder="Minimal Rp 1.000"
+                    placeholder="Minimal Rp 5.000"
                   />
                 </div>
 
