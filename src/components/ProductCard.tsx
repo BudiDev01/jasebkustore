@@ -7,6 +7,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { useToast } from "@/hooks/use-toast";
 import { Product } from "@/data/products";
+import { supabase } from "@/integrations/supabase/client";
 import whatsappIcon from "@/assets/whatsapp.svg";
 import { speak } from "@/lib/speak";
 import confetti from "canvas-confetti";
