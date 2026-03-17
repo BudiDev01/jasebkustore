@@ -279,10 +279,12 @@ const Index = () => {
                   <video
                     src={item.video}
                     className="w-full h-full object-cover"
+                    controls
                     muted
                     loop
                     playsInline
                     autoPlay
+                    preload="metadata"
                   />
                 </div>
                 {/* Info */}
