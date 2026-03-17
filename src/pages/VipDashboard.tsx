@@ -270,13 +270,24 @@ const VipDashboard = () => {
                   {allUsers.map((u) => (
                     <Card key={u.user_id} className="bg-white/5 border-white/10">
                       <CardContent className="p-4 flex items-center justify-between">
-                        <div>
+                        <div className="min-w-0 flex-1">
                           <p className="text-gold font-medium text-sm">{u.email}</p>
                           <p className="text-white/50 text-xs">
                             {t.totalUsers}: {formatDate(u.created_at)}
                           </p>
                         </div>
-                        <p className="text-white/30 text-xs font-mono">{u.user_id.slice(0, 8)}</p>
+                        <div className="flex items-center gap-2 shrink-0">
+                          <p className="text-white/30 text-xs font-mono">{u.user_id.slice(0, 8)}</p>
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            onClick={(e) => { e.stopPropagation(); handleDeleteUser(u.user_id, u.email); }}
+                            disabled={deletingId === u.user_id}
+                            className="border-red-500/30 text-red-400 hover:bg-red-500/10 gap-1 h-7 px-2"
+                          >
+                            {deletingId === u.user_id ? <Loader2 className="w-3 h-3 animate-spin" /> : <Trash2 className="w-3 h-3" />}
+                          </Button>
+                        </div>
                       </CardContent>
                     </Card>
                   ))}
