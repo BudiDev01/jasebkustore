@@ -33,9 +33,7 @@ const Index = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
 
-  const [theme, setTheme] = useState<"light" | "dark">(() => {
-    return (localStorage.getItem("theme") as "light" | "dark") || "dark";
-  });
+  const [theme] = useState<"light" | "dark">("light");
   const [activeCategory, setActiveCategory] = useState("all");
   const touchedProducts = useRef<Set<string>>(new Set());
   const confettiFired = useRef(false);
