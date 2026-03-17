@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Moon, Sun, Globe, Menu, X, ShoppingBag, Wallet, History } from "lucide-react";
+import { Globe, Menu, X, ShoppingBag } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { useProfile } from "@/hooks/useProfile";
@@ -105,10 +105,6 @@ const Navbar = ({ theme, toggleTheme }: NavbarProps) => {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            {/* Theme Toggle */}
-            <Button variant="ghost" size="icon" className="h-8 w-8" onClick={toggleTheme}>
-              {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-            </Button>
 
             {/* Auth */}
             <div className="hidden md:flex items-center gap-2">
