@@ -63,6 +63,8 @@ const labels: Record<Lang, Record<string, string>> = {
     success: "Berhasil",
     cancelled: "Ditolak",
     waiting: "Menunggu",
+    searchUsers: "Cari Pengguna",
+    searchUsersDesc: "Cari pengguna berdasarkan alamat email",
   },
 };
 

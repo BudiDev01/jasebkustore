@@ -44,11 +44,24 @@ const ProductCard = ({ product, onTouch }: ProductCardProps) => {
   const formatPrice = (price: number) =>
     new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR", minimumFractionDigits: 0 }).format(price);
 
-  const handleBuyClick = () => {
+  const handleBuyClick = async () => {
     if (!user) {
-      toast({ title: "Please register first", description: "You need an account to make a purchase.", variant: "destructive" });
+      toast({ title: language === "id" ? "Silakan daftar dulu" : "Please register first", description: language === "id" ? "Anda butuh akun untuk membeli." : "You need an account to make a purchase.", variant: "destructive" });
       navigate("/register");
       return;
+    }
+    // Check balance before purchase
+    if (!product.price_hidden) {
+      const { data: balance } = await supabase.rpc("get_user_balance", { uid: user.id });
+      if ((balance ?? 0) < product.price) {
+        toast({
+          title: language === "id" ? "Saldo tidak cukup" : "Insufficient balance",
+          description: language === "id" ? "Silakan top up terlebih dahulu." : "Please top up your balance first.",
+          variant: "destructive",
+        });
+        navigate("/topup");
+        return;
+      }
     }
     if (product.price_hidden) {
       setShowWa(true);
