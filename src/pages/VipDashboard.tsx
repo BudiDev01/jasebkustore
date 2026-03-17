@@ -231,6 +231,15 @@ const VipDashboard = () => {
               </Card>
             </TabsContent>
 
+            {/* User Search Tab */}
+            <TabsContent value="search">
+              <div className="mb-6">
+                <h1 className="text-3xl font-black text-white mb-1">{t.searchUsers}</h1>
+                <p className="text-white/50">{t.searchUsersDesc}</p>
+              </div>
+              <UserSearch lang={lang} />
+            </TabsContent>
+
             {/* Top Up Management Tab */}
             <TabsContent value="topups">
               <div className="flex items-center justify-between mb-6">
