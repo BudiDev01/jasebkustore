@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Moon, Sun, Globe, Menu, X, ShoppingBag, Wallet, History } from "lucide-react";
+import { Globe, Menu, X, ShoppingBag } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { useProfile } from "@/hooks/useProfile";
