@@ -145,6 +145,22 @@ const VipDashboard = () => {
     }
   };
 
+  const handleDeleteUser = async (targetUserId: string, email: string) => {
+    if (!confirm(`Hapus user ${email}? Data user akan dihapus permanen.`)) return;
+    setDeletingId(targetUserId);
+    const { data, error } = await supabase.functions.invoke("delete-user", {
+      body: { target_user_id: targetUserId },
+    });
+    setDeletingId(null);
+    if (error || data?.error) {
+      toast({ title: t.error, description: error?.message || data?.error, variant: "destructive" });
+    } else {
+      toast({ title: t.updated, description: `User ${email} berhasil dihapus.` });
+      setAllUsers((prev) => prev.filter((u) => u.user_id !== targetUserId));
+      setTotalUsers((prev) => prev - 1);
+    }
+  };
+
   const handleLogout = async () => { await signOut(); navigate("/vip"); };
 
   const formatPrice = (price: number) =>
