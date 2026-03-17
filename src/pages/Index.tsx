@@ -266,23 +266,26 @@ const Index = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { title: "Landing Page Bisnis", titleEn: "Business Landing Page", desc: "Website profil bisnis modern & responsif", descEn: "Modern & responsive business profile site" },
-              { title: "Toko Online", titleEn: "Online Store", desc: "E-commerce lengkap dengan keranjang & checkout", descEn: "Full e-commerce with cart & checkout" },
-              { title: "Portfolio Pribadi", titleEn: "Personal Portfolio", desc: "Tampilkan karya & skill profesional Anda", descEn: "Showcase your work & professional skills" },
-              { title: "Company Profile", titleEn: "Company Profile", desc: "Website perusahaan elegan & informatif", descEn: "Elegant & informative corporate website" },
-              { title: "Blog & Media", titleEn: "Blog & Media", desc: "Platform konten dengan CMS yang mudah", descEn: "Content platform with easy CMS" },
+              { title: "Landing Page Bisnis", titleEn: "Business Landing Page", desc: "Website profil bisnis modern & responsif", descEn: "Modern & responsive business profile site", video: "/__l5e/assets-v1/396b1893-b56c-4dd5-982a-f3784a1736cd/example-landing-page.mp4" },
+              { title: "Toko Online", titleEn: "Online Store", desc: "E-commerce lengkap dengan keranjang & checkout", descEn: "Full e-commerce with cart & checkout", video: "/__l5e/assets-v1/c1ef93ed-ffac-49c0-b8f6-d8edbf5f2971/example-online-store.mp4" },
+              { title: "Portfolio Pribadi", titleEn: "Personal Portfolio", desc: "Tampilkan karya & skill profesional Anda", descEn: "Showcase your work & professional skills", video: "/__l5e/assets-v1/0ba42fc1-0c3a-4900-8110-95f0ea38ff05/example-portfolio.mp4" },
+              { title: "Company Profile", titleEn: "Company Profile", desc: "Website perusahaan elegan & informatif", descEn: "Elegant & informative corporate website", video: "/__l5e/assets-v1/08b7a54b-a84a-46ca-bbc3-2d5de322e427/example-company-profile.mp4" },
+              { title: "Blog & Media", titleEn: "Blog & Media", desc: "Platform konten dengan CMS yang mudah", descEn: "Content platform with easy CMS", video: "/__l5e/assets-v1/ebeb4c5e-81af-4fd3-9fde-b84f409c4520/example-blog.mp4" },
             ].map((item, i) => (
               <div
                 key={i}
                 className="group rounded-xl border border-border bg-card overflow-hidden shadow-card hover:shadow-navy hover:-translate-y-1 transition-all duration-300"
               >
-                {/* Video placeholder */}
-                <div className="aspect-video bg-muted/30 flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute inset-0 gradient-hero opacity-80" />
-                  <div className="relative text-center z-10">
-                    <span className="text-4xl mb-2 block">🎬</span>
-                    <p className="text-white/60 text-xs">{language === "id" ? "Video segera hadir" : "Video coming soon"}</p>
-                  </div>
+                {/* Video */}
+                <div className="aspect-video bg-muted/30 relative overflow-hidden">
+                  <video
+                    src={item.video}
+                    className="w-full h-full object-cover"
+                    muted
+                    loop
+                    playsInline
+                    autoPlay
+                  />
                 </div>
                 {/* Info */}
                 <div className="p-4">
