@@ -293,8 +293,8 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "tg-006",
-    name: "Telegram Number 6",
-    name_id: "Nomor Telegram 6",
+    name: "Telegram Number ID 6",
+    name_id: "Nomor Telegram ID 6",
     description: "Virtual number for Telegram. Available for various countries worldwide.",
     description_id: "Nomor virtual untuk Telegram. Tersedia untuk berbagai negara di seluruh dunia.",
     price: 0,
