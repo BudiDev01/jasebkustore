@@ -15,10 +15,10 @@ export interface Product {
 export const PRODUCTS: Product[] = [
   {
     id: "wa-id",
-    name: "WhatsApp Number Indonesia",
-    name_id: "Nomor WhatsApp Indonesia",
-    description: "Indonesian WhatsApp number ready for use.",
-    description_id: "Nomor WhatsApp Indonesia siap pakai.",
+    name: "WhatsApp Number Indonesia Old",
+    name_id: "Nomor WhatsApp Indonesia Old",
+    description: "Indonesian old WhatsApp number ready for use.",
+    description_id: "Nomor WhatsApp Indonesia Old siap pakai.",
     price: 10000,
     category: "whatsapp",
     badge: "Popular",
