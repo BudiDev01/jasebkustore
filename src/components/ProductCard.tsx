@@ -115,10 +115,12 @@ const ProductCard = ({ product, onTouch }: ProductCardProps) => {
           {name}
         </h3>
 
-        {/* Description */}
-        <p className="text-xs text-muted-foreground leading-relaxed mb-4 line-clamp-2">
-          {description}
-        </p>
+        {/* Description - hidden for whatsapp/telegram */}
+        {product.category !== "whatsapp" && product.category !== "telegram" && (
+          <p className="text-xs text-muted-foreground leading-relaxed mb-4 line-clamp-2">
+            {description}
+          </p>
+        )}
 
         {/* Price & CTA */}
         <div className="flex items-center justify-between">
