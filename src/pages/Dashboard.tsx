@@ -31,6 +31,7 @@ const Dashboard = () => {
   );
   const [orders, setOrders] = useState<Order[]>([]);
   const [ordersLoading, setOrdersLoading] = useState(true);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", theme === "dark");
@@ -45,6 +46,9 @@ const Dashboard = () => {
 
   useEffect(() => {
     if (user) {
+      supabase.rpc("has_role", { _user_id: user.id, _role: "admin" }).then(({ data }) => {
+        setIsAdmin(!!data);
+      });
       supabase
         .from("orders")
         .select("*")
@@ -112,9 +116,11 @@ const Dashboard = () => {
             <TabsTrigger value="profile" className="gap-2 data-[state=active]:bg-gold data-[state=active]:text-primary-foreground">
               <User className="w-4 h-4" /> {t.profileTab}
             </TabsTrigger>
-            <TabsTrigger value="orders" className="gap-2 data-[state=active]:bg-gold data-[state=active]:text-primary-foreground">
-              <Package className="w-4 h-4" /> {t.ordersTab}
-            </TabsTrigger>
+            {!isAdmin && (
+              <TabsTrigger value="orders" className="gap-2 data-[state=active]:bg-gold data-[state=active]:text-primary-foreground">
+                <Package className="w-4 h-4" /> {t.ordersTab}
+              </TabsTrigger>
+            )}
           </TabsList>
 
           {/* Profile Tab */}
@@ -140,19 +146,22 @@ const Dashboard = () => {
                   <div className="text-xs text-muted-foreground mb-1">Email</div>
                   <div className="text-sm font-medium text-foreground">{user?.email}</div>
                 </div>
-                <div className="rounded-lg border border-border bg-muted/30 p-4">
-                  <div className="text-xs text-muted-foreground mb-1">Total Orders</div>
-                  <div className="text-sm font-medium text-foreground flex items-center gap-2">
-                    <ShoppingBag className="w-4 h-4 text-gold" />
-                    {orders.length} orders
+                {!isAdmin && (
+                  <div className="rounded-lg border border-border bg-muted/30 p-4">
+                    <div className="text-xs text-muted-foreground mb-1">Total Orders</div>
+                    <div className="text-sm font-medium text-foreground flex items-center gap-2">
+                      <ShoppingBag className="w-4 h-4 text-gold" />
+                      {orders.length} orders
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
 
             </div>
           </TabsContent>
 
           {/* Orders Tab */}
+          {!isAdmin && (
           <TabsContent value="orders">
             <div className="rounded-xl border border-border bg-card shadow-card overflow-hidden">
               {ordersLoading ? (
@@ -190,6 +199,7 @@ const Dashboard = () => {
               )}
             </div>
           </TabsContent>
+          )}
         </Tabs>
       </div>
 
