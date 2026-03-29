@@ -13,6 +13,7 @@ import Dashboard from "./pages/Dashboard";
 import VipLogin from "./pages/VipLogin";
 import VipDashboard from "./pages/VipDashboard";
 import VipForgotPassword from "./pages/VipForgotPassword";
+import AdminUserView from "./pages/AdminUserView";
 import ForgotPassword from "./pages/ForgotPassword";
 import TopUp from "./pages/TopUp";
 import TopUpSuccess from "./pages/TopUpSuccess";
@@ -43,6 +44,7 @@ const App = () => (
               <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="/vip" element={<VipLogin />} />
               <Route path="/vip/dashboard" element={<VipDashboard />} />
+              <Route path="/vip/user/:userId" element={<AdminUserView />} />
               <Route path="/vip/forgot-password" element={<VipForgotPassword />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
