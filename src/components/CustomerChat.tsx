@@ -83,9 +83,10 @@ const CustomerChat = () => {
       {!open && (
         <button
           onClick={() => setOpen(true)}
-          className="fixed bottom-24 right-6 z-50 w-14 h-14 rounded-full bg-gold text-primary-foreground shadow-gold flex items-center justify-center hover:scale-105 transition-transform"
+          className="fixed bottom-24 right-6 z-50 flex items-center gap-2 rounded-full bg-gold text-primary-foreground shadow-gold px-4 h-14 hover:scale-105 transition-transform"
         >
           <MessageCircle className="w-6 h-6" />
+          <span className="font-bold text-sm">Online Chat</span>
           {unread > 0 && (
             <span className="absolute -top-1 -right-1 bg-destructive text-destructive-foreground text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center">
               {unread}

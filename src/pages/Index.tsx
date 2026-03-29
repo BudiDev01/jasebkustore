@@ -12,6 +12,7 @@ import Footer from "@/components/Footer";
 import MusicPlayer from "@/components/MusicPlayer";
 import VideoSection from "@/components/VideoSection";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import CustomerChat from "@/components/CustomerChat";
 import SoundBoard from "@/components/SoundBoard";
 import { PRODUCTS } from "@/data/products";
 import { supabase } from "@/integrations/supabase/client";
