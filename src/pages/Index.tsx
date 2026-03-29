@@ -251,6 +251,7 @@ const Index = () => {
       <MusicPlayer />
       <Footer />
       <WhatsAppButton />
+      <CustomerChat />
     </div>
   );
 };
