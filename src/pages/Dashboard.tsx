@@ -146,13 +146,15 @@ const Dashboard = () => {
                   <div className="text-xs text-muted-foreground mb-1">Email</div>
                   <div className="text-sm font-medium text-foreground">{user?.email}</div>
                 </div>
-                <div className="rounded-lg border border-border bg-muted/30 p-4">
-                  <div className="text-xs text-muted-foreground mb-1">Total Orders</div>
-                  <div className="text-sm font-medium text-foreground flex items-center gap-2">
-                    <ShoppingBag className="w-4 h-4 text-gold" />
-                    {orders.length} orders
+                {!isAdmin && (
+                  <div className="rounded-lg border border-border bg-muted/30 p-4">
+                    <div className="text-xs text-muted-foreground mb-1">Total Orders</div>
+                    <div className="text-sm font-medium text-foreground flex items-center gap-2">
+                      <ShoppingBag className="w-4 h-4 text-gold" />
+                      {orders.length} orders
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
 
             </div>
