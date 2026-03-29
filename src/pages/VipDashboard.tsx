@@ -347,7 +347,7 @@ const VipDashboard = () => {
                             <p className="text-white/40 text-xs">
                               {formatDate(tu.created_at)} • {tu.method.toUpperCase()} • ID: {tu.id.slice(0, 8)}
                             </p>
-                            <p className="text-white/30 text-xs mt-0.5 truncate">{t.user}: {tu.user_id.slice(0, 12)}…</p>
+                            <p className="text-white/30 text-xs mt-0.5 truncate">{t.user}: {userEmailMap[tu.user_id] || tu.user_id.slice(0, 12) + "…"}</p>
                           </div>
                           {tu.status === "pending" && (
                             <div className="flex gap-2 shrink-0">
