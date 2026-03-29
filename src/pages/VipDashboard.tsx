@@ -120,7 +120,7 @@ const VipDashboard = () => {
 
   const loadAll = async () => {
     setLoading(true);
-    await Promise.all([loadUsers(), loadTopups()]);
+    await Promise.all([loadUsers(), loadTopups(), loadUserEmails()]);
     setLoading(false);
   };
 
