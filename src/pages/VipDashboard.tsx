@@ -218,6 +218,9 @@ const VipDashboard = () => {
                 EN
               </button>
             </div>
+            <Link to="/dashboard" className="text-white/50 hover:text-white text-sm flex items-center gap-1">
+              <Users className="w-3 h-3" /> {lang === "id" ? "Dashboard User" : "User Dashboard"}
+            </Link>
             <Link to="/" className="text-white/50 hover:text-white text-sm flex items-center gap-1">
               <ArrowLeft className="w-3 h-3" /> {t.store}
             </Link>
