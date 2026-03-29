@@ -242,15 +242,17 @@ const Login = () => {
             </form>
           )}
 
-          {/* Forgot password link */}
-          <p className="text-center text-white/40 text-sm mt-4">
-            <Link
-              to={isVip ? "/vip/forgot-password" : "/forgot-password"}
-              className="text-gold hover:underline font-medium"
-            >
-              {t.forgotPassword}
-            </Link>
-          </p>
+          {/* Forgot password link - VIP only */}
+          {isVip && (
+            <p className="text-center text-white/40 text-sm mt-4">
+              <Link
+                to="/vip/forgot-password"
+                className="text-gold hover:underline font-medium"
+              >
+                {t.forgotPassword}
+              </Link>
+            </p>
+          )}
 
           <p className="text-center text-white/40 text-sm mt-6">
             {isVip ? (
