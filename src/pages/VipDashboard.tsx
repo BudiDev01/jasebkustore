@@ -384,6 +384,11 @@ const VipDashboard = () => {
                 </div>
               )}
             </TabsContent>
+
+            {/* Chat Tab */}
+            <TabsContent value="chat">
+              <AdminChat lang={lang} />
+            </TabsContent>
           </Tabs>
         )}
 
