@@ -134,6 +134,15 @@ const VipDashboard = () => {
     setTopups(data ?? []);
   };
 
+  const loadUserEmails = async () => {
+    const { data } = await supabase.rpc("admin_search_users", { search_term: "" });
+    if (data) {
+      const map: Record<string, string> = {};
+      (data as { user_id: string; email: string }[]).forEach((u) => { map[u.user_id] = u.email; });
+      setUserEmailMap(map);
+    }
+  };
+
   const updateTopupStatus = async (id: string, status: "completed" | "cancelled") => {
     setUpdatingId(id);
     const { error } = await supabase.from("topups").update({ status, updated_at: new Date().toISOString() }).eq("id", id);
