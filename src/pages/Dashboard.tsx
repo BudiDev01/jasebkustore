@@ -11,6 +11,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import AvatarUpload from "@/components/AvatarUpload";
+import CustomerChat from "@/components/CustomerChat";
 
 interface Order {
   id: string;
@@ -203,6 +204,7 @@ const Dashboard = () => {
 
       <Footer />
       <WhatsAppButton />
+      <CustomerChat />
     </div>
   );
 };
