@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Send, MessageCircle, X, Loader2 } from "lucide-react";
+import { Send, MessageCircle, X, Loader2, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
@@ -100,9 +100,14 @@ const CustomerChat = () => {
         <div className="fixed bottom-24 right-6 z-50 w-80 sm:w-96 h-[28rem] bg-card border border-border rounded-2xl shadow-2xl flex flex-col overflow-hidden">
           {/* Header */}
           <div className="flex items-center justify-between px-4 py-3 bg-gold text-primary-foreground">
-            <span className="font-bold text-sm flex items-center gap-2">
-              <MessageCircle className="w-4 h-4" /> Chat Admin
-            </span>
+            <div className="flex items-center gap-2">
+              <button onClick={() => setOpen(false)} className="hover:opacity-80 transition-opacity">
+                <ArrowLeft className="w-4 h-4" />
+              </button>
+              <span className="font-bold text-sm flex items-center gap-2">
+                <MessageCircle className="w-4 h-4" /> Online Chat
+              </span>
+            </div>
             <button onClick={() => setOpen(false)}>
               <X className="w-4 h-4" />
             </button>
