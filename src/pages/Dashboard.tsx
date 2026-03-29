@@ -116,9 +116,11 @@ const Dashboard = () => {
             <TabsTrigger value="profile" className="gap-2 data-[state=active]:bg-gold data-[state=active]:text-primary-foreground">
               <User className="w-4 h-4" /> {t.profileTab}
             </TabsTrigger>
-            <TabsTrigger value="orders" className="gap-2 data-[state=active]:bg-gold data-[state=active]:text-primary-foreground">
-              <Package className="w-4 h-4" /> {t.ordersTab}
-            </TabsTrigger>
+            {!isAdmin && (
+              <TabsTrigger value="orders" className="gap-2 data-[state=active]:bg-gold data-[state=active]:text-primary-foreground">
+                <Package className="w-4 h-4" /> {t.ordersTab}
+              </TabsTrigger>
+            )}
           </TabsList>
 
           {/* Profile Tab */}
