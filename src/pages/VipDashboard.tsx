@@ -254,6 +254,9 @@ const VipDashboard = () => {
                   </span>
                 )}
               </TabsTrigger>
+              <TabsTrigger value="chat" className="data-[state=active]:bg-gold data-[state=active]:text-primary-foreground text-white/60">
+                <MessageCircle className="w-4 h-4 mr-1" /> {t.chat}
+              </TabsTrigger>
             </TabsList>
 
             {/* Analytics Tab */}
