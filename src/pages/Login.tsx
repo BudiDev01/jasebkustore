@@ -65,20 +65,8 @@ const Login = () => {
       return;
     }
 
-    setLoading(false);
+  setLoading(false);
     navigate("/vip/dashboard");
-  };
-
-  const handleGoogle = async () => {
-    setGoogleLoading(true);
-    const result = await lovable.auth.signInWithOAuth("google", {
-      redirect_uri: `${window.location.origin}/`,
-      extraParams: { prompt: "select_account" },
-    });
-    setGoogleLoading(false);
-    if (result?.error) {
-      toast({ title: "Error", description: String(result.error), variant: "destructive" });
-    }
   };
 
   const resetForm = () => {
