@@ -72,7 +72,9 @@ const CustomerChat = () => {
       is_admin: false,
     });
     setText("");
+    setMessages([]);
     setSending(false);
+    setOpen(false);
   };
 
   if (!user) return null;
