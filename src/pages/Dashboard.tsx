@@ -205,7 +205,7 @@ const Dashboard = () => {
 
       <Footer />
       <WhatsAppButton />
-      <CustomerChat />
+      {!isAdmin && <CustomerChat />}
     </div>
   );
 };
