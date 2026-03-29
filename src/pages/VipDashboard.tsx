@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { Crown, Users, LogOut, ArrowLeft, Wallet, CheckCircle, XCircle, Clock, Loader2, Search, Trash2, Eye } from "lucide-react";
+import { Crown, Users, LogOut, ArrowLeft, Wallet, CheckCircle, XCircle, Clock, Loader2, Search, Trash2, Eye, MessageCircle } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -8,6 +8,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { useToast } from "@/hooks/use-toast";
 import UserSearch from "@/components/vip/UserSearch";
+import AdminChat from "@/components/vip/AdminChat";
 
 type Lang = "en" | "id";
 
@@ -37,6 +38,7 @@ const labels: Record<Lang, Record<string, string>> = {
     cancelled: "Rejected",
     waiting: "Waiting",
     searchUsers: "Search Users",
+    chat: "Chat",
     searchUsersDesc: "Search users by email address",
   },
   id: {
@@ -64,6 +66,7 @@ const labels: Record<Lang, Record<string, string>> = {
     cancelled: "Ditolak",
     waiting: "Menunggu",
     searchUsers: "Cari Pengguna",
+    chat: "Chat",
     searchUsersDesc: "Cari pengguna berdasarkan alamat email",
   },
 };
@@ -251,6 +254,9 @@ const VipDashboard = () => {
                   </span>
                 )}
               </TabsTrigger>
+              <TabsTrigger value="chat" className="data-[state=active]:bg-gold data-[state=active]:text-primary-foreground text-white/60">
+                <MessageCircle className="w-4 h-4 mr-1" /> {t.chat}
+              </TabsTrigger>
             </TabsList>
 
             {/* Analytics Tab */}
@@ -377,6 +383,11 @@ const VipDashboard = () => {
                   ))}
                 </div>
               )}
+            </TabsContent>
+
+            {/* Chat Tab */}
+            <TabsContent value="chat">
+              <AdminChat lang={lang} />
             </TabsContent>
           </Tabs>
         )}
