@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { User, Package, LogOut, ShoppingBag, Clock, CheckCircle, AlertCircle, Wallet, History } from "lucide-react";
+import { User, Package, LogOut, ShoppingBag, Clock, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -149,15 +149,6 @@ const Dashboard = () => {
                 </div>
               </div>
 
-              {/* Quick actions */}
-              <div className="flex flex-wrap gap-3 mt-6">
-                <Button onClick={() => navigate("/topup")} className="gradient-gold text-primary-foreground hover:opacity-90 shadow-gold gap-2">
-                  <Wallet className="w-4 h-4" /> {t.topUp}
-                </Button>
-                <Button variant="outline" onClick={() => navigate("/topup/history")} className="gap-2">
-                  <History className="w-4 h-4" /> {t.topUpHistory}
-                </Button>
-              </div>
             </div>
           </TabsContent>
 
