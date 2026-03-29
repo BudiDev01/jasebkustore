@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { Crown, Users, LogOut, ArrowLeft, Wallet, CheckCircle, XCircle, Clock, Loader2, Search, Trash2, Eye, MessageCircle } from "lucide-react";
+import { Crown, Users, LogOut, ArrowLeft, Loader2, Search, Trash2, Eye, MessageCircle } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -18,25 +18,12 @@ const labels: Record<Lang, Record<string, string>> = {
     store: "Store",
     logout: "Logout",
     analytics: "Analytics",
-    topUp: "Top Up",
     totalUsers: "Total Users",
-    manageTopUp: "Manage Top Ups",
-    manageTopUpDesc: "Approve or reject top up requests from users",
-    refresh: "Refresh",
     refreshAll: "Refresh All",
-    noTopUps: "No top up requests yet.",
-    approve: "Approve",
-    reject: "Reject",
     updated: "Updated!",
-    approved: "Top up approved.",
-    rejected: "Top up rejected.",
     accessDenied: "Access Denied",
     loading: "Loading...",
     error: "Error",
-    user: "User",
-    success: "Success",
-    cancelled: "Rejected",
-    waiting: "Waiting",
     searchUsers: "Search Users",
     chat: "Chat",
     searchUsersDesc: "Search users by email address",
@@ -46,40 +33,18 @@ const labels: Record<Lang, Record<string, string>> = {
     store: "Toko",
     logout: "Keluar",
     analytics: "Analitik",
-    topUp: "Top Up",
     totalUsers: "Total Pengguna",
-    manageTopUp: "Kelola Top Up",
-    manageTopUpDesc: "Approve atau reject permintaan top up dari user",
-    refresh: "Segarkan",
     refreshAll: "Segarkan Semua",
-    noTopUps: "Belum ada permintaan top up.",
-    approve: "Setujui",
-    reject: "Tolak",
     updated: "Diperbarui!",
-    approved: "Top up disetujui.",
-    rejected: "Top up ditolak.",
     accessDenied: "Akses Ditolak",
     loading: "Memuat...",
     error: "Error",
-    user: "Pengguna",
-    success: "Berhasil",
-    cancelled: "Ditolak",
-    waiting: "Menunggu",
     searchUsers: "Cari Pengguna",
     chat: "Chat",
     searchUsersDesc: "Cari pengguna berdasarkan alamat email",
   },
 };
 
-interface TopUpRecord {
-  id: string;
-  user_id: string;
-  amount: number;
-  method: string;
-  status: string;
-  created_at: string;
-  notes: string | null;
-}
 
 const VipDashboard = () => {
   const navigate = useNavigate();
@@ -88,13 +53,10 @@ const VipDashboard = () => {
   const [totalUsers, setTotalUsers] = useState(0);
   const [allUsers, setAllUsers] = useState<{ user_id: string; email: string; created_at: string }[]>([]);
   const [showAllUsers, setShowAllUsers] = useState(false);
-  const [userEmailMap, setUserEmailMap] = useState<Record<string, string>>({});
   const [loadingUsers, setLoadingUsers] = useState(false);
   const [deletingId, setDeletingId] = useState<string | null>(null);
-  const [topups, setTopups] = useState<TopUpRecord[]>([]);
   const [loading, setLoading] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
-  const [updatingId, setUpdatingId] = useState<string | null>(null);
   const [lang, setLang] = useState<Lang>(() => (localStorage.getItem("vip-lang") as Lang) || "en");
 
   const t = labels[lang];
@@ -123,7 +85,7 @@ const VipDashboard = () => {
 
   const loadAll = async () => {
     setLoading(true);
-    await Promise.all([loadUsers(), loadTopups(), loadUserEmails()]);
+    await loadUsers();
     setLoading(false);
   };
 
@@ -132,31 +94,6 @@ const VipDashboard = () => {
     setTotalUsers(count ?? 0);
   };
 
-  const loadTopups = async () => {
-    const { data } = await supabase.from("topups").select("*").order("created_at", { ascending: false }).limit(50);
-    setTopups(data ?? []);
-  };
-
-  const loadUserEmails = async () => {
-    const { data } = await supabase.rpc("admin_search_users", { search_term: "" });
-    if (data) {
-      const map: Record<string, string> = {};
-      (data as { user_id: string; email: string }[]).forEach((u) => { map[u.user_id] = u.email; });
-      setUserEmailMap(map);
-    }
-  };
-
-  const updateTopupStatus = async (id: string, status: "completed" | "cancelled") => {
-    setUpdatingId(id);
-    const { error } = await supabase.from("topups").update({ status, updated_at: new Date().toISOString() }).eq("id", id);
-    setUpdatingId(null);
-    if (error) {
-      toast({ title: t.error, description: error.message, variant: "destructive" });
-    } else {
-      toast({ title: t.updated, description: status === "completed" ? t.approved : t.rejected });
-      await loadTopups();
-    }
-  };
 
   const handleDeleteUser = async (targetUserId: string, email: string) => {
     if (!confirm(`Hapus user ${email}? Data user akan dihapus permanen.`)) return;
@@ -176,21 +113,10 @@ const VipDashboard = () => {
 
   const handleLogout = async () => { await signOut(); navigate("/vip"); };
 
-  const formatPrice = (price: number) =>
-    new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR", minimumFractionDigits: 0 }).format(price);
-
   const formatDate = (d: string) =>
     new Date(d).toLocaleString("id-ID", { day: "numeric", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" });
 
-  const StatusBadge = ({ status }: { status: string }) => {
-    if (status === "completed") return <span className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-400"><CheckCircle className="w-3 h-3" /> {t.success}</span>;
-    if (status === "cancelled") return <span className="inline-flex items-center gap-1 text-xs font-semibold text-red-400"><XCircle className="w-3 h-3" /> {t.cancelled}</span>;
-    return <span className="inline-flex items-center gap-1 text-xs font-semibold text-gold"><Clock className="w-3 h-3" /> {t.waiting}</span>;
-  };
-
   if (!isAdmin) return null;
-
-  const pendingTopups = topups.filter((tu) => tu.status === "pending");
 
   return (
     <div className="min-h-screen gradient-hero">
@@ -238,24 +164,16 @@ const VipDashboard = () => {
         {loading ? (
           <div className="text-white/50 text-center py-20">{t.loading}</div>
         ) : (
-          <Tabs defaultValue="analytics">
+          <Tabs defaultValue="chat">
             <TabsList className="mb-6 bg-white/5 border border-white/10">
+              <TabsTrigger value="chat" className="data-[state=active]:bg-gold data-[state=active]:text-primary-foreground text-white/60">
+                <MessageCircle className="w-4 h-4 mr-1" /> {t.chat}
+              </TabsTrigger>
               <TabsTrigger value="analytics" className="data-[state=active]:bg-gold data-[state=active]:text-primary-foreground text-white/60">
                 <Users className="w-4 h-4 mr-1" /> {t.analytics}
               </TabsTrigger>
-            <TabsTrigger value="search" className="data-[state=active]:bg-gold data-[state=active]:text-primary-foreground text-white/60">
+              <TabsTrigger value="search" className="data-[state=active]:bg-gold data-[state=active]:text-primary-foreground text-white/60">
                 <Search className="w-4 h-4 mr-1" /> {t.searchUsers}
-              </TabsTrigger>
-              <TabsTrigger value="topups" className="data-[state=active]:bg-gold data-[state=active]:text-primary-foreground text-white/60">
-                <Wallet className="w-4 h-4 mr-1" /> {t.topUp}
-                {pendingTopups.length > 0 && (
-                  <span className="ml-1.5 bg-red-500 text-white text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center">
-                    {pendingTopups.length}
-                  </span>
-                )}
-              </TabsTrigger>
-              <TabsTrigger value="chat" className="data-[state=active]:bg-gold data-[state=active]:text-primary-foreground text-white/60">
-                <MessageCircle className="w-4 h-4 mr-1" /> {t.chat}
               </TabsTrigger>
             </TabsList>
 
@@ -329,60 +247,6 @@ const VipDashboard = () => {
                 <p className="text-white/50">{t.searchUsersDesc}</p>
               </div>
               <UserSearch lang={lang} />
-            </TabsContent>
-
-            {/* Top Up Management Tab */}
-            <TabsContent value="topups">
-              <div className="flex items-center justify-between mb-6">
-                <div>
-                  <h1 className="text-3xl font-black text-white mb-1">{t.manageTopUp}</h1>
-                  <p className="text-white/50">{t.manageTopUpDesc}</p>
-                </div>
-                <Button onClick={loadTopups} variant="outline" size="sm" className="border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/10 font-semibold">
-                  {t.refresh}
-                </Button>
-              </div>
-
-              {topups.length === 0 ? (
-                <Card className="bg-white/5 border-white/10">
-                  <CardContent className="py-12 text-center">
-                    <Wallet className="w-12 h-12 text-white/20 mx-auto mb-3" />
-                    <p className="text-white/40">{t.noTopUps}</p>
-                  </CardContent>
-                </Card>
-              ) : (
-                <div className="space-y-3">
-                  {topups.map((tu) => (
-                    <Card key={tu.id} className="bg-white/5 border-white/10">
-                      <CardContent className="p-4">
-                        <div className="flex flex-col sm:flex-row sm:items-center gap-3">
-                          <div className="flex-1 min-w-0">
-                            <div className="flex items-center gap-2 mb-1">
-                              <span className="text-gold font-black text-lg">{formatPrice(tu.amount)}</span>
-                              <StatusBadge status={tu.status} />
-                            </div>
-                            <p className="text-white/40 text-xs">
-                              {formatDate(tu.created_at)} • {tu.method.toUpperCase()} • ID: {tu.id.slice(0, 8)}
-                            </p>
-                            <p className="text-white/30 text-xs mt-0.5 truncate">{t.user}: {userEmailMap[tu.user_id] || tu.user_id.slice(0, 12) + "…"}</p>
-                          </div>
-                          {tu.status === "pending" && (
-                            <div className="flex gap-2 shrink-0">
-                              <Button size="sm" onClick={() => updateTopupStatus(tu.id, "completed")} disabled={updatingId === tu.id} className="bg-emerald-600 hover:bg-emerald-700 text-white gap-1">
-                                {updatingId === tu.id ? <Loader2 className="w-3 h-3 animate-spin" /> : <CheckCircle className="w-3 h-3" />}
-                                {t.approve}
-                              </Button>
-                              <Button size="sm" variant="outline" onClick={() => updateTopupStatus(tu.id, "cancelled")} disabled={updatingId === tu.id} className="border-red-500/30 text-red-400 hover:bg-red-500/10 gap-1">
-                                <XCircle className="w-3 h-3" /> {t.reject}
-                              </Button>
-                            </div>
-                          )}
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              )}
             </TabsContent>
 
             {/* Chat Tab */}
