@@ -161,6 +161,7 @@ const Dashboard = () => {
           </TabsContent>
 
           {/* Orders Tab */}
+          {!isAdmin && (
           <TabsContent value="orders">
             <div className="rounded-xl border border-border bg-card shadow-card overflow-hidden">
               {ordersLoading ? (
@@ -198,6 +199,7 @@ const Dashboard = () => {
               )}
             </div>
           </TabsContent>
+          )}
         </Tabs>
       </div>
 
