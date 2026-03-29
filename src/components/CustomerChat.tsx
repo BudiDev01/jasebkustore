@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Send, MessageCircle, X, Loader2 } from "lucide-react";
+import { Send, MessageCircle, X, Loader2, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
