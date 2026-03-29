@@ -44,6 +44,7 @@ const App = () => (
               <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="/vip" element={<VipLogin />} />
               <Route path="/vip/dashboard" element={<VipDashboard />} />
+              <Route path="/vip/user/:userId" element={<AdminUserView />} />
               <Route path="/vip/forgot-password" element={<VipForgotPassword />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
