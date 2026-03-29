@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { Crown, Users, LogOut, ArrowLeft, Wallet, CheckCircle, XCircle, Clock, Loader2, Search, Trash2 } from "lucide-react";
+import { Crown, Users, LogOut, ArrowLeft, Wallet, CheckCircle, XCircle, Clock, Loader2, Search, Trash2, Eye } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -291,6 +291,14 @@ const VipDashboard = () => {
                         </div>
                         <div className="flex items-center gap-2 shrink-0">
                           <p className="text-white/30 text-xs font-mono">{u.user_id.slice(0, 8)}</p>
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            onClick={(e) => { e.stopPropagation(); navigate(`/vip/user/${u.user_id}`); }}
+                            className="border-gold/30 text-gold hover:bg-gold/10 gap-1 h-7 px-2"
+                          >
+                            <Eye className="w-3 h-3" />
+                          </Button>
                           <Button
                             size="sm"
                             variant="outline"
