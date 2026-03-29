@@ -21,31 +21,7 @@ const CustomerChat = () => {
   const [unread, setUnread] = useState(0);
   const bottomRef = useRef<HTMLDivElement>(null);
 
-  const loadMessages = async () => {
-    if (!user) return;
-    const { data } = await supabase
-      .from("messages")
-      .select("*")
-      .or(`sender_id.eq.${user.id},receiver_id.eq.${user.id}`)
-      .order("created_at", { ascending: true });
-    setMessages((data as Message[]) ?? []);
-    const unreadCount = (data ?? []).filter((m: any) => m.is_admin && !m.is_read && m.receiver_id === user.id).length;
-    setUnread(unreadCount);
-  };
-
-  useEffect(() => {
-    if (!user) return;
-    loadMessages();
-
-    const channel = supabase
-      .channel("customer-messages")
-      .on("postgres_changes", { event: "*", schema: "public", table: "messages" }, () => {
-        loadMessages();
-      })
-      .subscribe();
-
-    return () => { supabase.removeChannel(channel); };
-  }, [user]);
+  // No message history loaded - chat always starts empty for customers
 
   useEffect(() => {
     if (open) {
