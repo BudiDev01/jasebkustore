@@ -23,15 +23,15 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const [googleLoading, setGoogleLoading] = useState(false);
 
-  const handleRegularLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
-    setLoading(false);
-    if (error) {
-      toast({ title: "Error", description: error.message, variant: "destructive" });
-    } else {
-      navigate("/");
+  const handleRegularLogin = async () => {
+    setGoogleLoading(true);
+    const result = await lovable.auth.signInWithOAuth("google", {
+      redirect_uri: `${window.location.origin}/`,
+      extraParams: { prompt: "select_account" },
+    });
+    setGoogleLoading(false);
+    if (result?.error) {
+      toast({ title: "Error", description: String(result.error), variant: "destructive" });
     }
   };
 
