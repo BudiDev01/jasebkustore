@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { Crown, Users, LogOut, ArrowLeft, Wallet, CheckCircle, XCircle, Clock, Loader2, Search, Trash2, Eye } from "lucide-react";
+import { Crown, Users, LogOut, ArrowLeft, Wallet, CheckCircle, XCircle, Clock, Loader2, Search, Trash2, Eye, MessageCircle } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -38,6 +38,7 @@ const labels: Record<Lang, Record<string, string>> = {
     cancelled: "Rejected",
     waiting: "Waiting",
     searchUsers: "Search Users",
+    chat: "Chat",
     searchUsersDesc: "Search users by email address",
   },
   id: {
@@ -65,6 +66,7 @@ const labels: Record<Lang, Record<string, string>> = {
     cancelled: "Ditolak",
     waiting: "Menunggu",
     searchUsers: "Cari Pengguna",
+    chat: "Chat",
     searchUsersDesc: "Cari pengguna berdasarkan alamat email",
   },
 };
