@@ -85,6 +85,7 @@ const VipDashboard = () => {
   const [totalUsers, setTotalUsers] = useState(0);
   const [allUsers, setAllUsers] = useState<{ user_id: string; email: string; created_at: string }[]>([]);
   const [showAllUsers, setShowAllUsers] = useState(false);
+  const [userEmailMap, setUserEmailMap] = useState<Record<string, string>>({});
   const [loadingUsers, setLoadingUsers] = useState(false);
   const [deletingId, setDeletingId] = useState<string | null>(null);
   const [topups, setTopups] = useState<TopUpRecord[]>([]);
@@ -119,7 +120,7 @@ const VipDashboard = () => {
 
   const loadAll = async () => {
     setLoading(true);
-    await Promise.all([loadUsers(), loadTopups()]);
+    await Promise.all([loadUsers(), loadTopups(), loadUserEmails()]);
     setLoading(false);
   };
 
@@ -131,6 +132,15 @@ const VipDashboard = () => {
   const loadTopups = async () => {
     const { data } = await supabase.from("topups").select("*").order("created_at", { ascending: false }).limit(50);
     setTopups(data ?? []);
+  };
+
+  const loadUserEmails = async () => {
+    const { data } = await supabase.rpc("admin_search_users", { search_term: "" });
+    if (data) {
+      const map: Record<string, string> = {};
+      (data as { user_id: string; email: string }[]).forEach((u) => { map[u.user_id] = u.email; });
+      setUserEmailMap(map);
+    }
   };
 
   const updateTopupStatus = async (id: string, status: "completed" | "cancelled") => {
@@ -337,7 +347,7 @@ const VipDashboard = () => {
                             <p className="text-white/40 text-xs">
                               {formatDate(tu.created_at)} • {tu.method.toUpperCase()} • ID: {tu.id.slice(0, 8)}
                             </p>
-                            <p className="text-white/30 text-xs mt-0.5 truncate">{t.user}: {tu.user_id.slice(0, 12)}…</p>
+                            <p className="text-white/30 text-xs mt-0.5 truncate">{t.user}: {userEmailMap[tu.user_id] || tu.user_id.slice(0, 12) + "…"}</p>
                           </div>
                           {tu.status === "pending" && (
                             <div className="flex gap-2 shrink-0">
