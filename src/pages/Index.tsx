@@ -14,6 +14,7 @@ import VideoSection from "@/components/VideoSection";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import CustomerChat from "@/components/CustomerChat";
 import SoundBoard from "@/components/SoundBoard";
+import PromoSection from "@/components/PromoSection";
 import { PRODUCTS } from "@/data/products";
 import { supabase } from "@/integrations/supabase/client";
 import confetti from "canvas-confetti";
