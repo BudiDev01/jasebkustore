@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
+import promoBanner from "@/assets/promo-banner.jpg";
 import { useToast } from "@/hooks/use-toast";
 
 interface PromoItem {
