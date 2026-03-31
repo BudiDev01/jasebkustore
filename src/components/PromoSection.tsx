@@ -27,6 +27,42 @@ const PROMOS: PromoItem[] = [
     icon: "📱",
     badge: "PROMO",
   },
+  {
+    id: "web-payment",
+    name: "Payment Website",
+    name_id: "Website Pembayaran",
+    originalPrice: 0,
+    promoPrice: 5000,
+    icon: "💳",
+    badge: "PROMO",
+  },
+  {
+    id: "web-bio",
+    name: "Bio Website",
+    name_id: "Website Bio",
+    originalPrice: 0,
+    promoPrice: 5000,
+    icon: "🌐",
+    badge: "PROMO",
+  },
+  {
+    id: "web-store",
+    name: "Store Website",
+    name_id: "Website Toko",
+    originalPrice: 0,
+    promoPrice: 10000,
+    icon: "🛒",
+    badge: "PROMO",
+  },
+  {
+    id: "web-custom",
+    name: "Custom Website",
+    name_id: "Website Lainnya (Request)",
+    originalPrice: 0,
+    promoPrice: 10000,
+    icon: "✨",
+    badge: "PROMO",
+  },
 ];
 
 const PromoSection = () => {
