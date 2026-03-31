@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
+import promoBanner from "@/assets/promo-banner.jpg";
 import { useToast } from "@/hooks/use-toast";
 
 interface PromoItem {
@@ -93,6 +94,18 @@ const PromoSection = () => {
   return (
     <section className="py-14 bg-gradient-to-r from-gold/5 via-background to-gold/5 border-y border-gold/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Banner */}
+        <div className="mb-8 rounded-xl overflow-hidden shadow-gold">
+          <img
+            src={promoBanner}
+            alt="JasebKu Store Promo Spesial"
+            className="w-full h-auto object-cover"
+            loading="lazy"
+            width={1200}
+            height={512}
+          />
+        </div>
+
         <div className="text-center mb-8">
           <Badge className="bg-destructive/10 text-destructive border-destructive/20 mb-3 gap-1">
             <Flame className="w-3 h-3" />
