@@ -246,6 +246,7 @@ const Index = () => {
         </div>
       </section>
 
+      <PromoSection />
       <SoundBoard />
       <VideoSection />
       <MusicPlayer />
