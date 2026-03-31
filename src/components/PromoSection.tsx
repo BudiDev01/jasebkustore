@@ -64,6 +64,42 @@ const PROMOS: PromoItem[] = [
     icon: "✨",
     badge: "PROMO",
   },
+  {
+    id: "edit-photo",
+    name: "Photo Editing",
+    name_id: "Edit Foto",
+    originalPrice: 0,
+    promoPrice: 5000,
+    icon: "📸",
+    badge: "PROMO",
+  },
+  {
+    id: "edit-image",
+    name: "Image Editing",
+    name_id: "Edit Gambar",
+    originalPrice: 0,
+    promoPrice: 5000,
+    icon: "🖼️",
+    badge: "PROMO",
+  },
+  {
+    id: "edit-qris",
+    name: "QRIS Editing",
+    name_id: "Edit QRIS",
+    originalPrice: 0,
+    promoPrice: 5000,
+    icon: "💠",
+    badge: "PROMO",
+  },
+  {
+    id: "edit-other",
+    name: "Other Editing",
+    name_id: "Edit Lainnya (Request)",
+    originalPrice: 0,
+    promoPrice: 5000,
+    icon: "🎨",
+    badge: "PROMO",
+  },
 ];
 
 const PromoSection = () => {
