@@ -20,6 +20,7 @@ interface Translations {
   // Products
   ourProducts: string;
   ourProductsSubtitle: string;
+  resellerNote: string;
   buyNow: string;
   available: string;
   outOfStock: string;
