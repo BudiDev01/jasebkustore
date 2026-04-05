@@ -103,6 +103,7 @@ const translations: Record<Language, Translations> = {
     heroStats3: "Support",
     ourProducts: "Our Products",
     ourProductsSubtitle: "Handpicked digital services to supercharge your online presence",
+    resellerNote: "Resellers get lower prices",
     buyNow: "Buy Now",
     available: "Available",
     outOfStock: "Out of Stock",
