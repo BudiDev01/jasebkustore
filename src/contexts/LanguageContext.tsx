@@ -20,6 +20,7 @@ interface Translations {
   // Products
   ourProducts: string;
   ourProductsSubtitle: string;
+  resellerNote: string;
   buyNow: string;
   available: string;
   outOfStock: string;
@@ -102,6 +103,7 @@ const translations: Record<Language, Translations> = {
     heroStats3: "Support",
     ourProducts: "Our Products",
     ourProductsSubtitle: "Handpicked digital services to supercharge your online presence",
+    resellerNote: "Resellers get lower prices",
     buyNow: "Buy Now",
     available: "Available",
     outOfStock: "Out of Stock",
@@ -175,6 +177,7 @@ const translations: Record<Language, Translations> = {
     heroStats3: "Dukungan",
     ourProducts: "Produk Kami",
     ourProductsSubtitle: "Layanan digital pilihan untuk meningkatkan kehadiran online Anda",
+    resellerNote: "Reseller mendapat harga lebih murah",
     buyNow: "Beli Sekarang",
     available: "Tersedia",
     outOfStock: "Habis",
