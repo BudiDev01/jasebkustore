@@ -177,6 +177,7 @@ const translations: Record<Language, Translations> = {
     heroStats3: "Dukungan",
     ourProducts: "Produk Kami",
     ourProductsSubtitle: "Layanan digital pilihan untuk meningkatkan kehadiran online Anda",
+    resellerNote: "Reseller mendapat harga lebih murah",
     buyNow: "Beli Sekarang",
     available: "Tersedia",
     outOfStock: "Habis",

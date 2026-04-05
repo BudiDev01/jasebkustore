@@ -215,6 +215,7 @@ const Index = () => {
               {t.ourProducts}
             </h2>
             <p className="text-muted-foreground max-w-xl mx-auto">{t.ourProductsSubtitle}</p>
+            <p className="text-gold font-semibold mt-2 text-sm">{t.resellerNote}</p>
           </div>
 
           {/* Category Tabs */}
