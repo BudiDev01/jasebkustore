@@ -117,7 +117,7 @@ const ProductCard = ({ product, onTouch }: ProductCardProps) => {
 
         {/* Description - hidden for whatsapp/telegram */}
         {product.category !== "whatsapp" && product.category !== "telegram" && (
-          <p className="text-xs text-muted-foreground leading-relaxed mb-4 line-clamp-2">
+          <p className="text-xs text-muted-foreground leading-relaxed mb-4">
             {description}
           </p>
         )}
