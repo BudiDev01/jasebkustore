@@ -1230,4 +1230,17 @@ export const PRODUCTS: Product[] = [
     stock_status: "available",
     icon: "💻",
   },
+  {
+    id: "other-video-creation",
+    name: "Video Creation Services",
+    name_id: "Jasa Pembuatan Video",
+    description: "Professional video creation services including promotional videos, product showcases, motion graphics, intros/outros, social media content, and more. Custom video projects tailored to your needs.",
+    description_id: "Jasa pembuatan video profesional termasuk video promosi, showcase produk, motion graphics, intro/outro, konten media sosial, dan lainnya. Proyek video kustom disesuaikan dengan kebutuhan Anda.",
+    price: 0,
+    price_hidden: true,
+    category: "other",
+    badge: "Video",
+    stock_status: "available",
+    icon: "🎬",
+  },
 ];
