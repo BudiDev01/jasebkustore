@@ -31,6 +31,7 @@ interface Translations {
   catGworkspace: string;
   catPremium: string;
   catOther: string;
+  catFavorites: string;
   // Auth
   emailLabel: string;
   passwordLabel: string;
@@ -113,6 +114,7 @@ const translations: Record<Language, Translations> = {
     catGworkspace: "Google Workspace",
     catPremium: "Premium Apps",
     catOther: "Other Services",
+    catFavorites: "Favorites",
     emailLabel: "Email Address",
     passwordLabel: "Password",
     usernameLabel: "Username",
@@ -187,6 +189,7 @@ const translations: Record<Language, Translations> = {
     catGworkspace: "Google Workspace",
     catPremium: "Aplikasi Premium",
     catOther: "Layanan Lainnya",
+    catFavorites: "Favorit",
     emailLabel: "Alamat Email",
     passwordLabel: "Kata Sandi",
     usernameLabel: "Nama Pengguna",

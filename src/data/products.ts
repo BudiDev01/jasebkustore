@@ -1243,4 +1243,18 @@ export const PRODUCTS: Product[] = [
     stock_status: "available",
     icon: "🎬",
   },
+  // Favorites
+  {
+    id: "fav-vps",
+    name: "VPS (Virtual Private Server)",
+    name_id: "VPS (Virtual Private Server)",
+    description: "Available daily, weekly, monthly, and yearly. Full guarantee and anti-suspend.",
+    description_id: "Tersedia harian, mingguan, bulanan, dan tahunan. Full garansi dan anti-suspend.",
+    price: 0,
+    price_hidden: true,
+    category: "favorites",
+    badge: "⭐ Favorite",
+    stock_status: "available",
+    icon: "🖥️",
+  },
 ];
