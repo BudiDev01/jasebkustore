@@ -22,6 +22,7 @@ import confetti from "canvas-confetti";
 
 const CATEGORIES = [
   { key: "all", icon: "✨" },
+  { key: "favorites", icon: "❤️" },
   { key: "whatsapp", icon: "📱" },
   { key: "telegram", icon: "✈️" },
   { key: "social", icon: "📈" },
@@ -89,6 +90,7 @@ const Index = () => {
       gworkspace: t.catGworkspace,
       premium: t.catPremium,
       other: t.catOther,
+      favorites: t.catFavorites,
     };
     return map[key] || key;
   };

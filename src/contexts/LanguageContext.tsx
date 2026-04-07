@@ -31,6 +31,7 @@ interface Translations {
   catGworkspace: string;
   catPremium: string;
   catOther: string;
+  catFavorites: string;
   // Auth
   emailLabel: string;
   passwordLabel: string;
