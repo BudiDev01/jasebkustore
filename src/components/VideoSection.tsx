@@ -20,7 +20,7 @@ const VideoSection = () => {
             className="w-full aspect-video bg-black"
             poster=""
           >
-            <source src="/video/afgan-sudah-korean.mp4" type="video/mp4" />
+            <source src="/video/VID_20260408_132401_512.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
