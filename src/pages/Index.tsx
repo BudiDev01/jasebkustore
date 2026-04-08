@@ -119,6 +119,16 @@ const Index = () => {
               <Badge className="gradient-gold text-primary-foreground border-0 mb-6 text-xs px-3 py-1 shadow-gold">
                 <Sparkles className="w-3 h-3 mr-1" /> JasebKu Store
               </Badge>
+              <div className="max-w-2xl mx-auto mb-8 rounded-xl overflow-hidden border border-border bg-card shadow-card">
+                <video
+                  controls
+                  preload="metadata"
+                  className="w-full aspect-video bg-black"
+                >
+                  <source src="/video/VID_20260408_132401_512.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
               <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tight mb-6 text-foreground leading-tight">
                 {t.heroTitle}
               </h1>
