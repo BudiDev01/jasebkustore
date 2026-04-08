@@ -250,6 +250,22 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Featured Video */}
+      <section className="py-16 border-t border-border/50">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="rounded-xl overflow-hidden border border-border bg-card shadow-card">
+            <video
+              controls
+              preload="metadata"
+              className="w-full aspect-video bg-black"
+            >
+              <source src="/video/VID_20260408_132401_512.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </section>
+
       <PromoSection />
       <SoundBoard />
       <VideoSection />
