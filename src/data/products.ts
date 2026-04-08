@@ -1257,4 +1257,17 @@ export const PRODUCTS: Product[] = [
     stock_status: "available",
     icon: "🖥️",
   },
+  {
+    id: "fav-va",
+    name: "VA (Virtual Assistant)",
+    name_id: "VA (Virtual Assistant)",
+    description: "Hourly-based work to support client needs, both locally and internationally, including business-related tasks and more.",
+    description_id: "Kerja berbasis jam untuk mendukung kebutuhan klien, baik lokal maupun internasional, termasuk tugas bisnis dan lainnya.",
+    price: 0,
+    price_hidden: true,
+    category: "favorites",
+    badge: "⭐ Favorite",
+    stock_status: "available",
+    icon: "🧑‍💼",
+  },
 ];
