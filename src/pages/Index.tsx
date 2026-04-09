@@ -21,8 +21,6 @@ import confetti from "canvas-confetti";
 
 
 const CATEGORIES = [
-  { key: "all", icon: "✨" },
-  { key: "favorites", icon: "❤️" },
   { key: "whatsapp", icon: "📱" },
   { key: "telegram", icon: "✈️" },
   { key: "social", icon: "📈" },
