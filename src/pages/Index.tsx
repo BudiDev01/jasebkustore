@@ -193,7 +193,17 @@ const Index = () => {
 
       {/* Contact & Action Buttons */}
       <section className="py-10 bg-card/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-4">
+            <h3 className="text-lg font-bold text-foreground mb-1">
+              {language === "id" ? "Info Promo" : "Promo Info"}
+            </h3>
+            <p className="text-sm text-muted-foreground">
+              {language === "id"
+                ? "Tanya admin produk apa saja yang sedang promo saat ini"
+                : "Ask the admin which products are currently on promotion"}
+            </p>
+          </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
               href="https://wa.me/628157088769"
@@ -202,7 +212,7 @@ const Index = () => {
               className="flex items-center gap-2 px-6 py-3 rounded-xl gradient-gold text-primary-foreground font-semibold shadow-gold hover:opacity-90 transition-opacity text-sm"
             >
               <img src={whatsappIcon} alt="WhatsApp" className="w-5 h-5" />
-              {language === "id" ? "Tanya Admin" : "Ask Questions"}
+              {language === "id" ? "Tanya Promo" : "Ask About Promos"}
             </a>
             <a
               href="https://t.me/Fadgww"
