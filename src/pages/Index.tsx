@@ -26,7 +26,6 @@ const CATEGORIES = [
   { key: "social", icon: "📈" },
   { key: "gworkspace", icon: "🏢" },
   { key: "premium", icon: "⭐" },
-  { key: "other", icon: "🔧" },
 ];
 
 const Index = () => {
@@ -83,7 +82,6 @@ const Index = () => {
       social: t.catSocial,
       gworkspace: t.catGworkspace,
       premium: t.catPremium,
-      other: t.catOther,
     };
     return map[key] || key;
   };
