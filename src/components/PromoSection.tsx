@@ -157,50 +157,7 @@ const PromoSection = () => {
           </p>
         </div>
 
-        <div className="flex flex-wrap gap-4 justify-center">
-          {PROMOS.map((promo) => (
-            <div
-              key={promo.id}
-              className="relative w-full max-w-sm rounded-xl border-2 border-gold/30 bg-card shadow-gold overflow-hidden"
-            >
-              {/* Promo ribbon */}
-              <div className="absolute top-3 -right-8 rotate-45 gradient-gold text-primary-foreground text-xs font-bold px-10 py-1 shadow-md">
-                PROMO
-              </div>
-
-              <div className="p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-4xl">{promo.icon}</span>
-                  <div>
-                    <h3 className="font-bold text-foreground text-lg">
-                      {language === "id" ? promo.name_id : promo.name}
-                    </h3>
-                    <span className="text-xs text-muted-foreground">
-                      {language === "id" ? "Per Akun" : "Per Account"}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="flex items-baseline gap-2 mb-5">
-                  <span className="text-3xl font-black text-gold">
-                    {formatPrice(promo.promoPrice)}
-                  </span>
-                  <span className="text-xs text-muted-foreground">
-                    /{language === "id" ? "akun" : "account"}
-                  </span>
-                </div>
-
-                <Button
-                  className="w-full gradient-gold text-primary-foreground hover:opacity-90 shadow-gold font-semibold gap-2"
-                  onClick={() => handleBuy(promo)}
-                >
-                  {language === "id" ? "Beli Sekarang" : "Buy Now"}{" "}
-                  <ArrowRight className="w-4 h-4" />
-                </Button>
-              </div>
-            </div>
-          ))}
-        </div>
+        {/* Products removed — promo banner only */}
       </div>
     </section>
   );
