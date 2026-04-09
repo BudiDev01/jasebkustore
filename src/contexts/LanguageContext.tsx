@@ -31,6 +31,11 @@ interface Translations {
   catGworkspace: string;
   catPremium: string;
   catWebsite: string;
+  catDomain: string;
+  catHosting: string;
+  catDesign: string;
+  catEditing: string;
+  catVideo: string;
   catOther: string;
   catFavorites: string;
   // Auth
@@ -115,6 +120,11 @@ const translations: Record<Language, Translations> = {
     catGworkspace: "Google Workspace",
     catPremium: "Premium Apps",
     catWebsite: "Website Services",
+    catDomain: "Domain",
+    catHosting: "Hosting & VPS",
+    catDesign: "Design",
+    catEditing: "Editing Services",
+    catVideo: "Video Creation",
     catOther: "Other Services",
     catFavorites: "Favorites",
     emailLabel: "Email Address",
@@ -191,6 +201,11 @@ const translations: Record<Language, Translations> = {
     catGworkspace: "Google Workspace",
     catPremium: "Aplikasi Premium",
     catWebsite: "Jasa Website",
+    catDomain: "Domain",
+    catHosting: "Hosting & VPS",
+    catDesign: "Desain",
+    catEditing: "Jasa Editing",
+    catVideo: "Pembuatan Video",
     catOther: "Layanan Lainnya",
     catFavorites: "Favorit",
     emailLabel: "Alamat Email",

@@ -27,6 +27,11 @@ const CATEGORIES = [
   { key: "gworkspace", icon: "🏢" },
   { key: "premium", icon: "⭐" },
   { key: "website", icon: "🌐" },
+  { key: "domain", icon: "🔤" },
+  { key: "hosting", icon: "🖥️" },
+  { key: "design", icon: "🎨" },
+  { key: "editing", icon: "✂️" },
+  { key: "video", icon: "🎬" },
 ];
 
 const Index = () => {
@@ -84,6 +89,11 @@ const Index = () => {
       gworkspace: t.catGworkspace,
       premium: t.catPremium,
       website: t.catWebsite,
+      domain: t.catDomain,
+      hosting: t.catHosting,
+      design: t.catDesign,
+      editing: t.catEditing,
+      video: t.catVideo,
     };
     return map[key] || key;
   };
