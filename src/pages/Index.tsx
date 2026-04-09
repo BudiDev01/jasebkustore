@@ -35,7 +35,7 @@ const Index = () => {
   const navigate = useNavigate();
 
   const [theme] = useState<"light" | "dark">("light");
-  const [activeCategory, setActiveCategory] = useState("all");
+  const [activeCategory, setActiveCategory] = useState("whatsapp");
   const touchedProducts = useRef<Set<string>>(new Set());
   const confettiFired = useRef(false);
 
@@ -74,21 +74,16 @@ const Index = () => {
 
   const toggleTheme = () => {};
 
-  const filteredProducts =
-    activeCategory === "all"
-      ? PRODUCTS
-      : PRODUCTS.filter((p) => p.category === activeCategory);
+  const filteredProducts = PRODUCTS.filter((p) => p.category === activeCategory);
 
   const categoryLabel = (key: string) => {
     const map: Record<string, string> = {
-      all: "All",
       whatsapp: t.catWhatsapp,
       telegram: t.catTelegram,
       social: t.catSocial,
       gworkspace: t.catGworkspace,
       premium: t.catPremium,
       other: t.catOther,
-      favorites: t.catFavorites,
     };
     return map[key] || key;
   };
