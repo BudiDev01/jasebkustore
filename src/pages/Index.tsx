@@ -32,6 +32,7 @@ const CATEGORIES = [
   { key: "design", icon: "🎨" },
   { key: "editing", icon: "✂️" },
   { key: "video", icon: "🎬" },
+  { key: "coding", icon: "💻" },
 ];
 
 const Index = () => {
@@ -94,6 +95,7 @@ const Index = () => {
       design: t.catDesign,
       editing: t.catEditing,
       video: t.catVideo,
+      coding: t.catCoding,
     };
     return map[key] || key;
   };
