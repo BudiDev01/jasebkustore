@@ -46,7 +46,7 @@ const SoundBoard = () => {
 
   const handleLogoClick = () => {
     setAnimating(true);
-    speak("JasebKu Store, toko digital paling lengkap!", "id-ID");
+    speak("Selamat datang di JasebKu Store!", "id-ID");
     setTimeout(() => setAnimating(false), 800);
   };
 
