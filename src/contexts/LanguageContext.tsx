@@ -30,6 +30,7 @@ interface Translations {
   catSocial: string;
   catGworkspace: string;
   catPremium: string;
+  catWebsite: string;
   catOther: string;
   catFavorites: string;
   // Auth
@@ -110,9 +111,10 @@ const translations: Record<Language, Translations> = {
     outOfStock: "Out of Stock",
     catWhatsapp: "WhatsApp Numbers",
     catTelegram: "Telegram Numbers",
-    catSocial: "Social Media Boost",
+    catSocial: "Jasa Suntik",
     catGworkspace: "Google Workspace",
     catPremium: "Premium Apps",
+    catWebsite: "Website Services",
     catOther: "Other Services",
     catFavorites: "Favorites",
     emailLabel: "Email Address",
@@ -185,9 +187,10 @@ const translations: Record<Language, Translations> = {
     outOfStock: "Habis",
     catWhatsapp: "Nomor WhatsApp",
     catTelegram: "Nomor Telegram",
-    catSocial: "Boosting Media Sosial",
+    catSocial: "Jasa Suntik",
     catGworkspace: "Google Workspace",
     catPremium: "Aplikasi Premium",
+    catWebsite: "Jasa Website",
     catOther: "Layanan Lainnya",
     catFavorites: "Favorit",
     emailLabel: "Alamat Email",
