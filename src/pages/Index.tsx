@@ -26,6 +26,7 @@ const CATEGORIES = [
   { key: "social", icon: "📈" },
   { key: "gworkspace", icon: "🏢" },
   { key: "premium", icon: "⭐" },
+  { key: "website", icon: "🌐" },
 ];
 
 const Index = () => {
@@ -82,6 +83,7 @@ const Index = () => {
       social: t.catSocial,
       gworkspace: t.catGworkspace,
       premium: t.catPremium,
+      website: t.catWebsite,
     };
     return map[key] || key;
   };
