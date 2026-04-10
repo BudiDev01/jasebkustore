@@ -51,6 +51,7 @@ const Index = () => {
 
   const [theme] = useState<"light" | "dark">("light");
   const [activeCategory, setActiveCategory] = useState("whatsapp");
+  const [catSlide, setCatSlide] = useState(0);
   const touchedProducts = useRef<Set<string>>(new Set());
   const confettiFired = useRef(false);
 
@@ -105,6 +106,7 @@ const Index = () => {
       editing: t.catEditing,
       video: t.catVideo,
       coding: t.catCoding,
+      rekber: t.catRekber,
     };
     return map[key] || key;
   };
@@ -254,25 +256,56 @@ const Index = () => {
             <p className="text-gold font-semibold mt-2 text-sm">{t.resellerNote}</p>
           </div>
 
-          {/* Category Tabs */}
-          <div className="flex flex-wrap gap-2 justify-center mb-10">
-            {CATEGORIES.map((cat) => (
+          {/* Category Carousel */}
+          <div className="relative mb-10">
+            <div className="flex items-center justify-center gap-2">
               <button
-                key={cat.key}
-                onClick={() => {
-                  setActiveCategory(cat.key);
-                  confetti({ particleCount: 40, spread: 60, origin: { y: 0.6 }, colors: ["#D4A017", "#FFD700", "#1a2744", "#ffffff"] });
-                }}
-                className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                  activeCategory === cat.key
-                    ? "gradient-gold text-primary-foreground shadow-gold"
-                    : "border border-border bg-card text-muted-foreground hover:border-gold/40 hover:text-foreground"
-                }`}
+                onClick={() => setCatSlide((p) => Math.max(0, p - 1))}
+                disabled={catSlide === 0}
+                className="p-2 rounded-full border border-border bg-card text-muted-foreground hover:text-foreground disabled:opacity-30 transition-colors"
               >
-                <span>{cat.icon}</span>
-                <span>{categoryLabel(cat.key)}</span>
+                <ChevronLeft className="w-5 h-5" />
               </button>
-            ))}
+
+              <div className="flex gap-2 justify-center min-w-[280px]">
+                {CATEGORY_SLIDES[catSlide]?.map((cat) => (
+                  <button
+                    key={cat.key}
+                    onClick={() => {
+                      setActiveCategory(cat.key);
+                      confetti({ particleCount: 40, spread: 60, origin: { y: 0.6 }, colors: ["#D4A017", "#FFD700", "#1a2744", "#ffffff"] });
+                    }}
+                    className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                      activeCategory === cat.key
+                        ? "gradient-gold text-primary-foreground shadow-gold"
+                        : "border border-border bg-card text-muted-foreground hover:border-gold/40 hover:text-foreground"
+                    }`}
+                  >
+                    <span>{cat.icon}</span>
+                    <span>{categoryLabel(cat.key)}</span>
+                  </button>
+                ))}
+              </div>
+
+              <button
+                onClick={() => setCatSlide((p) => Math.min(CATEGORY_SLIDES.length - 1, p + 1))}
+                disabled={catSlide === CATEGORY_SLIDES.length - 1}
+                className="p-2 rounded-full border border-border bg-card text-muted-foreground hover:text-foreground disabled:opacity-30 transition-colors"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Slide indicator dots */}
+            <div className="flex justify-center gap-1.5 mt-3">
+              {CATEGORY_SLIDES.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCatSlide(i)}
+                  className={`w-2 h-2 rounded-full transition-colors ${i === catSlide ? "bg-gold" : "bg-border"}`}
+                />
+              ))}
+            </div>
           </div>
 
           {/* Products Grid */}
