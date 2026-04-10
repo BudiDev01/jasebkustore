@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { Sparkles, ArrowRight, Shield, Zap, HeadphonesIcon } from "lucide-react";
+import { Sparkles, ArrowRight, Shield, Zap, HeadphonesIcon, ChevronLeft, ChevronRight } from "lucide-react";
 import whatsappIcon from "@/assets/whatsapp.svg"; // WhatsApp icon
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -33,7 +33,16 @@ const CATEGORIES = [
   { key: "editing", icon: "✂️" },
   { key: "video", icon: "🎬" },
   { key: "coding", icon: "💻" },
+  { key: "rekber", icon: "🤝" },
 ];
+
+// Group categories into slides of 3
+const CATEGORY_SLIDES = CATEGORIES.reduce<typeof CATEGORIES[]>((acc, cat, i) => {
+  const slideIndex = Math.floor(i / 3);
+  if (!acc[slideIndex]) acc[slideIndex] = [];
+  acc[slideIndex].push(cat);
+  return acc;
+}, []);
 
 const Index = () => {
   const { t, language } = useLanguage();
