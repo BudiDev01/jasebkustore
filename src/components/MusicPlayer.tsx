@@ -10,34 +10,10 @@ interface Track {
 
 const TRACKS: Track[] = [
   {
-    title: "A Love to Kill",
-    artist: "Lee Soo Young",
-    drama: "A Love to Kill OST",
-    src: "/audio/a-love-to-kill.mp3",
-  },
-  {
-    title: "Haengbokhagil Barae",
-    artist: "Lim Hyung Joo",
-    drama: "Sassy Girl Chun Hyang OST",
-    src: "/audio/haengbokhagil-barae.mp3",
-  },
-  {
-    title: "Why (Destiny)",
-    artist: "Rain (비)",
-    drama: "Full House OST",
-    src: "/audio/why-destiny.mp3",
-  },
-  {
-    title: "This Love",
-    artist: "Davichi",
-    drama: "Descendants of the Sun OST",
-    src: "/audio/this-love-davichi.mp3",
-  },
-  {
-    title: "Say Yes",
-    artist: "Loco & Punch",
-    drama: "Moon Lovers: Scarlet Heart Ryeo OST",
-    src: "/audio/say-yes-loco-punch.mp3",
+    title: "Satu Klik Saja",
+    artist: "Unknown",
+    drama: "",
+    src: "/audio/satu-klik-saja.mp3",
   },
 ];
 
