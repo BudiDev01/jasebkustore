@@ -49,10 +49,10 @@ const MusicPlayer = () => {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold/10 text-gold text-xs font-semibold mb-3">
-            <Music className="w-3 h-3" /> K-Drama OST Collection
+            <Music className="w-3 h-3" /> JasebKu Music
           </div>
           <h2 className="text-2xl sm:text-3xl font-black text-foreground">🎵 Music Corner</h2>
-          <p className="text-muted-foreground text-sm mt-2">Listen to our favorite K-Drama soundtracks</p>
+          <p className="text-muted-foreground text-sm mt-2">Listen to JasebKu songs</p>
         </div>
 
         <div className="space-y-3">
