@@ -13,6 +13,41 @@ export interface Product {
 }
 
 export const PRODUCTS: Product[] = [
+  // Rekber
+  {
+    id: "rekber-jual-beli",
+    name: "Rekber Buy & Sell",
+    name_id: "Rekber Jual Beli",
+    description: "Safe escrow service for buying and selling digital goods.",
+    description_id: "Layanan rekber aman untuk jual beli barang digital.",
+    price: 5000,
+    category: "rekber",
+    badge: "Trusted",
+    stock_status: "available",
+    icon: "🤝",
+  },
+  {
+    id: "rekber-akun",
+    name: "Rekber Account Trade",
+    name_id: "Rekber Jual Beli Akun",
+    description: "Escrow service for safe account trading.",
+    description_id: "Layanan rekber untuk jual beli akun dengan aman.",
+    price: 10000,
+    category: "rekber",
+    stock_status: "available",
+    icon: "🔐",
+  },
+  {
+    id: "rekber-game",
+    name: "Rekber Game Items",
+    name_id: "Rekber Item Game",
+    description: "Escrow service for game item transactions.",
+    description_id: "Layanan rekber untuk transaksi item game.",
+    price: 5000,
+    category: "rekber",
+    stock_status: "available",
+    icon: "🎮",
+  },
   {
     id: "wa-id",
     name: "WhatsApp Number Indonesia Old",
