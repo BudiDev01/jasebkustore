@@ -11,7 +11,7 @@ interface Track {
 const TRACKS: Track[] = [
   {
     title: "Satu Klik Saja",
-    artist: "Unknown",
+    artist: "JasebKu",
     drama: "",
     src: "/audio/satu-klik-saja.mp3",
   },
