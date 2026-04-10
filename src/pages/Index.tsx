@@ -207,6 +207,27 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Userbot Banner */}
+      <section className="py-6 bg-gradient-to-r from-gold/10 via-gold/5 to-gold/10 border-y border-gold/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <a
+            href="https://t.me/JasebKu_AppBot"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center justify-center gap-3 px-6 py-4 rounded-2xl border border-gold/30 bg-card shadow-gold hover:bg-gold/10 transition-all group"
+          >
+            <span className="text-2xl">🤖</span>
+            <div className="text-center">
+              <span className="block text-base font-bold text-foreground group-hover:text-gold transition-colors">
+                {language === "id" ? "Gunakan Bot Telegram Kami" : "Use Our Telegram Bot"}
+              </span>
+              <span className="block text-xs text-muted-foreground">@JasebKu_AppBot</span>
+            </div>
+            <ArrowRight className="w-5 h-5 text-gold opacity-0 group-hover:opacity-100 transition-opacity" />
+          </a>
+        </div>
+      </section>
+
       {/* Contact & Action Buttons */}
       <section className="py-10 bg-card/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
