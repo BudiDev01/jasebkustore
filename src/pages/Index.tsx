@@ -20,7 +20,9 @@ import { supabase } from "@/integrations/supabase/client";
 import confetti from "canvas-confetti";
 
 
-const CATEGORIES = [
+const CATEGORIES: { key: string; icon: string; desc_en?: string; desc_id?: string }[] = [
+  { key: "freelance", icon: "💰", desc_en: "You will receive money every day from us.", desc_id: "Kamu akan menerima uang setiap hari dari kami." },
+  { key: "jaseb", icon: "📢", desc_en: "Promotion to 60 groups for 1 month, priced at 15,000.", desc_id: "Promosi ke 60 grup selama 1 bulan, harga 15.000." },
   { key: "whatsapp", icon: "📱" },
   { key: "telegram", icon: "✈️" },
   { key: "social", icon: "📈" },
@@ -36,13 +38,16 @@ const CATEGORIES = [
   { key: "rekber", icon: "🤝" },
 ];
 
-// Group categories into slides of 3
-const CATEGORY_SLIDES = CATEGORIES.reduce<typeof CATEGORIES[]>((acc, cat, i) => {
-  const slideIndex = Math.floor(i / 3);
-  if (!acc[slideIndex]) acc[slideIndex] = [];
-  acc[slideIndex].push(cat);
-  return acc;
-}, []);
+// Group categories into slides: first slide has 2 (Freelance & Jaseb), rest in groups of 3
+const CATEGORY_SLIDES = (() => {
+  const slides: typeof CATEGORIES[] = [];
+  slides.push(CATEGORIES.slice(0, 2));
+  const rest = CATEGORIES.slice(2);
+  for (let i = 0; i < rest.length; i += 3) {
+    slides.push(rest.slice(i, i + 3));
+  }
+  return slides;
+})();
 
 const Index = () => {
   const { t, language } = useLanguage();
