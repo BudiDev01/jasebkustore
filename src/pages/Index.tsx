@@ -55,7 +55,7 @@ const Index = () => {
   const navigate = useNavigate();
 
   const [theme] = useState<"light" | "dark">("light");
-  const [activeCategory, setActiveCategory] = useState("whatsapp");
+  const [activeCategory, setActiveCategory] = useState("freelance");
   const [catSlide, setCatSlide] = useState(0);
   const touchedProducts = useRef<Set<string>>(new Set());
   const confettiFired = useRef(false);
@@ -99,6 +99,8 @@ const Index = () => {
 
   const categoryLabel = (key: string) => {
     const map: Record<string, string> = {
+      freelance: t.catFreelance,
+      jaseb: t.catJaseb,
       whatsapp: t.catWhatsapp,
       telegram: t.catTelegram,
       social: t.catSocial,
