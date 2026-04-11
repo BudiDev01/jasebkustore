@@ -25,6 +25,8 @@ interface Translations {
   available: string;
   outOfStock: string;
   // Categories
+  catFreelance: string;
+  catJaseb: string;
   catWhatsapp: string;
   catTelegram: string;
   catSocial: string;
@@ -116,6 +118,8 @@ const translations: Record<Language, Translations> = {
     buyNow: "Buy Now",
     available: "Available",
     outOfStock: "Out of Stock",
+    catFreelance: "Freelance",
+    catJaseb: "Jaseb",
     catWhatsapp: "WhatsApp Numbers",
     catTelegram: "Telegram Numbers",
     catSocial: "Medsos",
@@ -199,6 +203,8 @@ const translations: Record<Language, Translations> = {
     buyNow: "Beli Sekarang",
     available: "Tersedia",
     outOfStock: "Habis",
+    catFreelance: "Freelance",
+    catJaseb: "Jaseb",
     catWhatsapp: "Nomor WhatsApp",
     catTelegram: "Nomor Telegram",
     catSocial: "Medsos",

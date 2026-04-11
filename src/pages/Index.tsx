@@ -20,7 +20,9 @@ import { supabase } from "@/integrations/supabase/client";
 import confetti from "canvas-confetti";
 
 
-const CATEGORIES = [
+const CATEGORIES: { key: string; icon: string; desc_en?: string; desc_id?: string }[] = [
+  { key: "freelance", icon: "💰", desc_en: "You will receive money every day from us.", desc_id: "Kamu akan menerima uang setiap hari dari kami." },
+  { key: "jaseb", icon: "📢", desc_en: "Promotion to 60 groups for 1 month, priced at 15,000.", desc_id: "Promosi ke 60 grup selama 1 bulan, harga 15.000." },
   { key: "whatsapp", icon: "📱" },
   { key: "telegram", icon: "✈️" },
   { key: "social", icon: "📈" },
@@ -36,13 +38,16 @@ const CATEGORIES = [
   { key: "rekber", icon: "🤝" },
 ];
 
-// Group categories into slides of 3
-const CATEGORY_SLIDES = CATEGORIES.reduce<typeof CATEGORIES[]>((acc, cat, i) => {
-  const slideIndex = Math.floor(i / 3);
-  if (!acc[slideIndex]) acc[slideIndex] = [];
-  acc[slideIndex].push(cat);
-  return acc;
-}, []);
+// Group categories into slides: first slide has 2 (Freelance & Jaseb), rest in groups of 3
+const CATEGORY_SLIDES = (() => {
+  const slides: typeof CATEGORIES[] = [];
+  slides.push(CATEGORIES.slice(0, 2));
+  const rest = CATEGORIES.slice(2);
+  for (let i = 0; i < rest.length; i += 3) {
+    slides.push(rest.slice(i, i + 3));
+  }
+  return slides;
+})();
 
 const Index = () => {
   const { t, language } = useLanguage();
@@ -50,7 +55,7 @@ const Index = () => {
   const navigate = useNavigate();
 
   const [theme] = useState<"light" | "dark">("light");
-  const [activeCategory, setActiveCategory] = useState("whatsapp");
+  const [activeCategory, setActiveCategory] = useState("freelance");
   const [catSlide, setCatSlide] = useState(0);
   const touchedProducts = useRef<Set<string>>(new Set());
   const confettiFired = useRef(false);
@@ -94,6 +99,8 @@ const Index = () => {
 
   const categoryLabel = (key: string) => {
     const map: Record<string, string> = {
+      freelance: t.catFreelance,
+      jaseb: t.catJaseb,
       whatsapp: t.catWhatsapp,
       telegram: t.catTelegram,
       social: t.catSocial,
@@ -288,24 +295,36 @@ const Index = () => {
                 <ChevronLeft className="w-5 h-5" />
               </button>
 
-              <div className="flex gap-2 justify-center min-w-[280px]">
-                {CATEGORY_SLIDES[catSlide]?.map((cat) => (
-                  <button
-                    key={cat.key}
-                    onClick={() => {
-                      setActiveCategory(cat.key);
-                      confetti({ particleCount: 40, spread: 60, origin: { y: 0.6 }, colors: ["#D4A017", "#FFD700", "#1a2744", "#ffffff"] });
-                    }}
-                    className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                      activeCategory === cat.key
-                        ? "gradient-gold text-primary-foreground shadow-gold"
-                        : "border border-border bg-card text-muted-foreground hover:border-gold/40 hover:text-foreground"
-                    }`}
-                  >
-                    <span>{cat.icon}</span>
-                    <span>{categoryLabel(cat.key)}</span>
-                  </button>
-                ))}
+              <div className="flex gap-2 justify-center min-w-[280px] flex-wrap">
+                {CATEGORY_SLIDES[catSlide]?.map((cat) => {
+                  const desc = cat.desc_en ? (language === "id" ? cat.desc_id : cat.desc_en) : null;
+                  return (
+                    <button
+                      key={cat.key}
+                      onClick={() => {
+                        setActiveCategory(cat.key);
+                        confetti({ particleCount: 40, spread: 60, origin: { y: 0.6 }, colors: ["#D4A017", "#FFD700", "#1a2744", "#ffffff"] });
+                      }}
+                      className={`flex flex-col items-center gap-1 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 min-w-[120px] ${
+                        activeCategory === cat.key
+                          ? "gradient-gold text-primary-foreground shadow-gold"
+                          : "border border-border bg-card text-muted-foreground hover:border-gold/40 hover:text-foreground"
+                      }`}
+                    >
+                      <div className="flex items-center gap-1.5">
+                        <span>{cat.icon}</span>
+                        <span className="font-semibold">{categoryLabel(cat.key)}</span>
+                      </div>
+                      {desc && (
+                        <span className={`text-[10px] leading-tight max-w-[140px] ${
+                          activeCategory === cat.key ? "text-primary-foreground/80" : "text-muted-foreground"
+                        }`}>
+                          {desc}
+                        </span>
+                      )}
+                    </button>
+                  );
+                })}
               </div>
 
               <button

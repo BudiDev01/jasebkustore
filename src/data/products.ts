@@ -13,6 +13,33 @@ export interface Product {
 }
 
 export const PRODUCTS: Product[] = [
+  // Freelance
+  {
+    id: "freelance-daily",
+    name: "Freelance Daily Income",
+    name_id: "Freelance Penghasilan Harian",
+    description: "You will receive money every day from us.",
+    description_id: "Kamu akan menerima uang setiap hari dari kami.",
+    price: 0,
+    price_hidden: true,
+    category: "freelance",
+    badge: "New",
+    stock_status: "available",
+    icon: "💰",
+  },
+  // Jaseb
+  {
+    id: "jaseb-60-grup",
+    name: "Jaseb 60 Groups (1 Month)",
+    name_id: "Jaseb 60 Grup (1 Bulan)",
+    description: "Promotion to 60 groups for a duration of one month.",
+    description_id: "Promosi ke 60 grup selama 1 bulan.",
+    price: 15000,
+    category: "jaseb",
+    badge: "Popular",
+    stock_status: "available",
+    icon: "📢",
+  },
   // Rekber
   {
     id: "rekber-jual-beli",
