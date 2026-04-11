@@ -297,7 +297,20 @@ const Index = () => {
 
               <div className="flex gap-2 justify-center min-w-[280px] flex-wrap">
                 {CATEGORY_SLIDES[catSlide]?.map((cat) => {
-                  const desc = cat.desc_en ? (language === "id" ? cat.desc_id : cat.desc_en) : null;
+                  if (cat.key === "freelance") {
+                    return (
+                      <a
+                        key={cat.key}
+                        href="https://t.me/Fadgww"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 border border-border bg-card text-muted-foreground hover:border-gold/40 hover:text-foreground"
+                      >
+                        <span>{cat.icon}</span>
+                        <span>{categoryLabel(cat.key)}</span>
+                      </a>
+                    );
+                  }
                   return (
                     <button
                       key={cat.key}
@@ -305,23 +318,14 @@ const Index = () => {
                         setActiveCategory(cat.key);
                         confetti({ particleCount: 40, spread: 60, origin: { y: 0.6 }, colors: ["#D4A017", "#FFD700", "#1a2744", "#ffffff"] });
                       }}
-                      className={`flex flex-col items-center gap-1 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 min-w-[120px] ${
+                      className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                         activeCategory === cat.key
                           ? "gradient-gold text-primary-foreground shadow-gold"
                           : "border border-border bg-card text-muted-foreground hover:border-gold/40 hover:text-foreground"
                       }`}
                     >
-                      <div className="flex items-center gap-1.5">
-                        <span>{cat.icon}</span>
-                        <span className="font-semibold">{categoryLabel(cat.key)}</span>
-                      </div>
-                      {desc && (
-                        <span className={`text-[10px] leading-tight max-w-[140px] ${
-                          activeCategory === cat.key ? "text-primary-foreground/80" : "text-muted-foreground"
-                        }`}>
-                          {desc}
-                        </span>
-                      )}
+                      <span>{cat.icon}</span>
+                      <span>{categoryLabel(cat.key)}</span>
                     </button>
                   );
                 })}
