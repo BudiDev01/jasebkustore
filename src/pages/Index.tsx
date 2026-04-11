@@ -267,6 +267,15 @@ const Index = () => {
               <span className="text-lg">✈️</span>
               {language === "id" ? "Klaim Deposit" : "Claim Deposits"}
             </a>
+            <a
+              href="https://t.me/Fadgww"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-2 px-6 py-3 rounded-xl border border-blue-400/30 bg-blue-500/10 text-blue-500 font-semibold hover:bg-blue-500/20 transition-colors text-sm"
+            >
+              <span className="text-lg">✈️</span>
+              {language === "id" ? "Admin Freelance" : "Freelance Admin"}
+            </a>
           </div>
         </div>
       </section>
