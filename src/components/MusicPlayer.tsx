@@ -15,6 +15,12 @@ const TRACKS: Track[] = [
     drama: "",
     src: "/audio/satu-klik-saja.mp3",
   },
+  {
+    title: "Sat Set Jadi",
+    artist: "JasebKu",
+    drama: "",
+    src: "/audio/sat-set-jadi.mp3",
+  },
 ];
 
 const MusicPlayer = () => {
