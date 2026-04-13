@@ -21,6 +21,12 @@ const TRACKS: Track[] = [
     drama: "",
     src: "/audio/sat-set-jadi.mp3",
   },
+  {
+    title: "Satu Klik Omzet Naik",
+    artist: "JasebKu",
+    drama: "",
+    src: "/audio/satu-klik-omzet-naik.mp3",
+  },
 ];
 
 const MusicPlayer = () => {
