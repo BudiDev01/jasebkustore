@@ -15,19 +15,6 @@ export interface Product {
 export const PRODUCTS: Product[] = [
   // Freelance
   {
-    id: "freelance-daily",
-    name: "Freelance Daily Income",
-    name_id: "Freelance Penghasilan Harian",
-    description: "Task: create Gmail accounts. You will receive money every day from us.",
-    description_id: "Tugas: membuat akun Gmail. Kamu akan menerima uang setiap hari dari kami.",
-    price: 0,
-    price_hidden: true,
-    category: "freelance",
-    badge: "New",
-    stock_status: "available",
-    icon: "💰",
-  },
-  {
     id: "freelance-client-post-job",
     name: "Post a Job (Client)",
     name_id: "Pasang Pekerjaan (Klien)",
