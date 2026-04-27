@@ -27,6 +27,12 @@ const TRACKS: Track[] = [
     drama: "",
     src: "/audio/satu-klik-omzet-naik.mp3",
   },
+  {
+    title: "Freelance",
+    artist: "JasebKu",
+    drama: "",
+    src: "/audio/freelance.mp3",
+  },
 ];
 
 const MusicPlayer = () => {
