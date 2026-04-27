@@ -308,20 +308,6 @@ const Index = () => {
 
               <div className="flex gap-2 justify-center min-w-[280px] flex-wrap">
                 {CATEGORY_SLIDES[catSlide]?.map((cat) => {
-                  if (cat.key === "freelance") {
-                    return (
-                      <a
-                        key={cat.key}
-                        href="https://t.me/Fadgww"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 border border-border bg-card text-muted-foreground hover:border-gold/40 hover:text-foreground"
-                      >
-                        <span>{cat.icon}</span>
-                        <span>{categoryLabel(cat.key)}</span>
-                      </a>
-                    );
-                  }
                   return (
                     <button
                       key={cat.key}
