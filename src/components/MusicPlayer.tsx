@@ -33,6 +33,12 @@ const TRACKS: Track[] = [
     drama: "",
     src: "/audio/freelance.mp3",
   },
+  {
+    title: "G Suite",
+    artist: "JasebKu",
+    drama: "",
+    src: "/audio/g-suite.mp3",
+  },
 ];
 
 const MusicPlayer = () => {
