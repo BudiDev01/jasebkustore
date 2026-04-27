@@ -40,6 +40,19 @@ export const PRODUCTS: Product[] = [
     stock_status: "available",
     icon: "🛠️",
   },
+  {
+    id: "freelance-create-gmail",
+    name: "Create Gmail Account",
+    name_id: "Pembuatan Akun Gmail",
+    description: "Freelance task: create a new Gmail account based on the client's requirements.",
+    description_id: "Tugas freelance: pembuatan akun Gmail baru sesuai kebutuhan klien.",
+    price: 0,
+    price_hidden: true,
+    category: "freelance",
+    badge: "Task",
+    stock_status: "available",
+    icon: "📧",
+  },
   // Jaseb
   {
     id: "jaseb-60-grup",
