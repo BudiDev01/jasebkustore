@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { Sparkles, ArrowRight, Shield, Zap, HeadphonesIcon, ChevronLeft, ChevronRight } from "lucide-react";
-import whatsappIcon from "@/assets/whatsapp.svg"; // WhatsApp icon
+import { Sparkles, ArrowRight, Shield, Zap, HeadphonesIcon, ChevronLeft, ChevronRight, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -252,12 +251,12 @@ const Index = () => {
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
-              href="https://wa.me/628157088769"
+              href="https://t.me/Fadgww"
               target="_blank"
               rel="noreferrer"
               className="flex items-center gap-2 px-6 py-3 rounded-xl gradient-gold text-primary-foreground font-semibold shadow-gold hover:opacity-90 transition-opacity text-sm"
             >
-              <img src={whatsappIcon} alt="WhatsApp" className="w-5 h-5" />
+              <Send className="w-5 h-5" />
               {language === "id" ? "Tanya Promo" : "Ask About Promos"}
             </a>
             <a

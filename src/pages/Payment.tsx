@@ -1,7 +1,6 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
-import whatsappIcon from "@/assets/whatsapp.svg";
+import { ArrowLeft, Send } from "lucide-react";
 import qrisImage from "@/assets/qris-gopay.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { PRODUCTS } from "@/data/products";
@@ -77,14 +76,14 @@ const Payment = () => {
               </ol>
             </div>
 
-            {/* Ask First via WhatsApp Button */}
+            {/* Ask First via Telegram Button */}
             <a
-              href="https://wa.me/628157088769"
+              href="https://t.me/Fadgww"
               target="_blank"
               rel="noreferrer"
               className="w-full flex items-center justify-center gap-2 gradient-gold text-primary-foreground hover:opacity-90 shadow-gold font-semibold text-base glow-gold rounded-md px-4 py-3 transition-opacity"
             >
-              <img src={whatsappIcon} alt="WhatsApp" className="w-5 h-5" />
+              <Send className="w-5 h-5" />
               {t.askFirst}
             </a>
           </div>

@@ -8,11 +8,11 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useToast } from "@/hooks/use-toast";
 import { Product } from "@/data/products";
 import { supabase } from "@/integrations/supabase/client";
-import whatsappIcon from "@/assets/whatsapp.svg";
+import { Send } from "lucide-react";
 import { speak } from "@/lib/speak";
 import confetti from "canvas-confetti";
 
-const ADMIN_WA = "https://wa.me/628157088769";
+const ADMIN_TG = "https://t.me/Fadgww";
 
 interface ProductCardProps {
   product: Product;
@@ -137,14 +137,14 @@ const ProductCard = ({ product, onTouch }: ProductCardProps) => {
           {product.price_hidden ? (
             showWa ? (
               <a
-                href={ADMIN_WA}
+                href={ADMIN_TG}
                 target="_blank"
                 rel="noreferrer"
                 onClick={(e) => e.stopPropagation()}
                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-md gradient-gold text-primary-foreground text-xs font-semibold shadow-gold hover:opacity-90 transition-opacity"
               >
-                <img src={whatsappIcon} alt="WhatsApp" className="w-4 h-4" />
-                WhatsApp
+                <Send className="w-4 h-4" />
+                Telegram
               </a>
             ) : (
               <Button
