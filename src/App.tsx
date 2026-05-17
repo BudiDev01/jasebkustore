@@ -15,10 +15,6 @@ import VipDashboard from "./pages/VipDashboard";
 import VipForgotPassword from "./pages/VipForgotPassword";
 import AdminUserView from "./pages/AdminUserView";
 import ForgotPassword from "./pages/ForgotPassword";
-import TopUp from "./pages/TopUp";
-import TopUpSuccess from "./pages/TopUpSuccess";
-import TopUpCancel from "./pages/TopUpCancel";
-import TopUpHistory from "./pages/TopUpHistory";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -37,10 +33,6 @@ const App = () => (
               <Route path="/register" element={<Register />} />
               <Route path="/payment/:productId" element={<Payment />} />
               <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/topup" element={<TopUp />} />
-              <Route path="/topup/success" element={<TopUpSuccess />} />
-              <Route path="/topup/cancel" element={<TopUpCancel />} />
-              <Route path="/topup/history" element={<TopUpHistory />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="/vip" element={<VipLogin />} />
               <Route path="/vip/dashboard" element={<VipDashboard />} />
