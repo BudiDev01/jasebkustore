@@ -88,9 +88,6 @@ interface Translations {
   footerContact: string;
   footerLinks: string;
   footerRights: string;
-  // TopUp
-  topUp: string;
-  topUpHistory: string;
   forgotPassword: string;
   // General
   loading: string;
@@ -150,13 +147,13 @@ const translations: Record<Language, Translations> = {
     continueGoogle: "Continue with Google",
     alreadyAccount: "Already have an account?",
     noAccount: "Don't have an account?",
-    paymentTitle: "Complete Payment",
-    paymentSubtitle: "Scan the QRIS below to complete your purchase",
-    paymentInstructions: "Payment Instructions",
-    paymentStep1: "Open your GoPay / any QRIS-compatible app",
-    paymentStep2: "Scan the QR code displayed below",
-    paymentStep3: "Enter the exact amount shown",
-    paymentStep4: "Complete payment and confirm below",
+    paymentTitle: "Contact Admin",
+    paymentSubtitle: "Chat the admin on Telegram to complete your order",
+    paymentInstructions: "How It Works",
+    paymentStep1: "Click the Telegram button below",
+    paymentStep2: "Send the product name and price to the admin",
+    paymentStep3: "Follow the admin's payment instructions",
+    paymentStep4: "Receive your product within 1–24 hours",
     confirmPayment: "I Have Paid",
     askFirst: "Ask First",
     paymentSuccess: "Payment Submitted!",
@@ -178,8 +175,6 @@ const translations: Record<Language, Translations> = {
     footerContact: "Contact Us",
     footerLinks: "Quick Links",
     footerRights: "All rights reserved.",
-    topUp: "Top Up",
-    topUpHistory: "Top Up History",
     forgotPassword: "Forgot Password?",
     loading: "Loading...",
     error: "Something went wrong",
@@ -236,13 +231,13 @@ const translations: Record<Language, Translations> = {
     continueGoogle: "Lanjutkan dengan Google",
     alreadyAccount: "Sudah punya akun?",
     noAccount: "Belum punya akun?",
-    paymentTitle: "Selesaikan Pembayaran",
-    paymentSubtitle: "Scan QRIS di bawah ini untuk menyelesaikan pembelian Anda",
-    paymentInstructions: "Cara Pembayaran",
-    paymentStep1: "Buka aplikasi GoPay / aplikasi apapun yang mendukung QRIS",
-    paymentStep2: "Scan kode QR yang ditampilkan di bawah",
-    paymentStep3: "Masukkan nominal yang tertera",
-    paymentStep4: "Selesaikan pembayaran dan konfirmasi di bawah",
+    paymentTitle: "Hubungi Admin",
+    paymentSubtitle: "Chat admin via Telegram untuk menyelesaikan pesanan Anda",
+    paymentInstructions: "Cara Pemesanan",
+    paymentStep1: "Klik tombol Telegram di bawah",
+    paymentStep2: "Kirim nama produk dan harga ke admin",
+    paymentStep3: "Ikuti instruksi pembayaran dari admin",
+    paymentStep4: "Terima produk dalam 1–24 jam",
     confirmPayment: "Saya Sudah Bayar",
     askFirst: "Tanya Dulu",
     paymentSuccess: "Pembayaran Terkirim!",
@@ -264,8 +259,6 @@ const translations: Record<Language, Translations> = {
     footerContact: "Hubungi Kami",
     footerLinks: "Tautan Cepat",
     footerRights: "Semua hak dilindungi.",
-    topUp: "Top Up",
-    topUpHistory: "Riwayat Top Up",
     forgotPassword: "Lupa Password?",
     loading: "Memuat...",
     error: "Terjadi kesalahan",

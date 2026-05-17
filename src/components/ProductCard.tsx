@@ -7,7 +7,6 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { useToast } from "@/hooks/use-toast";
 import { Product } from "@/data/products";
-import { supabase } from "@/integrations/supabase/client";
 import { Send } from "lucide-react";
 import { speak } from "@/lib/speak";
 import confetti from "canvas-confetti";
@@ -50,19 +49,6 @@ const ProductCard = ({ product, onTouch }: ProductCardProps) => {
       toast({ title: language === "id" ? "Silakan daftar dulu" : "Please register first", description: language === "id" ? "Anda butuh akun untuk membeli." : "You need an account to make a purchase.", variant: "destructive" });
       navigate("/register");
       return;
-    }
-    // Check balance before purchase
-    if (!product.price_hidden) {
-      const { data: balance } = await supabase.rpc("get_user_balance", { uid: user.id });
-      if ((balance ?? 0) < product.price) {
-        toast({
-          title: language === "id" ? "Saldo tidak cukup" : "Insufficient balance",
-          description: language === "id" ? "Silakan top up terlebih dahulu." : "Please top up your balance first.",
-          variant: "destructive",
-        });
-        navigate("/topup");
-        return;
-      }
     }
     if (product.price_hidden) {
       setShowWa(true);
