@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { Crown, Users, LogOut, ArrowLeft, Wallet, CheckCircle, XCircle, Clock, Loader2, Search, Trash2, Eye, MessageCircle } from "lucide-react";
+import { Crown, Users, LogOut, ArrowLeft, Loader2, Search, Trash2, Eye, MessageCircle } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -70,16 +70,6 @@ const labels: Record<Lang, Record<string, string>> = {
     searchUsersDesc: "Cari pengguna berdasarkan alamat email",
   },
 };
-interface TopUpRecord {
-  id: string;
-  user_id: string;
-  amount: number;
-  method: string;
-  status: string;
-  created_at: string;
-  notes: string | null;
-}
-
 const VipDashboard = () => {
   const navigate = useNavigate();
   const { user, signOut } = useAuth();
@@ -90,10 +80,9 @@ const VipDashboard = () => {
   const [userEmailMap, setUserEmailMap] = useState<Record<string, string>>({});
   const [loadingUsers, setLoadingUsers] = useState(false);
   const [deletingId, setDeletingId] = useState<string | null>(null);
-  const [topups, setTopups] = useState<TopUpRecord[]>([]);
   const [loading, setLoading] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
-  const [updatingId, setUpdatingId] = useState<string | null>(null);
+  
   const [lang, setLang] = useState<Lang>(() => (localStorage.getItem("vip-lang") as Lang) || "en");
 
   const t = labels[lang];
@@ -122,7 +111,7 @@ const VipDashboard = () => {
 
   const loadAll = async () => {
     setLoading(true);
-    await Promise.all([loadUsers(), loadTopups(), loadUserEmails()]);
+    await Promise.all([loadUsers(), loadUserEmails()]);
     setLoading(false);
   };
 
@@ -131,29 +120,12 @@ const VipDashboard = () => {
     setTotalUsers(count ?? 0);
   };
 
-  const loadTopups = async () => {
-    const { data } = await supabase.from("topups").select("*").order("created_at", { ascending: false }).limit(50);
-    setTopups(data ?? []);
-  };
-
   const loadUserEmails = async () => {
     const { data } = await supabase.rpc("admin_search_users", { search_term: "" });
     if (data) {
       const map: Record<string, string> = {};
       (data as { user_id: string; email: string }[]).forEach((u) => { map[u.user_id] = u.email; });
       setUserEmailMap(map);
-    }
-  };
-
-  const updateTopupStatus = async (id: string, status: "completed" | "cancelled") => {
-    setUpdatingId(id);
-    const { error } = await supabase.from("topups").update({ status, updated_at: new Date().toISOString() }).eq("id", id);
-    setUpdatingId(null);
-    if (error) {
-      toast({ title: t.error, description: error.message, variant: "destructive" });
-    } else {
-      toast({ title: t.updated, description: status === "completed" ? t.approved : t.rejected });
-      await loadTopups();
     }
   };
 
@@ -181,11 +153,7 @@ const VipDashboard = () => {
   const formatDate = (d: string) =>
     new Date(d).toLocaleString("id-ID", { day: "numeric", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" });
 
-  const StatusBadge = ({ status }: { status: string }) => {
-    if (status === "completed") return <span className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-400"><CheckCircle className="w-3 h-3" /> {t.success}</span>;
-    if (status === "cancelled") return <span className="inline-flex items-center gap-1 text-xs font-semibold text-red-400"><XCircle className="w-3 h-3" /> {t.cancelled}</span>;
-    return <span className="inline-flex items-center gap-1 text-xs font-semibold text-gold"><Clock className="w-3 h-3" /> {t.waiting}</span>;
-  };
+  const StatusBadge = (_: { status: string }) => null;
 
   if (!isAdmin) return null;
 
