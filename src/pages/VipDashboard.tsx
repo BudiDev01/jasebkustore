@@ -153,11 +153,7 @@ const VipDashboard = () => {
   const formatDate = (d: string) =>
     new Date(d).toLocaleString("id-ID", { day: "numeric", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" });
 
-  const StatusBadge = (_: { status: string }) => null;
-
   if (!isAdmin) return null;
-
-  const pendingTopups = topups.filter((tu) => tu.status === "pending");
 
   return (
     <div className="min-h-screen gradient-hero">
@@ -209,14 +205,6 @@ const VipDashboard = () => {
             <TabsList className="mb-6 bg-white/5 border border-white/10">
               <TabsTrigger value="chat" className="data-[state=active]:bg-gold data-[state=active]:text-primary-foreground text-white/60">
                 <MessageCircle className="w-4 h-4 mr-1" /> {t.chat}
-              </TabsTrigger>
-              <TabsTrigger value="topups" className="data-[state=active]:bg-gold data-[state=active]:text-primary-foreground text-white/60">
-                <Wallet className="w-4 h-4 mr-1" /> {t.topUp}
-                {pendingTopups.length > 0 && (
-                  <span className="ml-1.5 bg-red-500 text-white text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center">
-                    {pendingTopups.length}
-                  </span>
-                )}
               </TabsTrigger>
               <TabsTrigger value="analytics" className="data-[state=active]:bg-gold data-[state=active]:text-primary-foreground text-white/60">
                 <Users className="w-4 h-4 mr-1" /> {t.analytics}
@@ -296,60 +284,6 @@ const VipDashboard = () => {
                 <p className="text-white/50">{t.searchUsersDesc}</p>
               </div>
               <UserSearch lang={lang} />
-            </TabsContent>
-
-            {/* Top Up Management Tab */}
-            <TabsContent value="topups">
-              <div className="flex items-center justify-between mb-6">
-                <div>
-                  <h1 className="text-3xl font-black text-white mb-1">{t.manageTopUp}</h1>
-                  <p className="text-white/50">{t.manageTopUpDesc}</p>
-                </div>
-                <Button onClick={loadTopups} variant="outline" size="sm" className="border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/10 font-semibold">
-                  {t.refresh}
-                </Button>
-              </div>
-
-              {topups.length === 0 ? (
-                <Card className="bg-white/5 border-white/10">
-                  <CardContent className="py-12 text-center">
-                    <Wallet className="w-12 h-12 text-white/20 mx-auto mb-3" />
-                    <p className="text-white/40">{t.noTopUps}</p>
-                  </CardContent>
-                </Card>
-              ) : (
-                <div className="space-y-3">
-                  {topups.map((tu) => (
-                    <Card key={tu.id} className="bg-white/5 border-white/10">
-                      <CardContent className="p-4">
-                        <div className="flex flex-col sm:flex-row sm:items-center gap-3">
-                          <div className="flex-1 min-w-0">
-                            <div className="flex items-center gap-2 mb-1">
-                              <span className="text-gold font-black text-lg">{formatPrice(tu.amount)}</span>
-                              <StatusBadge status={tu.status} />
-                            </div>
-                            <p className="text-white/40 text-xs">
-                              {formatDate(tu.created_at)} • {tu.method.toUpperCase()} • ID: {tu.id.slice(0, 8)}
-                            </p>
-                            <p className="text-white/30 text-xs mt-0.5 truncate">{t.user}: {userEmailMap[tu.user_id] || tu.user_id.slice(0, 12) + "…"}</p>
-                          </div>
-                          {tu.status === "pending" && (
-                            <div className="flex gap-2 shrink-0">
-                              <Button size="sm" onClick={() => updateTopupStatus(tu.id, "completed")} disabled={updatingId === tu.id} className="bg-emerald-600 hover:bg-emerald-700 text-white gap-1">
-                                {updatingId === tu.id ? <Loader2 className="w-3 h-3 animate-spin" /> : <CheckCircle className="w-3 h-3" />}
-                                {t.approve}
-                              </Button>
-                              <Button size="sm" variant="outline" onClick={() => updateTopupStatus(tu.id, "cancelled")} disabled={updatingId === tu.id} className="border-red-500/30 text-red-400 hover:bg-red-500/10 gap-1">
-                                <XCircle className="w-3 h-3" /> {t.reject}
-                              </Button>
-                            </div>
-                          )}
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              )}
             </TabsContent>
 
             {/* Chat Tab */}
