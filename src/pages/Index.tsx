@@ -23,6 +23,7 @@ const CATEGORIES: { key: string; icon: string; desc_en?: string; desc_id?: strin
   { key: "freelance", icon: "💰", desc_en: "Task: create Gmail accounts. You will receive money every day from us.", desc_id: "Tugas: membuat akun Gmail. Kamu akan menerima uang setiap hari dari kami." },
   { key: "jaseb", icon: "📢", desc_en: "Promotion to 60 groups for 1 month, priced at 15,000.", desc_id: "Promosi ke 60 grup selama 1 bulan, harga 15.000." },
   { key: "whatsapp", icon: "📱" },
+  { key: "whatsapp_intl", icon: "🌐" },
   { key: "telegram", icon: "✈️" },
   { key: "social", icon: "📈" },
   { key: "gworkspace", icon: "🏢" },
