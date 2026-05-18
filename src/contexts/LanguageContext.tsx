@@ -120,6 +120,7 @@ const translations: Record<Language, Translations> = {
     catFreelance: "Freelance",
     catJaseb: "Jaseb",
     catWhatsapp: "WhatsApp Numbers",
+    catWhatsappIntl: "International WhatsApp Numbers",
     catTelegram: "Telegram Numbers",
     catSocial: "Medsos",
     catGworkspace: "Google Workspace",
