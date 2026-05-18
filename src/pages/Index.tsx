@@ -102,7 +102,6 @@ const Index = () => {
       freelance: t.catFreelance,
       jaseb: t.catJaseb,
       whatsapp: t.catWhatsapp,
-      whatsapp_intl: t.catWhatsappIntl,
       telegram: t.catTelegram,
       social: t.catSocial,
       gworkspace: t.catGworkspace,
