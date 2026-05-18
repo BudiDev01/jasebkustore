@@ -28,6 +28,7 @@ interface Translations {
   catFreelance: string;
   catJaseb: string;
   catWhatsapp: string;
+  catWhatsappIntl: string;
   catTelegram: string;
   catSocial: string;
   catGworkspace: string;
@@ -119,6 +120,7 @@ const translations: Record<Language, Translations> = {
     catFreelance: "Freelance",
     catJaseb: "Jaseb",
     catWhatsapp: "WhatsApp Numbers",
+    catWhatsappIntl: "International WhatsApp Numbers",
     catTelegram: "Telegram Numbers",
     catSocial: "Medsos",
     catGworkspace: "Google Workspace",
@@ -203,6 +205,7 @@ const translations: Record<Language, Translations> = {
     catFreelance: "Freelance",
     catJaseb: "Jaseb",
     catWhatsapp: "Nomor WhatsApp",
+    catWhatsappIntl: "Nomor WhatsApp Internasional",
     catTelegram: "Nomor Telegram",
     catSocial: "Medsos",
     catGworkspace: "Google Workspace",
