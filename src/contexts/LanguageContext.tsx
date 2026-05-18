@@ -28,6 +28,7 @@ interface Translations {
   catFreelance: string;
   catJaseb: string;
   catWhatsapp: string;
+  catWhatsappIntl: string;
   catTelegram: string;
   catSocial: string;
   catGworkspace: string;
