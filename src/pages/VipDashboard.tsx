@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { Crown, Users, LogOut, ArrowLeft, Loader2, Search, Trash2, Eye, MessageCircle } from "lucide-react";
+import { Crown, Users, LogOut, ArrowLeft, Loader2, Search, Trash2, Eye } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -8,7 +8,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { useToast } from "@/hooks/use-toast";
 import UserSearch from "@/components/vip/UserSearch";
-import AdminChat from "@/components/vip/AdminChat";
+
 
 type Lang = "en" | "id";
 
@@ -201,11 +201,8 @@ const VipDashboard = () => {
         {loading ? (
           <div className="text-white/50 text-center py-20">{t.loading}</div>
         ) : (
-          <Tabs defaultValue="chat">
+          <Tabs defaultValue="analytics">
             <TabsList className="mb-6 bg-white/5 border border-white/10">
-              <TabsTrigger value="chat" className="data-[state=active]:bg-gold data-[state=active]:text-primary-foreground text-white/60">
-                <MessageCircle className="w-4 h-4 mr-1" /> {t.chat}
-              </TabsTrigger>
               <TabsTrigger value="analytics" className="data-[state=active]:bg-gold data-[state=active]:text-primary-foreground text-white/60">
                 <Users className="w-4 h-4 mr-1" /> {t.analytics}
               </TabsTrigger>
@@ -286,10 +283,6 @@ const VipDashboard = () => {
               <UserSearch lang={lang} />
             </TabsContent>
 
-            {/* Chat Tab */}
-            <TabsContent value="chat">
-              <AdminChat lang={lang} />
-            </TabsContent>
           </Tabs>
         )}
 

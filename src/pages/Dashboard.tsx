@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { User, Package, LogOut, ShoppingBag, Clock, CheckCircle, MessageCircle } from "lucide-react";
+import { User, Package, LogOut, ShoppingBag, Clock, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -11,8 +11,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import AvatarUpload from "@/components/AvatarUpload";
-import CustomerChat from "@/components/CustomerChat";
-import UserInbox from "@/components/UserInbox";
 
 interface Order {
   id: string;
@@ -118,11 +116,6 @@ const Dashboard = () => {
               <User className="w-4 h-4" /> {t.profileTab}
             </TabsTrigger>
             {!isAdmin && (
-              <TabsTrigger value="messages" className="gap-2 data-[state=active]:bg-gold data-[state=active]:text-primary-foreground">
-                <MessageCircle className="w-4 h-4" /> Pesan
-              </TabsTrigger>
-            )}
-            {!isAdmin && (
               <TabsTrigger value="orders" className="gap-2 data-[state=active]:bg-gold data-[state=active]:text-primary-foreground">
                 <Package className="w-4 h-4" /> {t.ordersTab}
               </TabsTrigger>
@@ -166,12 +159,6 @@ const Dashboard = () => {
             </div>
           </TabsContent>
 
-          {/* Messages Tab */}
-          {!isAdmin && (
-          <TabsContent value="messages">
-            <UserInbox />
-          </TabsContent>
-          )}
 
           {/* Orders Tab */}
           {!isAdmin && (
@@ -218,7 +205,6 @@ const Dashboard = () => {
 
       <Footer />
       <WhatsAppButton />
-      {!isAdmin && <CustomerChat />}
     </div>
   );
 };
