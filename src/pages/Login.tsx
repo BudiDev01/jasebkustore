@@ -34,7 +34,7 @@ const SOURCE_OPTIONS: SourceOption[] = [
 ];
 
 const Login = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const navigate = useNavigate();
   const { toast } = useToast();
   const [mode, setMode] = useState<LoginMode>("select");
@@ -43,6 +43,8 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [showSourceDialog, setShowSourceDialog] = useState(false);
+  const [selectedSource, setSelectedSource] = useState("");
   
 
   const handleRegularLogin = async (e: React.FormEvent) => {
