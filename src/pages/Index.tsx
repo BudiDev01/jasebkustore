@@ -244,6 +244,39 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Website Links Board */}
+      <section className="py-8 bg-gradient-to-r from-blue-500/10 via-background to-blue-500/10 border-y border-blue-500/20">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-4">
+            <Badge className="bg-blue-500/15 text-blue-500 border-blue-500/30 text-[10px] uppercase tracking-wide mb-2">
+              {t.websiteLinksTitle}
+            </Badge>
+            <p className="text-sm text-muted-foreground">{t.websiteLinksSubtitle}</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <a
+              href="https://jasebku-digital-space.lovable.app"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-3 px-5 py-4 rounded-xl border border-blue-500/30 bg-card shadow-sm hover:shadow-md hover:border-blue-500/50 transition-all group"
+            >
+              <div className="w-10 h-10 rounded-lg bg-blue-500/15 flex items-center justify-center shrink-0">
+                <ExternalLink className="w-5 h-5 text-blue-500" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <span className="block text-sm font-semibold text-foreground group-hover:text-blue-500 transition-colors truncate">
+                  JasebKu Digital Space
+                </span>
+                <span className="block text-xs text-muted-foreground truncate">
+                  jasebku-digital-space.lovable.app
+                </span>
+              </div>
+              <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-blue-500 group-hover:translate-x-1 transition-all" />
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Userbot Banner */}
       <section className="py-6 bg-gradient-to-r from-gold/10 via-gold/5 to-gold/10 border-y border-gold/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
