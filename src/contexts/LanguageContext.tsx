@@ -94,6 +94,9 @@ interface Translations {
   error: string;
   price: string;
   perItem: string;
+  // Website Links Board
+  websiteLinksTitle: string;
+  websiteLinksSubtitle: string;
 }
 
 const translations: Record<Language, Translations> = {
