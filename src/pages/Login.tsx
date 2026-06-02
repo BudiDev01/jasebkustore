@@ -107,6 +107,13 @@ const Login = () => {
     setShowPassword(false);
   };
 
+  const handleSourceSubmit = () => {
+    if (!selectedSource) return;
+    localStorage.setItem("vip_source", selectedSource);
+    setShowSourceDialog(false);
+    setMode("vip");
+  };
+
   // Selection screen
   if (mode === "select") {
     return (
