@@ -269,6 +269,8 @@ const translations: Record<Language, Translations> = {
     error: "Terjadi kesalahan",
     price: "Harga",
     perItem: "/ item",
+    websiteLinksTitle: "Website Kami",
+    websiteLinksSubtitle: "Jelajahi platform digital kami",
   },
 };
 
