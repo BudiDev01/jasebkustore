@@ -8,11 +8,33 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { supabase } from "@/integrations/supabase/client";
 
 import { useToast } from "@/hooks/use-toast";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 type LoginMode = "select" | "regular" | "vip";
 
+type SourceOption = {
+  value: string;
+  label_en: string;
+  label_id: string;
+};
+
+const SOURCE_OPTIONS: SourceOption[] = [
+  { value: "telegram", label_en: "Telegram", label_id: "Telegram" },
+  { value: "whatsapp", label_en: "WhatsApp", label_id: "WhatsApp" },
+  { value: "friend", label_en: "Friend / Referral", label_id: "Teman / Referral" },
+  { value: "google", label_en: "Google Search", label_id: "Pencarian Google" },
+  { value: "social", label_en: "Social Media", label_id: "Media Sosial" },
+  { value: "other", label_en: "Other", label_id: "Lainnya" },
+];
+
 const Login = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const navigate = useNavigate();
   const { toast } = useToast();
   const [mode, setMode] = useState<LoginMode>("select");
@@ -21,6 +43,8 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [showSourceDialog, setShowSourceDialog] = useState(false);
+  const [selectedSource, setSelectedSource] = useState("");
   
 
   const handleRegularLogin = async (e: React.FormEvent) => {
@@ -83,6 +107,13 @@ const Login = () => {
     setShowPassword(false);
   };
 
+  const handleSourceSubmit = () => {
+    if (!selectedSource) return;
+    localStorage.setItem("vip_source", selectedSource);
+    setShowSourceDialog(false);
+    setMode("vip");
+  };
+
   // Selection screen
   if (mode === "select") {
     return (
@@ -118,7 +149,7 @@ const Login = () => {
               </button>
 
               <button
-                onClick={() => { resetForm(); setMode("vip"); }}
+                onClick={() => { resetForm(); setShowSourceDialog(true); }}
                 className="w-full group relative overflow-hidden rounded-xl border border-gold/20 bg-gold/5 p-5 text-left transition-all hover:border-gold/50 hover:bg-gold/10"
               >
                 <div className="flex items-center gap-4">
@@ -140,6 +171,42 @@ const Login = () => {
               </Link>
             </p>
           </div>
+
+          {/* Source Survey Dialog */}
+          <Dialog open={showSourceDialog} onOpenChange={setShowSourceDialog}>
+            <DialogContent className="bg-white/10 backdrop-blur-xl border-white/10 text-white max-w-sm">
+              <DialogHeader>
+                <DialogTitle className="text-white text-lg font-bold">
+                  {language === "id" ? "Dari mana Anda mengetahui kami?" : "How did you hear about us?"}
+                </DialogTitle>
+              </DialogHeader>
+              <RadioGroup
+                value={selectedSource}
+                onValueChange={setSelectedSource}
+                className="space-y-2 mt-2"
+              >
+                {SOURCE_OPTIONS.map((opt) => (
+                  <div key={opt.value} className="flex items-center space-x-2">
+                    <RadioGroupItem
+                      value={opt.value}
+                      id={opt.value}
+                      className="border-white/30 text-gold"
+                    />
+                    <Label htmlFor={opt.value} className="text-white/80 text-sm cursor-pointer">
+                      {language === "id" ? opt.label_id : opt.label_en}
+                    </Label>
+                  </div>
+                ))}
+              </RadioGroup>
+              <Button
+                onClick={handleSourceSubmit}
+                disabled={!selectedSource}
+                className="w-full mt-4 gradient-gold text-primary-foreground hover:opacity-90 shadow-gold font-semibold"
+              >
+                {language === "id" ? "Lanjutkan" : "Continue"}
+              </Button>
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
     );
