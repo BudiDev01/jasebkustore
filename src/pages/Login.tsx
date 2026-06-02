@@ -8,8 +8,30 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { supabase } from "@/integrations/supabase/client";
 
 import { useToast } from "@/hooks/use-toast";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 type LoginMode = "select" | "regular" | "vip";
+
+type SourceOption = {
+  value: string;
+  label_en: string;
+  label_id: string;
+};
+
+const SOURCE_OPTIONS: SourceOption[] = [
+  { value: "telegram", label_en: "Telegram", label_id: "Telegram" },
+  { value: "whatsapp", label_en: "WhatsApp", label_id: "WhatsApp" },
+  { value: "friend", label_en: "Friend / Referral", label_id: "Teman / Referral" },
+  { value: "google", label_en: "Google Search", label_id: "Pencarian Google" },
+  { value: "social", label_en: "Social Media", label_id: "Media Sosial" },
+  { value: "other", label_en: "Other", label_id: "Lainnya" },
+];
 
 const Login = () => {
   const { t } = useLanguage();
