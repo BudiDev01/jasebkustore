@@ -94,6 +94,9 @@ interface Translations {
   error: string;
   price: string;
   perItem: string;
+  // Website Links Board
+  websiteLinksTitle: string;
+  websiteLinksSubtitle: string;
 }
 
 const translations: Record<Language, Translations> = {
@@ -180,6 +183,8 @@ const translations: Record<Language, Translations> = {
     error: "Something went wrong",
     price: "Price",
     perItem: "/ item",
+    websiteLinksTitle: "Our Websites",
+    websiteLinksSubtitle: "Explore our digital platforms",
   },
   id: {
     home: "Beranda",
@@ -264,6 +269,8 @@ const translations: Record<Language, Translations> = {
     error: "Terjadi kesalahan",
     price: "Harga",
     perItem: "/ item",
+    websiteLinksTitle: "Website Kami",
+    websiteLinksSubtitle: "Jelajahi platform digital kami",
   },
 };
 
