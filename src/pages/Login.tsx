@@ -142,7 +142,7 @@ const Login = () => {
               </button>
 
               <button
-                onClick={() => { resetForm(); setMode("vip"); }}
+                onClick={() => { resetForm(); setShowSourceDialog(true); }}
                 className="w-full group relative overflow-hidden rounded-xl border border-gold/20 bg-gold/5 p-5 text-left transition-all hover:border-gold/50 hover:bg-gold/10"
               >
                 <div className="flex items-center gap-4">
