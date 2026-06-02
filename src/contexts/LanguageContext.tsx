@@ -183,6 +183,8 @@ const translations: Record<Language, Translations> = {
     error: "Something went wrong",
     price: "Price",
     perItem: "/ item",
+    websiteLinksTitle: "Our Websites",
+    websiteLinksSubtitle: "Explore our digital platforms",
   },
   id: {
     home: "Beranda",
