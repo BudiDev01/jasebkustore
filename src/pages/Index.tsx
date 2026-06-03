@@ -273,6 +273,25 @@ const Index = () => {
               </div>
               <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-blue-500 group-hover:translate-x-1 transition-all" />
             </a>
+            <a
+              href="https://accountify-now.lovable.app"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-3 px-5 py-4 rounded-xl border border-blue-500/30 bg-card shadow-sm hover:shadow-md hover:border-blue-500/50 transition-all group"
+            >
+              <div className="w-10 h-10 rounded-lg bg-blue-500/15 flex items-center justify-center shrink-0">
+                <ExternalLink className="w-5 h-5 text-blue-500" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <span className="block text-sm font-semibold text-foreground group-hover:text-blue-500 transition-colors truncate">
+                  Accountify Now
+                </span>
+                <span className="block text-xs text-muted-foreground truncate">
+                  accountify-now.lovable.app
+                </span>
+              </div>
+              <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-blue-500 group-hover:translate-x-1 transition-all" />
+            </a>
           </div>
         </div>
       </section>
