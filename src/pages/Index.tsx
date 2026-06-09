@@ -215,36 +215,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Announcement Board */}
-      <section className="py-8 bg-gradient-to-r from-gold/10 via-background to-gold/10 border-y border-gold/30">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-2xl border border-gold/40 bg-card shadow-gold p-5 sm:p-6">
-            <div className="flex items-start gap-3">
-              <span className="text-2xl sm:text-3xl">📣</span>
-              <div className="flex-1">
-                <div className="flex items-center gap-2 mb-1">
-                  <Badge className="bg-gold/15 text-gold border-gold/30 text-[10px] uppercase tracking-wide">
-                    {language === "id" ? "Pengumuman" : "Announcement"}
-                  </Badge>
-                  <span className="text-xs text-muted-foreground">CapCut</span>
-                </div>
-                <h3 className="text-base sm:text-lg font-bold text-foreground">
-                  {language === "id"
-                    ? "Akun CapCut tersedia banyak — khusus akun pribadi"
-                    : "Plenty of CapCut accounts available — private accounts only"}
-                </h3>
-                <p className="text-sm text-muted-foreground mt-1">
-                  {language === "id"
-                    ? "Stok akun CapCut sedang melimpah. Layanan ini hanya untuk akun pribadi, bukan untuk reseller atau penggunaan bersama."
-                    : "We currently have plenty of CapCut accounts in stock. This offer is for private accounts only — not for reseller or shared use."}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Website Links Board */}
       <section className="py-8 bg-gradient-to-r from-blue-500/10 via-background to-blue-500/10 border-y border-blue-500/20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-4">
