@@ -56,10 +56,10 @@ export const PRODUCTS: Product[] = [
   // Jaseb
   {
     id: "jaseb-60-grup",
-    name: "Jaseb 60 Groups (1 Month)",
-    name_id: "Jaseb 60 Grup (1 Bulan)",
-    description: "Promotion to 60 groups for a duration of one month.",
-    description_id: "Promosi ke 60 grup selama 1 bulan.",
+    name: "Jaseb 60 Groups (1+ Month)",
+    name_id: "Jaseb 60 Grup (1+ Bulan)",
+    description: "Promotion to 60 groups with a duration of more than 1 month. Results will be sent directly to your account.",
+    description_id: "Promosi ke 60 grup dengan durasi lebih dari 1 bulan. Hasil akan dikirim langsung ke akun Anda.",
     price: 15000,
     category: "jaseb",
     badge: "Popular",
