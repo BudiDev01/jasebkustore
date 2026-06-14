@@ -16,6 +16,7 @@ import VipForgotPassword from "./pages/VipForgotPassword";
 import AdminUserView from "./pages/AdminUserView";
 import ForgotPassword from "./pages/ForgotPassword";
 import NotFound from "./pages/NotFound";
+import ProtectedAdminRoute from "./components/ProtectedAdminRoute";
 
 const queryClient = new QueryClient();
 
