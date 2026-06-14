@@ -36,8 +36,8 @@ const App = () => (
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="/vip" element={<VipLogin />} />
-              <Route path="/vip/dashboard" element={<VipDashboard />} />
-              <Route path="/vip/user/:userId" element={<AdminUserView />} />
+              <Route path="/vip/dashboard" element={<ProtectedAdminRoute><VipDashboard /></ProtectedAdminRoute>} />
+              <Route path="/vip/user/:userId" element={<ProtectedAdminRoute><AdminUserView /></ProtectedAdminRoute>} />
               <Route path="/vip/forgot-password" element={<VipForgotPassword />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
