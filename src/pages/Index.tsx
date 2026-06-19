@@ -35,6 +35,7 @@ const CATEGORIES: { key: string; icon: string; desc_en?: string; desc_id?: strin
   { key: "video", icon: "🎬" },
   { key: "coding", icon: "💻" },
   { key: "security", icon: "🛡️" },
+  { key: "caregiver", icon: "👩‍⚕️" },
   { key: "rekber", icon: "🤝" },
   { key: "banking", icon: "🏦" },
 ];
