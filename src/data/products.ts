@@ -731,4 +731,18 @@ export const PRODUCTS: Product[] = [
     stock_status: "available",
     icon: "🔗",
   },
+  // === Security Services ===
+  {
+    id: "security-001",
+    name: "Security Services",
+    name_id: "Jasa Keamanan",
+    description: "Bodyguard and security services.",
+    description_id: "Jasa pengawalan dan keamanan.",
+    price: 0,
+    price_hidden: true,
+    category: "security",
+    badge: "Security",
+    stock_status: "available",
+    icon: "🛡️",
+  },
 ];
