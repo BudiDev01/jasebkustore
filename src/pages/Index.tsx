@@ -215,7 +215,24 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-8 bg-gradient-to-r from-blue-500/10 via-background to-blue-500/10 border-y border-blue-500/20">
+      {/* CapCut Announcement */}
+      <section className="py-6 bg-gradient-to-r from-pink-500/10 via-rose-500/5 to-pink-500/10 border-y border-pink-500/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-center gap-3 px-6 py-4 rounded-2xl border border-pink-500/30 bg-card shadow-sm">
+            <span className="text-2xl">✂️</span>
+            <div className="text-center">
+              <span className="block text-base font-bold text-foreground">
+                CapCut
+              </span>
+              <span className="block text-xs text-muted-foreground">
+                {language === "id"
+                  ? "Durasi 1 bulan · Akun pribadi · Harga terjangkau"
+                  : "One-month duration · Private account · Affordable price"}
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-4">
             <Badge className="bg-blue-500/15 text-blue-500 border-blue-500/30 text-[10px] uppercase tracking-wide mb-2">
