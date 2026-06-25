@@ -1,5 +1,6 @@
 import React from "react";
 import { Film } from "lucide-react";
+import videoAsset from "@/assets/video-corner.mp4.asset.json";
 
 const VideoSection = () => {
   return (
@@ -20,7 +21,7 @@ const VideoSection = () => {
             className="w-full aspect-video bg-black"
             poster=""
           >
-            <source src="/video/afgan-sudah-korean.mp4" type="video/mp4" />
+            <source src={videoAsset.url} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
