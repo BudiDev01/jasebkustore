@@ -11,7 +11,7 @@ const VideoSection = () => {
             <Film className="w-3 h-3" /> Featured Video
           </div>
           <h2 className="text-2xl sm:text-3xl font-black text-foreground">🎬 Video Corner</h2>
-          <p className="text-muted-foreground text-sm mt-2">Afgan – Sudah (Korean Version)</p>
+          
         </div>
 
         <div className="rounded-xl overflow-hidden border border-border bg-card shadow-card">
