@@ -369,7 +369,7 @@ const Index = () => {
               <span className="block text-base font-bold text-foreground group-hover:text-gold transition-colors">
                 {language === "id" ? "Userbot Kedua" : "Second Userbot"}
               </span>
-              <span className="block text-xs text-muted-foreground">@jasebkuone_bot</span>
+              <span className="block text-xs text-muted-foreground">@jasebkuone_bot — {language === "id" ? "Userbot dengan watermark Rp 5.000/bulan" : "Userbot with watermark Rp 5,000/month"}</span>
             </div>
             <ArrowRight className="w-5 h-5 text-gold opacity-0 group-hover:opacity-100 transition-opacity" />
           </a>
