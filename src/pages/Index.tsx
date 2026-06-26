@@ -342,7 +342,7 @@ const Index = () => {
 
       {/* Userbot Banner */}
       <section className="py-6 bg-gradient-to-r from-gold/10 via-gold/5 to-gold/10 border-y border-gold/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-4 sm:grid-cols-2">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <a
             href="https://t.me/OfficialJasebKuBot"
             target="_blank"
@@ -369,7 +369,22 @@ const Index = () => {
               <span className="block text-base font-bold text-foreground group-hover:text-gold transition-colors">
                 {language === "id" ? "Userbot Kedua" : "Second Userbot"}
               </span>
-              <span className="block text-xs text-muted-foreground">@jasebkuone_bot — Rp 10.000/{language === "id" ? "bulan" : "month"}</span>
+              <span className="block text-xs text-muted-foreground">@jasebkuone_bot</span>
+            </div>
+            <ArrowRight className="w-5 h-5 text-gold opacity-0 group-hover:opacity-100 transition-opacity" />
+          </a>
+          <a
+            href="https://t.me/Fadgww"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center justify-center gap-3 px-6 py-4 rounded-2xl border border-gold/30 bg-card shadow-gold hover:bg-gold/10 transition-all group"
+          >
+            <span className="text-2xl">🤖</span>
+            <div className="text-center">
+              <span className="block text-base font-bold text-foreground group-hover:text-gold transition-colors">
+                {language === "id" ? "Userbot Ketiga (Watermark)" : "Third Userbot (Watermark)"}
+              </span>
+              <span className="block text-xs text-muted-foreground">Rp 5.000/{language === "id" ? "bulan" : "month"} · {language === "id" ? "dengan watermark" : "with watermark"}</span>
             </div>
             <ArrowRight className="w-5 h-5 text-gold opacity-0 group-hover:opacity-100 transition-opacity" />
           </a>
