@@ -354,7 +354,7 @@ const Index = () => {
               <span className="block text-base font-bold text-foreground group-hover:text-gold transition-colors">
                 {language === "id" ? "Gunakan Bot Telegram Kami" : "Use Our Telegram Bot"}
               </span>
-              <span className="block text-xs text-muted-foreground">@OfficialJasebKuBot — Rp 10.000/{language === "id" ? "bulan" : "month"}</span>
+              <span className="block text-xs text-muted-foreground">@OfficialJasebKuBot — {language === "id" ? "Userbot dengan watermark Rp 5.000/bulan" : "Userbot with watermark Rp 5,000/month"}</span>
             </div>
             <ArrowRight className="w-5 h-5 text-gold opacity-0 group-hover:opacity-100 transition-opacity" />
           </a>
@@ -369,7 +369,7 @@ const Index = () => {
               <span className="block text-base font-bold text-foreground group-hover:text-gold transition-colors">
                 {language === "id" ? "Userbot Kedua" : "Second Userbot"}
               </span>
-              <span className="block text-xs text-muted-foreground">@jasebkuone_bot — {language === "id" ? "Userbot dengan watermark Rp 5.000/bulan" : "Userbot with watermark Rp 5,000/month"}</span>
+              <span className="block text-xs text-muted-foreground">@jasebkuone_bot — Rp 10.000/{language === "id" ? "bulan" : "month"}</span>
             </div>
             <ArrowRight className="w-5 h-5 text-gold opacity-0 group-hover:opacity-100 transition-opacity" />
           </a>
