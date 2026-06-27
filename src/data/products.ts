@@ -498,6 +498,17 @@ export const PRODUCTS: Product[] = [
     icon: "📹",
   },
   {
+    id: "prem-ivas",
+    name: "iVAS Account",
+    name_id: "Akun iVAS",
+    description: "Get free phone numbers.",
+    description_id: "Dapatkan nomor telepon gratis.",
+    price: 10000,
+    category: "premium",
+    stock_status: "available",
+    icon: "📞",
+  },
+  {
     id: "prem-other",
     name: "Other Premium Apps",
     name_id: "Aplikasi Premium Lainnya",
