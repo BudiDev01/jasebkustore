@@ -123,7 +123,7 @@ const ProductCard = ({ product, onTouch }: ProductCardProps) => {
           {product.price_hidden ? (
             showWa ? (
               <a
-                href={ADMIN_TG}
+                href={product.link || ADMIN_TG}
                 target="_blank"
                 rel="noreferrer"
                 onClick={(e) => e.stopPropagation()}
