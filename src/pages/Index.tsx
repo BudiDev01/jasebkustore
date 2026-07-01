@@ -430,7 +430,7 @@ const Index = () => {
               href="https://t.me/JokiJasebKu"
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-2 px-6 py-3 rounded-xl border border-blue-500/30 bg-blue-500 text-white font-semibold hover:bg-blue-600 transition-colors text-sm shadow-blue"
+              className="flex items-center gap-2 px-6 py-3 rounded-xl border border-blue-500/30 bg-blue-500 text-white font-semibold hover:bg-blue-600 transition-colors text-sm shadow-lg"
             >
               <Send className="w-5 h-5" />
               {language === "id" ? "Grup JokiJasebKu" : "JokiJasebKu Group"}
