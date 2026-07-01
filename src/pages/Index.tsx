@@ -40,7 +40,6 @@ const CATEGORIES: { key: string; icon: string; desc_en?: string; desc_id?: strin
   { key: "rekber", icon: "🤝" },
   { key: "banking", icon: "🏦" },
 ];
-];
 
 // Group categories into slides: first slide has 2 (Freelance & Jaseb), rest in groups of 3
 const CATEGORY_SLIDES = (() => {
