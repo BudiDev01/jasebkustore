@@ -10,6 +10,7 @@ export interface Product {
   badge?: string;
   stock_status: "available" | "out_of_stock";
   icon: string;
+  link?: string;
 }
 
 export const PRODUCTS: Product[] = [
@@ -808,5 +809,20 @@ export const PRODUCTS: Product[] = [
     badge: "Caregiver",
     stock_status: "available",
     icon: "🏥",
+  },
+  // === Game Boosting Services ===
+  {
+    id: "game-boosting",
+    name: "Game Boosting Services",
+    name_id: "Jasa Joki Game",
+    description: "Mobile Legends, Free Fire, Roblox, and many other games. Join our group for orders and info.",
+    description_id: "Mobile Legends, Free Fire, Roblox, dan banyak game lainnya. Bergabung ke grup kami untuk pemesanan dan info.",
+    price: 0,
+    price_hidden: true,
+    category: "gaming",
+    badge: "Joki",
+    stock_status: "available",
+    icon: "🎮",
+    link: "https://t.me/JokiJasebKu",
   },
 ];

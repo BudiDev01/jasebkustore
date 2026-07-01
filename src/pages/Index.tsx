@@ -36,8 +36,10 @@ const CATEGORIES: { key: string; icon: string; desc_en?: string; desc_id?: strin
   { key: "coding", icon: "💻" },
   { key: "security", icon: "🛡️" },
   { key: "caregiver", icon: "👩‍⚕️" },
+  { key: "gaming", icon: "🎮" },
   { key: "rekber", icon: "🤝" },
   { key: "banking", icon: "🏦" },
+];
 ];
 
 // Group categories into slides: first slide has 2 (Freelance & Jaseb), rest in groups of 3
@@ -117,6 +119,7 @@ const Index = () => {
       coding: t.catCoding,
       rekber: t.catRekber,
       banking: t.catBanking,
+      gaming: t.catGaming,
     };
     return map[key] || key;
   };
