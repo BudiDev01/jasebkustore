@@ -40,6 +40,7 @@ const App = () => (
               <Route path="/vip/dashboard" element={<ProtectedAdminRoute><VipDashboard /></ProtectedAdminRoute>} />
               <Route path="/vip/user/:userId" element={<ProtectedAdminRoute><AdminUserView /></ProtectedAdminRoute>} />
               <Route path="/vip/forgot-password" element={<VipForgotPassword />} />
+              <Route path="/.lovable/oauth/consent" element={<OAuthConsent />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
