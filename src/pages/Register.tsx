@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { ShoppingBag, Loader2, Eye, EyeOff } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -11,6 +11,10 @@ import { useToast } from "@/hooks/use-toast";
 const Register = () => {
   const { t } = useLanguage();
   const { toast } = useToast();
+  const [searchParams] = useSearchParams();
+  const nextParam = searchParams.get("next");
+  const safeNext = nextParam && nextParam.startsWith("/") && !nextParam.startsWith("//") ? nextParam : null;
+  const emailRedirect = safeNext ? window.location.origin + safeNext : window.location.origin;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -33,7 +37,7 @@ const Register = () => {
     const { error } = await supabase.auth.signUp({
       email,
       password,
-      options: { emailRedirectTo: window.location.origin },
+      options: { emailRedirectTo: emailRedirect },
     });
     setLoading(false);
 
@@ -103,7 +107,7 @@ const Register = () => {
 
           <p className="text-center text-white/40 text-sm mt-6">
             {t.alreadyAccount}{" "}
-            <Link to="/login" className="text-gold hover:underline font-medium">
+            <Link to={safeNext ? `/login?next=${encodeURIComponent(safeNext)}` : "/login"} className="text-gold hover:underline font-medium">
               {t.login}
             </Link>
           </p>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { Eye, EyeOff, ShoppingBag, Crown, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -36,6 +36,9 @@ const SOURCE_OPTIONS: SourceOption[] = [
 const Login = () => {
   const { t, language } = useLanguage();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const nextParam = searchParams.get("next");
+  const safeNext = nextParam && nextParam.startsWith("/") && !nextParam.startsWith("//") ? nextParam : null;
   const { toast } = useToast();
   const [mode, setMode] = useState<LoginMode>("select");
   const [email, setEmail] = useState("");
@@ -61,6 +64,10 @@ const Login = () => {
 
     if (error) {
       toast({ title: "Error", description: error.message, variant: "destructive" });
+      return;
+    }
+    if (safeNext) {
+      window.location.href = safeNext;
       return;
     }
     navigate("/");
@@ -166,7 +173,7 @@ const Login = () => {
 
             <p className="text-center text-white/40 text-sm mt-6">
               {t.noAccount}{" "}
-              <Link to="/register" className="text-gold hover:underline font-medium">
+              <Link to={safeNext ? `/register?next=${encodeURIComponent(safeNext)}` : "/register"} className="text-gold hover:underline font-medium">
                 {t.register}
               </Link>
             </p>
@@ -355,7 +362,7 @@ const Login = () => {
             ) : (
               <>
                 {t.noAccount}{" "}
-                <Link to="/register" className="text-gold hover:underline font-medium">
+                <Link to={safeNext ? `/register?next=${encodeURIComponent(safeNext)}` : "/register"} className="text-gold hover:underline font-medium">
                   {t.register}
                 </Link>
               </>
