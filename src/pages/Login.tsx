@@ -173,7 +173,7 @@ const Login = () => {
 
             <p className="text-center text-white/40 text-sm mt-6">
               {t.noAccount}{" "}
-              <Link to="/register" className="text-gold hover:underline font-medium">
+              <Link to={safeNext ? `/register?next=${encodeURIComponent(safeNext)}` : "/register"} className="text-gold hover:underline font-medium">
                 {t.register}
               </Link>
             </p>
@@ -362,7 +362,7 @@ const Login = () => {
             ) : (
               <>
                 {t.noAccount}{" "}
-                <Link to="/register" className="text-gold hover:underline font-medium">
+                <Link to={safeNext ? `/register?next=${encodeURIComponent(safeNext)}` : "/register"} className="text-gold hover:underline font-medium">
                   {t.register}
                 </Link>
               </>
