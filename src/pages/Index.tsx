@@ -293,7 +293,7 @@ const Index = () => {
 
       {/* Userbot Banner */}
       <section className="py-6 bg-gradient-to-r from-gold/10 via-gold/5 to-gold/10 border-y border-gold/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-4 sm:grid-cols-2">
           <a
             href="https://t.me/OfficialJasebKuBot"
             target="_blank"
