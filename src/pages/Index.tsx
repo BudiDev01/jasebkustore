@@ -117,7 +117,6 @@ const Index = () => {
       coding: t.catCoding,
       rekber: t.catRekber,
       banking: t.catBanking,
-      gaming: t.catGaming,
     };
     return map[key] || key;
   };
