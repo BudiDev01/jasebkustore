@@ -202,61 +202,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-
-
-      {/* Job Vacancy Announcement */}
-      <section className="py-8 bg-gradient-to-r from-emerald-500/10 via-teal-500/5 to-emerald-500/10 border-y border-emerald-500/20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="px-6 py-5 rounded-2xl border border-emerald-500/30 bg-card shadow-sm">
-            <div className="flex items-center gap-3 mb-3">
-              <span className="text-2xl">💼</span>
-              <div>
-                <Badge className="bg-emerald-500/15 text-emerald-600 border-emerald-500/30 text-[10px] uppercase tracking-wide mb-1">
-                  {language === "id" ? "Lowongan Kerja · WNI" : "Job Vacancy · Indonesian Citizens"}
-                </Badge>
-                <h3 className="text-base font-bold text-foreground">
-                  {language === "id" ? "Customer Service Game Online" : "Online Game Customer Service"}
-                </h3>
-              </div>
-            </div>
-            <p className="text-xs font-semibold text-foreground mb-2">
-              {language === "id" ? "Persyaratan:" : "Requirements:"}
-            </p>
-            <ul className="text-xs text-muted-foreground space-y-1 list-decimal list-inside mb-3">
-              {(language === "id"
-                ? [
-                    "Wajib memiliki laptop atau PC.",
-                    "Mahir mengoperasikan komputer dan mengetik dengan cepat.",
-                    "Mampu berkomunikasi dalam bahasa Inggris atau Mandarin.",
-                    "Usia maksimal 35 tahun.",
-                    "Posisi: Customer Service Game Online.",
-                    "Gaji mulai dari jutaan hingga puluhan juta rupiah.",
-                  ]
-                : [
-                    "Must own a laptop or PC.",
-                    "Proficient in using a computer and typing quickly.",
-                    "Able to communicate in English or Mandarin.",
-                    "Maximum age: 35 years old.",
-                    "Position: Online Game Customer Service.",
-                    "Salary ranges from several million to tens of millions of rupiah.",
-                  ]
-              ).map((item, i) => (
-                <li key={i}>{item}</li>
-              ))}
-            </ul>
-            <a
-              href="https://t.me/Fadgww"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500/15 text-emerald-600 border border-emerald-500/30 text-xs font-semibold hover:bg-emerald-500/25 transition-colors"
-            >
-              <Send className="w-4 h-4" />
-              {language === "id" ? "Daftar via Telegram" : "Apply via Telegram"}
-            </a>
-          </div>
-        </div>
-      </section>
-
       {/* Userbot Banner */}
       <section className="py-6 bg-gradient-to-r from-gold/10 via-gold/5 to-gold/10 border-y border-gold/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-4 sm:grid-cols-2">
