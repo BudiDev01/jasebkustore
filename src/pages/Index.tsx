@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { Sparkles, ArrowRight, Shield, Zap, HeadphonesIcon, ChevronLeft, ChevronRight, Send } from "lucide-react";
+import { Sparkles, ArrowRight, Shield, Zap, HeadphonesIcon, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -40,16 +40,6 @@ const CATEGORIES: { key: string; icon: string; desc_en?: string; desc_id?: strin
   { key: "banking", icon: "🏦" },
 ];
 
-// Group categories into slides: first slide has 2 (Freelance & Jaseb), rest in groups of 3
-const CATEGORY_SLIDES = (() => {
-  const slides: typeof CATEGORIES[] = [];
-  slides.push(CATEGORIES.slice(0, 2));
-  const rest = CATEGORIES.slice(2);
-  for (let i = 0; i < rest.length; i += 3) {
-    slides.push(rest.slice(i, i + 3));
-  }
-  return slides;
-})();
 
 const Index = () => {
   const { t, language } = useLanguage();
@@ -57,8 +47,6 @@ const Index = () => {
   const navigate = useNavigate();
 
   const [theme] = useState<"light" | "dark">("light");
-  const [activeCategory, setActiveCategory] = useState("freelance");
-  const [catSlide, setCatSlide] = useState(0);
   const touchedProducts = useRef<Set<string>>(new Set());
   const confettiFired = useRef(false);
 
@@ -97,7 +85,7 @@ const Index = () => {
 
   const toggleTheme = () => {};
 
-  const filteredProducts = PRODUCTS.filter((p) => p.category === activeCategory);
+  
 
   const categoryLabel = (key: string) => {
     const map: Record<string, string> = {
