@@ -14,46 +14,6 @@ export interface Product {
 }
 
 export const PRODUCTS: Product[] = [
-  // Freelance
-  {
-    id: "freelance-client-post-job",
-    name: "Post a Job (Client)",
-    name_id: "Pasang Pekerjaan (Klien)",
-    description: "For clients: send us a description of the job you want to offer. We'll match you with a suitable freelancer.",
-    description_id: "Untuk klien: kirimkan deskripsi pekerjaan yang ingin Anda tawarkan. Kami akan mencarikan freelancer yang sesuai.",
-    price: 0,
-    price_hidden: true,
-    category: "freelance",
-    badge: "Client",
-    stock_status: "available",
-    icon: "📝",
-  },
-  {
-    id: "freelance-worker-offer-skills",
-    name: "Offer Your Skills (Worker)",
-    name_id: "Tawarkan Keahlian (Pekerja)",
-    description: "For workers: send us a description of the skills you have. We'll connect you with clients who need them.",
-    description_id: "Untuk pekerja: kirimkan deskripsi keahlian yang Anda miliki. Kami akan menghubungkan Anda dengan klien yang membutuhkan.",
-    price: 0,
-    price_hidden: true,
-    category: "freelance",
-    badge: "Worker",
-    stock_status: "available",
-    icon: "🛠️",
-  },
-  {
-    id: "freelance-create-gmail",
-    name: "Create Gmail Account",
-    name_id: "Pembuatan Akun Gmail",
-    description: "Freelance task: create new Gmail accounts and earn money every day.",
-    description_id: "Tugas freelance: pembuatan akun Gmail baru, Anda bisa mendapatkan uang setiap hari.",
-    price: 0,
-    price_hidden: true,
-    category: "freelance",
-    badge: "Task",
-    stock_status: "available",
-    icon: "📧",
-  },
   // Jaseb
   {
     id: "jaseb-60-grup",
