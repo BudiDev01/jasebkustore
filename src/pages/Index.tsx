@@ -364,65 +364,40 @@ const Index = () => {
             <p className="text-gold font-semibold mt-2 text-sm">{t.resellerNote}</p>
           </div>
 
-          {/* Category Carousel */}
-          <div className="relative mb-10">
-            <div className="flex items-center justify-center gap-2">
-              <button
-                onClick={() => setCatSlide((p) => Math.max(0, p - 1))}
-                disabled={catSlide === 0}
-                className="p-2 rounded-full border border-border bg-card text-muted-foreground hover:text-foreground disabled:opacity-30 transition-colors"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
+          {/* Category Cards with sub-products */}
+          <div className="space-y-8">
+            {CATEGORIES.map((cat) => {
+              const catProducts = PRODUCTS.filter((p) => p.category === cat.key);
+              if (catProducts.length === 0) return null;
+              return (
+                <div
+                  key={cat.key}
+                  className="rounded-2xl border border-border bg-card/40 shadow-card overflow-hidden"
+                >
+                  {/* Category header */}
+                  <div className="flex items-center gap-3 px-6 py-4 gradient-gold">
+                    <span className="text-3xl">{cat.icon}</span>
+                    <div>
+                      <h3 className="text-lg sm:text-xl font-bold text-primary-foreground leading-tight">
+                        {categoryLabel(cat.key)}
+                      </h3>
+                      {(cat.desc_en || cat.desc_id) && (
+                        <p className="text-xs text-primary-foreground/80 mt-0.5 max-w-2xl">
+                          {language === "id" ? cat.desc_id : cat.desc_en}
+                        </p>
+                      )}
+                    </div>
+                  </div>
 
-              <div className="flex gap-2 justify-center min-w-[280px] flex-wrap">
-                {CATEGORY_SLIDES[catSlide]?.map((cat) => {
-                  return (
-                    <button
-                      key={cat.key}
-                      onClick={() => {
-                        setActiveCategory(cat.key);
-                        confetti({ particleCount: 40, spread: 60, origin: { y: 0.6 }, colors: ["#D4A017", "#FFD700", "#1a2744", "#ffffff"] });
-                      }}
-                      className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                        activeCategory === cat.key
-                          ? "gradient-gold text-primary-foreground shadow-gold"
-                          : "border border-border bg-card text-muted-foreground hover:border-gold/40 hover:text-foreground"
-                      }`}
-                    >
-                      <span>{cat.icon}</span>
-                      <span>{categoryLabel(cat.key)}</span>
-                    </button>
-                  );
-                })}
-              </div>
-
-              <button
-                onClick={() => setCatSlide((p) => Math.min(CATEGORY_SLIDES.length - 1, p + 1))}
-                disabled={catSlide === CATEGORY_SLIDES.length - 1}
-                className="p-2 rounded-full border border-border bg-card text-muted-foreground hover:text-foreground disabled:opacity-30 transition-colors"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            </div>
-
-            {/* Slide indicator dots */}
-            <div className="flex justify-center gap-1.5 mt-3">
-              {CATEGORY_SLIDES.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setCatSlide(i)}
-                  className={`w-2 h-2 rounded-full transition-colors ${i === catSlide ? "bg-gold" : "bg-border"}`}
-                />
-              ))}
-            </div>
-          </div>
-
-          {/* Products Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            {filteredProducts.map((product) => (
-              <ProductCard key={product.id} product={product} onTouch={handleProductTouch} />
-            ))}
+                  {/* Sub-products grid */}
+                  <div className="p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                    {catProducts.map((product) => (
+                      <ProductCard key={product.id} product={product} onTouch={handleProductTouch} />
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
