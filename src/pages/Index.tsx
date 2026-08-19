@@ -88,7 +88,6 @@ const Index = () => {
 
   const categoryLabel = (key: string) => {
     const map: Record<string, string> = {
-      freelance: t.catFreelance,
       jaseb: t.catJaseb,
       whatsapp: t.catWhatsapp,
       telegram: t.catTelegram,
