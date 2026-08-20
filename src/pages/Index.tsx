@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
+import React, { useState, useEffect, useCallback, useRef, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import { Sparkles, ArrowRight, Shield, Zap, HeadphonesIcon, Send } from "lucide-react";
+import { Sparkles, ArrowRight, Shield, Zap, HeadphonesIcon, Send, Search, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -48,6 +48,7 @@ const Index = () => {
   const [theme] = useState<"light" | "dark">("light");
   const touchedProducts = useRef<Set<string>>(new Set());
   const confettiFired = useRef(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleProductTouch = useCallback((productId: string) => {
     // Small confetti on each new product touch
@@ -106,6 +107,27 @@ const Index = () => {
     };
     return map[key] || key;
   };
+
+  const filteredProducts = useMemo(() => {
+    const q = searchQuery.trim().toLowerCase();
+    if (!q) return PRODUCTS;
+    return PRODUCTS.filter((p) => {
+      const haystack = [
+        p.name,
+        p.name_id,
+        p.description,
+        p.description_id,
+        p.category,
+        categoryLabel(p.category),
+        p.badge,
+        p.icon,
+      ]
+        .filter(Boolean)
+        .join(" ")
+        .toLowerCase();
+      return haystack.includes(q);
+    });
+  }, [searchQuery, language]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -289,10 +311,38 @@ const Index = () => {
             <p className="text-gold font-semibold mt-2 text-sm">{t.resellerNote}</p>
           </div>
 
+          {/* Search Bar */}
+          <div className="max-w-xl mx-auto mb-10">
+            <div className="relative">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder={t.searchPlaceholder}
+                className="w-full pl-11 pr-10 py-3 rounded-xl border border-border bg-card text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-gold/60 focus:ring-2 focus:ring-gold/20 transition-all shadow-card"
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery("")}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 p-1 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+                  aria-label="Clear search"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              )}
+            </div>
+          </div>
+
           {/* Category Cards with sub-products */}
+          {filteredProducts.length === 0 ? (
+            <div className="text-center py-16">
+              <p className="text-muted-foreground text-lg">{t.searchNoResults}</p>
+            </div>
+          ) : (
           <div className="space-y-8">
             {CATEGORIES.map((cat) => {
-              const catProducts = PRODUCTS.filter((p) => p.category === cat.key);
+              const catProducts = filteredProducts.filter((p) => p.category === cat.key);
               if (catProducts.length === 0) return null;
               return (
                 <div
@@ -324,6 +374,7 @@ const Index = () => {
               );
             })}
           </div>
+          )}
         </div>
       </section>
 

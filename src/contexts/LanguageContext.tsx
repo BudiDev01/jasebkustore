@@ -24,6 +24,8 @@ interface Translations {
   buyNow: string;
   available: string;
   outOfStock: string;
+  searchPlaceholder: string;
+  searchNoResults: string;
   // Categories
   catFreelance: string;
   catJaseb: string;
@@ -120,6 +122,8 @@ const translations: Record<Language, Translations> = {
     buyNow: "Buy Now",
     available: "Available",
     outOfStock: "Out of Stock",
+    searchPlaceholder: "Search products...",
+    searchNoResults: "No products found. Try a different keyword.",
     catFreelance: "Freelance",
     catJaseb: "Jaseb",
     catWhatsapp: "WhatsApp Numbers",
@@ -207,6 +211,8 @@ const translations: Record<Language, Translations> = {
     buyNow: "Beli Sekarang",
     available: "Tersedia",
     outOfStock: "Habis",
+    searchPlaceholder: "Cari produk...",
+    searchNoResults: "Produk tidak ditemukan. Coba kata kunci lain.",
     catFreelance: "Freelance",
     catJaseb: "Jaseb",
     catWhatsapp: "Nomor WhatsApp",
