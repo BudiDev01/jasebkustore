@@ -311,10 +311,38 @@ const Index = () => {
             <p className="text-gold font-semibold mt-2 text-sm">{t.resellerNote}</p>
           </div>
 
+          {/* Search Bar */}
+          <div className="max-w-xl mx-auto mb-10">
+            <div className="relative">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder={t.searchPlaceholder}
+                className="w-full pl-11 pr-10 py-3 rounded-xl border border-border bg-card text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-gold/60 focus:ring-2 focus:ring-gold/20 transition-all shadow-card"
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery("")}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 p-1 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+                  aria-label="Clear search"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              )}
+            </div>
+          </div>
+
           {/* Category Cards with sub-products */}
+          {filteredProducts.length === 0 ? (
+            <div className="text-center py-16">
+              <p className="text-muted-foreground text-lg">{t.searchNoResults}</p>
+            </div>
+          ) : (
           <div className="space-y-8">
             {CATEGORIES.map((cat) => {
-              const catProducts = PRODUCTS.filter((p) => p.category === cat.key);
+              const catProducts = filteredProducts.filter((p) => p.category === cat.key);
               if (catProducts.length === 0) return null;
               return (
                 <div
@@ -346,6 +374,7 @@ const Index = () => {
               );
             })}
           </div>
+          )}
         </div>
       </section>
 
