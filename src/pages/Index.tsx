@@ -108,6 +108,27 @@ const Index = () => {
     return map[key] || key;
   };
 
+  const filteredProducts = useMemo(() => {
+    const q = searchQuery.trim().toLowerCase();
+    if (!q) return PRODUCTS;
+    return PRODUCTS.filter((p) => {
+      const haystack = [
+        p.name,
+        p.name_id,
+        p.description,
+        p.description_id,
+        p.category,
+        categoryLabel(p.category),
+        p.badge,
+        p.icon,
+      ]
+        .filter(Boolean)
+        .join(" ")
+        .toLowerCase();
+      return haystack.includes(q);
+    });
+  }, [searchQuery, language]);
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar theme={theme} toggleTheme={toggleTheme} />
