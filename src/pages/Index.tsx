@@ -48,6 +48,7 @@ const Index = () => {
   const [theme] = useState<"light" | "dark">("light");
   const touchedProducts = useRef<Set<string>>(new Set());
   const confettiFired = useRef(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleProductTouch = useCallback((productId: string) => {
     // Small confetti on each new product touch
