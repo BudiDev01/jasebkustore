@@ -24,6 +24,8 @@ interface Translations {
   buyNow: string;
   available: string;
   outOfStock: string;
+  searchPlaceholder: string;
+  searchNoResults: string;
   // Categories
   catFreelance: string;
   catJaseb: string;
