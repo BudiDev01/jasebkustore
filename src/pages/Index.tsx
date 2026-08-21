@@ -20,23 +20,14 @@ import confetti from "canvas-confetti";
 
 
 const CATEGORIES: { key: string; icon: string; desc_en?: string; desc_id?: string }[] = [
-  { key: "jaseb", icon: "📢", desc_en: "Promotion to 60 groups for 1 month, priced at 15,000.", desc_id: "Promosi ke 60 grup selama 1 bulan, harga 15.000." },
   { key: "whatsapp", icon: "📱" },
   { key: "telegram", icon: "✈️" },
-  { key: "social", icon: "📈" },
-  { key: "gworkspace", icon: "🏢" },
-  { key: "premium", icon: "⭐" },
   { key: "website", icon: "🌐" },
   { key: "domain", icon: "🔤" },
   { key: "hosting", icon: "🖥️" },
-  { key: "design", icon: "🎨" },
+  { key: "panelbot", icon: "🤖" },
   { key: "editing", icon: "✂️" },
-  { key: "video", icon: "🎬" },
-  { key: "coding", icon: "💻" },
-  { key: "security", icon: "🛡️" },
-  { key: "caregiver", icon: "👩‍⚕️" },
-  { key: "rekber", icon: "🤝" },
-  { key: "banking", icon: "🏦" },
+  { key: "design", icon: "🎨" },
 ];
 
 
@@ -89,21 +80,14 @@ const Index = () => {
 
   const categoryLabel = (key: string) => {
     const map: Record<string, string> = {
-      jaseb: t.catJaseb,
       whatsapp: t.catWhatsapp,
       telegram: t.catTelegram,
-      social: t.catSocial,
-      gworkspace: t.catGworkspace,
-      premium: t.catPremium,
       website: t.catWebsite,
       domain: t.catDomain,
       hosting: t.catHosting,
-      design: t.catDesign,
+      panelbot: t.catPanelbot,
       editing: t.catEditing,
-      video: t.catVideo,
-      coding: t.catCoding,
-      rekber: t.catRekber,
-      banking: t.catBanking,
+      design: t.catDesign,
     };
     return map[key] || key;
   };
