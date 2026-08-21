@@ -39,6 +39,7 @@ interface Translations {
   catHosting: string;
   catDesign: string;
   catEditing: string;
+  catPanelbot: string;
   catVideo: string;
   catCoding: string;
   catRekber: string;
@@ -136,6 +137,7 @@ const translations: Record<Language, Translations> = {
     catHosting: "Hosting & VPS",
     catDesign: "Design",
     catEditing: "Editing Services",
+    catPanelbot: "Bot Panel",
     catVideo: "Video Creation",
     catCoding: "Coding Services",
     catRekber: "Rekber",
@@ -225,6 +227,7 @@ const translations: Record<Language, Translations> = {
     catHosting: "Hosting & VPS",
     catDesign: "Desain",
     catEditing: "Jasa Editing",
+    catPanelbot: "Panel Bot",
     catVideo: "Pembuatan Video",
     catCoding: "Jasa Coding",
     catRekber: "Rekber",

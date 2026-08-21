@@ -517,6 +517,20 @@ export const PRODUCTS: Product[] = [
     stock_status: "available",
     icon: "🖥️",
   },
+  // === Panel Bot ===
+  {
+    id: "panelbot-001",
+    name: "Bot Panel",
+    name_id: "Panel Bot",
+    description: "Bot panel for managing and reselling Telegram & WhatsApp bots. Contact admin for details and pricing.",
+    description_id: "Panel bot untuk mengelola dan menjual ulang bot Telegram & WhatsApp. Hubungi admin untuk detail dan harga.",
+    price: 0,
+    price_hidden: true,
+    category: "panelbot",
+    badge: "Panel",
+    stock_status: "available",
+    icon: "🤖",
+  },
   // === Design ===
   {
     id: "design-001",
