@@ -335,46 +335,77 @@ const Index = () => {
             </div>
           </div>
 
-          {/* Category Cards with sub-products */}
-          {filteredProducts.length === 0 ? (
-            <div className="text-center py-16">
-              <p className="text-muted-foreground text-lg">{t.searchNoResults}</p>
-            </div>
+          {/* Tarot cards (default) or search results (when searching) */}
+          {searchQuery.trim() ? (
+            // --- Search results mode ---
+            filteredProducts.length === 0 ? (
+              <div className="text-center py-16">
+                <p className="text-muted-foreground text-lg">{t.searchNoResults}</p>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                {filteredProducts.map((product) => (
+                  <ProductCard key={product.id} product={product} onTouch={handleProductTouch} />
+                ))}
+              </div>
+            )
           ) : (
-          <div className="space-y-8">
-            {CATEGORIES.map((cat) => {
-              const catProducts = filteredProducts.filter((p) => p.category === cat.key);
-              if (catProducts.length === 0) return null;
-              return (
-                <div
-                  key={cat.key}
-                  className="rounded-2xl border border-border bg-card/40 shadow-card overflow-hidden"
-                >
-                  {/* Category header */}
-                  <div className="flex items-center gap-3 px-6 py-4 gradient-gold">
-                    <span className="text-3xl">{cat.icon}</span>
-                    <div>
-                      <h3 className="text-lg sm:text-xl font-bold text-primary-foreground leading-tight">
-                        {categoryLabel(cat.key)}
-                      </h3>
-                      {(cat.desc_en || cat.desc_id) && (
-                        <p className="text-xs text-primary-foreground/80 mt-0.5 max-w-2xl">
-                          {language === "id" ? cat.desc_id : cat.desc_en}
-                        </p>
-                      )}
-                    </div>
-                  </div>
+            // --- Tarot cards mode ---
+            <>
+              <p className="text-center text-gold/70 text-xs uppercase tracking-[0.4em] italic mb-8" style={{ fontFamily: "Lora, serif" }}>
+                {language === "id" ? "Sentuh kartu untuk mengungkap rincian produk" : "Touch a card to reveal its offerings"}
+              </p>
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 sm:gap-6 max-w-5xl mx-auto">
+                {CATEGORIES.map((cat, idx) => {
+                  const Icon = TAROT_ICONS[cat.key];
+                  if (!Icon) return null;
+                  return (
+                    <TarotCard
+                      key={cat.key}
+                      icon={Icon}
+                      title={categoryLabel(cat.key)}
+                      ordinal={ROMAN[idx + 1] || ""}
+                      isActive={activeCategory === cat.key}
+                      onClick={() =>
+                        setActiveCategory((prev) => (prev === cat.key ? null : cat.key))
+                      }
+                    />
+                  );
+                })}
+              </div>
 
-                  {/* Sub-products grid */}
+              {/* Revealed products for the active category */}
+              {activeCategory && (
+                <div className="mt-12 rounded-2xl border-2 border-gold/40 bg-card/60 shadow-gold overflow-hidden animate-fade-in">
+                  <div className="flex items-center justify-between gap-3 px-6 py-4 bg-navy">
+                    <div className="flex items-center gap-3">
+                      {(() => {
+                        const Icon = TAROT_ICONS[activeCategory];
+                        return Icon ? <Icon className="w-6 h-6 text-gold" strokeWidth={1} /> : null;
+                      })()}
+                      <h3
+                        className="text-lg font-bold text-gold uppercase tracking-[0.15em]"
+                        style={{ fontFamily: "Cinzel, serif" }}
+                      >
+                        {categoryLabel(activeCategory)}
+                      </h3>
+                    </div>
+                    <button
+                      onClick={() => setActiveCategory(null)}
+                      className="text-gold/70 hover:text-gold text-xs uppercase tracking-[0.2em] transition-colors"
+                      style={{ fontFamily: "Cinzel, serif" }}
+                    >
+                      ✕ {language === "id" ? "Tutup" : "Close"}
+                    </button>
+                  </div>
                   <div className="p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                    {catProducts.map((product) => (
+                    {PRODUCTS.filter((p) => p.category === activeCategory).map((product) => (
                       <ProductCard key={product.id} product={product} onTouch={handleProductTouch} />
                     ))}
                   </div>
                 </div>
-              );
-            })}
-          </div>
+              )}
+            </>
           )}
         </div>
       </section>
