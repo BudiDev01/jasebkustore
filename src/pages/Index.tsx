@@ -31,6 +31,21 @@ const CATEGORIES: { key: string; icon: string; desc_en?: string; desc_id?: strin
   { key: "design", icon: "🎨" },
 ];
 
+import type { LucideIcon } from "lucide-react";
+const TAROT_ICONS: Record<string, LucideIcon> = {
+  whatsapp: MessageCircle,
+  telegram: Send,
+  website: Globe,
+  domain: Link2,
+  hosting: Server,
+  panelbot: Bot,
+  editing: Scissors,
+  design: Palette,
+};
+const ROMAN = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII"];
+
+
+
 
 const Index = () => {
   const { t, language } = useLanguage();
@@ -41,6 +56,7 @@ const Index = () => {
   const touchedProducts = useRef<Set<string>>(new Set());
   const confettiFired = useRef(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
   const handleProductTouch = useCallback((productId: string) => {
     // Small confetti on each new product touch
