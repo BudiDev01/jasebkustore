@@ -26,6 +26,7 @@ export const PRODUCTS: Product[] = [
     stock_status: "available",
     icon: "🇮🇩",
   },
+
   {
     id: "wa-rhino-numbers",
     name: "Rhino Numbers",
@@ -39,6 +40,7 @@ export const PRODUCTS: Product[] = [
     stock_status: "available",
     icon: "🦏",
   },
+
   {
     id: "wa-va-whatsapp",
     name: "VA WhatsApp",
@@ -52,6 +54,7 @@ export const PRODUCTS: Product[] = [
     stock_status: "available",
     icon: "🤖",
   },
+
   {
     id: "wa-meta-whatsapp",
     name: "Meta WhatsApp",
@@ -65,6 +68,7 @@ export const PRODUCTS: Product[] = [
     stock_status: "available",
     icon: "💬",
   },
+
   {
     id: "wa-rhino-tricks",
     name: "Rhino Tricks",
@@ -78,6 +82,7 @@ export const PRODUCTS: Product[] = [
     stock_status: "available",
     icon: "🦏",
   },
+
   {
     id: "wa-rhino-files",
     name: "Rhino Files",
@@ -91,6 +96,7 @@ export const PRODUCTS: Product[] = [
     stock_status: "available",
     icon: "📁",
   },
+
   {
     id: "wa-unban",
     name: "WhatsApp Unban Service",
@@ -104,6 +110,7 @@ export const PRODUCTS: Product[] = [
     stock_status: "available",
     icon: "🔓",
   },
+
   {
     id: "wa-international",
     name: "WhatsApp Number International Request",
@@ -117,6 +124,7 @@ export const PRODUCTS: Product[] = [
     stock_status: "available",
     icon: "🌍",
   },
+
   {
     id: "tg-id",
     name: "Telegram Number Indonesia",
@@ -130,6 +138,7 @@ export const PRODUCTS: Product[] = [
     stock_status: "available",
     icon: "🇮🇩",
   },
+
   {
     id: "tg-international",
     name: "Telegram Number International Request",
@@ -143,20 +152,7 @@ export const PRODUCTS: Product[] = [
     stock_status: "available",
     icon: "🌍",
   },
-  {
-    id: "prem-other",
-    name: "Other Premium Apps",
-    name_id: "Aplikasi Premium Lainnya",
-    description: "For other premium applications, please contact admin.",
-    description_id: "Untuk aplikasi premium lainnya, silakan hubungi admin.",
-    price: 0,
-    price_hidden: true,
-    category: "premium",
-    badge: "Contact Admin",
-    stock_status: "available",
-    icon: "⭐",
-  },
-  // === Website Services ===
+
   {
     id: "web-001",
     name: "Website Creation Service",
@@ -170,6 +166,7 @@ export const PRODUCTS: Product[] = [
     stock_status: "available",
     icon: "🌐",
   },
+
   {
     id: "other-web-payment",
     name: "Website Payment",
@@ -182,6 +179,7 @@ export const PRODUCTS: Product[] = [
     stock_status: "available",
     icon: "💳",
   },
+
   {
     id: "other-web-store",
     name: "Website Store",
@@ -194,6 +192,7 @@ export const PRODUCTS: Product[] = [
     stock_status: "available",
     icon: "🛒",
   },
+
   {
     id: "other-bio-website",
     name: "Bio Website",
@@ -206,49 +205,7 @@ export const PRODUCTS: Product[] = [
     stock_status: "available",
     icon: "🌐",
   },
-  // === Domain ===
-  {
-    id: "dom-all",
-    name: "Domain (All Extensions)",
-    name_id: "Domain (Semua Ekstensi)",
-    description: "All domain extensions available upon request. .com, .net, .org, .id, .co.id, .my.id, .biz.id, .xyz, .site, .online, .tech, .shop, .store, .app, .dev, .io, and many more. Contact us!",
-    description_id: "Semua ekstensi domain tersedia sesuai permintaan. .com, .net, .org, .id, .co.id, .my.id, .biz.id, .xyz, .site, .online, .tech, .shop, .store, .app, .dev, .io, dan masih banyak lagi. Hubungi kami!",
-    price: 0,
-    price_hidden: true,
-    category: "domain",
-    badge: "Domain",
-    stock_status: "available",
-    icon: "🌐",
-  },
-  // === Hosting & VPS ===
-  {
-    id: "hosting-vps",
-    name: "VPS (Virtual Private Server)",
-    name_id: "VPS (Virtual Private Server)",
-    description: "Available daily, weekly, monthly, and yearly. Full guarantee and anti-suspend. Can be used for websites and userbots.",
-    description_id: "Tersedia harian, mingguan, bulanan, dan tahunan. Full garansi dan anti-suspend. Bisa digunakan untuk website dan userbot.",
-    price: 0,
-    price_hidden: true,
-    category: "hosting",
-    badge: "⭐ Popular",
-    stock_status: "available",
-    icon: "🖥️",
-  },
-  // === Panel Bot ===
-  {
-    id: "panelbot-001",
-    name: "Bot Panel",
-    name_id: "Panel Bot",
-    description: "Bot panel for managing and reselling Telegram & WhatsApp bots. Contact admin for details and pricing.",
-    description_id: "Panel bot untuk mengelola dan menjual ulang bot Telegram & WhatsApp. Hubungi admin untuk detail dan harga.",
-    price: 0,
-    price_hidden: true,
-    category: "panelbot",
-    badge: "Panel",
-    stock_status: "available",
-    icon: "🤖",
-  },
-  // === Design ===
+
   {
     id: "design-001",
     name: "Design Services",
@@ -262,7 +219,7 @@ export const PRODUCTS: Product[] = [
     stock_status: "available",
     icon: "🎨",
   },
-  // === Editing Services ===
+
   {
     id: "edit-photo",
     name: "Photo Editing",
@@ -275,6 +232,7 @@ export const PRODUCTS: Product[] = [
     stock_status: "available",
     icon: "📸",
   },
+
   {
     id: "edit-image",
     name: "Image Editing",
@@ -287,6 +245,7 @@ export const PRODUCTS: Product[] = [
     stock_status: "available",
     icon: "🖼️",
   },
+
   {
     id: "edit-text",
     name: "Text Editing",
@@ -299,6 +258,7 @@ export const PRODUCTS: Product[] = [
     stock_status: "available",
     icon: "📝",
   },
+
   {
     id: "edit-qris",
     name: "QRIS Editing",
@@ -311,6 +271,7 @@ export const PRODUCTS: Product[] = [
     stock_status: "available",
     icon: "💠",
   },
+
   {
     id: "edit-other",
     name: "Other Editing (Request)",
@@ -323,33 +284,5 @@ export const PRODUCTS: Product[] = [
     badge: "Custom",
     stock_status: "available",
     icon: "✨",
-  },
-  // === Video Creation ===
-  {
-    id: "video-creation",
-    name: "Video Creation Services",
-    name_id: "Jasa Pembuatan Video",
-    description: "Professional video creation services including promotional videos, product showcases, motion graphics, intros/outros, social media content, and more.",
-    description_id: "Jasa pembuatan video profesional termasuk video promosi, showcase produk, motion graphics, intro/outro, konten media sosial, dan lainnya.",
-    price: 0,
-    price_hidden: true,
-    category: "video",
-    badge: "Video",
-    stock_status: "available",
-    icon: "🎬",
-  },
-  // ===== CODING SERVICES =====
-  {
-    id: "coding-bot",
-    name: "Bot Development",
-    name_id: "Pembuatan Bot",
-    description: "Custom bot development for WhatsApp, Telegram, Discord, and more.",
-    description_id: "Pembuatan bot custom untuk WhatsApp, Telegram, Discord, dan lainnya.",
-    price: 0,
-    price_hidden: true,
-    category: "coding",
-    badge: "Coding",
-    stock_status: "available",
-    icon: "🤖",
   },
 ];
