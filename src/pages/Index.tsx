@@ -17,6 +17,7 @@ import SoundBoard from "@/components/SoundBoard";
 import { PRODUCTS } from "@/data/products";
 import { supabase } from "@/integrations/supabase/client";
 import confetti from "canvas-confetti";
+import heroVideo from "@/assets/hero-video.mp4.asset.json";
 
 
 const CATEGORIES: { key: string; icon: string; desc_en?: string; desc_id?: string }[] = [
@@ -150,7 +151,7 @@ const Index = () => {
                   preload="metadata"
                   className="w-full aspect-video bg-black"
                 >
-                  <source src="/video/VID_20260408_132401_512.mp4" type="video/mp4" />
+                  <source src={heroVideo.url} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>
