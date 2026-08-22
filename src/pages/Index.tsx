@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import { Sparkles, ArrowRight, Shield, Zap, HeadphonesIcon, Send, Search, X, MessageCircle, Globe, Link2, Server, Bot, Scissors, Palette } from "lucide-react";
+import { Sparkles, ArrowRight, Shield, Zap, HeadphonesIcon, Send, Search, X, MessageCircle, Globe, Scissors, Palette } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -10,7 +10,6 @@ import ProductCard from "@/components/ProductCard";
 import TarotCard from "@/components/TarotCard";
 import Footer from "@/components/Footer";
 import MusicPlayer from "@/components/MusicPlayer";
-import VideoSection from "@/components/VideoSection";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 import SoundBoard from "@/components/SoundBoard";
@@ -24,9 +23,6 @@ const CATEGORIES: { key: string; icon: string; desc_en?: string; desc_id?: strin
   { key: "whatsapp", icon: "📱" },
   { key: "telegram", icon: "✈️" },
   { key: "website", icon: "🌐" },
-  { key: "domain", icon: "🔤" },
-  { key: "hosting", icon: "🖥️" },
-  { key: "panelbot", icon: "🤖" },
   { key: "editing", icon: "✂️" },
   { key: "design", icon: "🎨" },
 ];
@@ -36,9 +32,6 @@ const TAROT_ICONS: Record<string, LucideIcon> = {
   whatsapp: MessageCircle,
   telegram: Send,
   website: Globe,
-  domain: Link2,
-  hosting: Server,
-  panelbot: Bot,
   editing: Scissors,
   design: Palette,
 };
@@ -100,9 +93,6 @@ const Index = () => {
       whatsapp: t.catWhatsapp,
       telegram: t.catTelegram,
       website: t.catWebsite,
-      domain: t.catDomain,
-      hosting: t.catHosting,
-      panelbot: t.catPanelbot,
       editing: t.catEditing,
       design: t.catDesign,
     };
@@ -411,7 +401,6 @@ const Index = () => {
       </section>
 
       <SoundBoard />
-      <VideoSection />
       <MusicPlayer />
       <Footer />
       <WhatsAppButton />
