@@ -253,40 +253,19 @@ const Index = () => {
 
       </section>
 
-      {/* Contact & Action Buttons */}
+      {/* Telegram contact */}
       <section className="py-10 bg-card/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-4">
-            <h3 className="text-lg font-bold text-foreground mb-1">
-              {language === "id" ? "Info Promo" : "Promo Info"}
-            </h3>
-            <p className="text-sm text-muted-foreground">
-              {language === "id"
-                ? "Tanya admin produk apa saja yang sedang promo saat ini"
-                : "Ask the admin which products are currently on promotion"}
-            </p>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a
-              href="https://t.me/Fadgww"
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-2 px-6 py-3 rounded-xl gradient-gold text-primary-foreground font-semibold shadow-gold hover:opacity-90 transition-opacity text-sm"
-            >
-              <Send className="w-5 h-5" />
-              {language === "id" ? "Tanya Promo" : "Ask About Promos"}
-            </a>
-            <a
-              href="https://t.me/Fadgww"
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-2 px-6 py-3 rounded-xl border border-blue-400/30 bg-blue-500/10 text-blue-500 font-semibold hover:bg-blue-500/20 transition-colors text-sm"
-            >
-              <span className="text-lg">✈️</span>
-              {language === "id" ? "Admin Freelance" : "Freelance Admin"}
-            </a>
-          </div>
-
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center">
+          <a
+            href="https://t.me/Fadgww?text=Saya%20ingin%20membeli%20produk%20dari%20JasebKu."
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Telegram admin"
+            className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl gradient-gold text-primary-foreground font-semibold shadow-gold hover:opacity-90 transition-opacity text-sm"
+          >
+            <Send className="w-5 h-5" />
+            Telegram
+          </a>
         </div>
       </section>
 
