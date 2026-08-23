@@ -168,6 +168,21 @@ export const PRODUCTS: Product[] = [
   },
 
   {
+    id: "bank-001",
+    name: "Bank & E-Wallet Creation",
+    name_id: "Pembuatan Bank & E-Wallet",
+    description: "Bank & E-Wallet creation service at an affordable price, ready to use.",
+    description_id: "Jasa pembuatan Bank & E-Wallet dengan harga murah dan siap digunakan.",
+    price: 0,
+    price_hidden: true,
+    category: "bank",
+    badge: "Banking",
+    stock_status: "available",
+    icon: "🏦",
+  },
+
+
+  {
     id: "design-001",
     name: "Design Services",
     name_id: "Jasa Desain",

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import { Sparkles, ArrowRight, Shield, Zap, HeadphonesIcon, Send, Search, X, MessageCircle, Globe, Scissors, Palette } from "lucide-react";
+import { Sparkles, ArrowRight, Shield, Zap, HeadphonesIcon, Send, Search, X, MessageCircle, Globe, Scissors, Palette, CreditCard } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -26,6 +26,7 @@ const CATEGORIES: { key: string; icon: string; desc_en?: string; desc_id?: strin
   { key: "website", icon: "🌐" },
   { key: "editing", icon: "✂️" },
   { key: "design", icon: "🎨" },
+  { key: "bank", icon: "🏦" },
 ];
 
 import type { LucideIcon } from "lucide-react";
@@ -35,6 +36,7 @@ const TAROT_ICONS: Record<string, LucideIcon> = {
   website: Globe,
   editing: Scissors,
   design: Palette,
+  bank: CreditCard,
 };
 const ROMAN = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII"];
 
@@ -96,6 +98,7 @@ const Index = () => {
       website: t.catWebsite,
       editing: t.catEditing,
       design: t.catDesign,
+      bank: t.catBanking,
     };
     return map[key] || key;
   };
