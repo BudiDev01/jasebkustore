@@ -26,6 +26,7 @@ const CATEGORIES: { key: string; icon: string; desc_en?: string; desc_id?: strin
   { key: "website", icon: "🌐" },
   { key: "editing", icon: "✂️" },
   { key: "design", icon: "🎨" },
+  { key: "bank", icon: "🏦" },
 ];
 
 import type { LucideIcon } from "lucide-react";
@@ -35,6 +36,7 @@ const TAROT_ICONS: Record<string, LucideIcon> = {
   website: Globe,
   editing: Scissors,
   design: Palette,
+  bank: CreditCard,
 };
 const ROMAN = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII"];
 
