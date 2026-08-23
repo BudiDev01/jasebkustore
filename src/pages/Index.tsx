@@ -98,6 +98,7 @@ const Index = () => {
       website: t.catWebsite,
       editing: t.catEditing,
       design: t.catDesign,
+      bank: t.catBanking,
     };
     return map[key] || key;
   };
