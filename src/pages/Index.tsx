@@ -267,7 +267,7 @@ const Index = () => {
             className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl gradient-gold text-primary-foreground font-semibold shadow-gold hover:opacity-90 transition-opacity text-sm"
           >
             <Send className="w-5 h-5" />
-            Telegram
+            Admin Telegram
           </a>
         </div>
       </section>
