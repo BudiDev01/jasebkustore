@@ -155,4 +155,30 @@ export const PRODUCTS: Product[] = [
     stock_status: "available",
     icon: "✂️",
   },
+
+  {
+    id: "jaseb-001",
+    name: "Jaseb Service",
+    name_id: "Jasa Jaseb",
+    description: "Price 10,000/month, done every day, and promoted to many groups.",
+    description_id: "Harga 10.000/bulan, dilakukan setiap hari, dan dipromosikan ke banyak grup.",
+    price: 10000,
+    category: "jaseb",
+    badge: "Popular",
+    stock_status: "available",
+    icon: "📣",
+  },
+
+  {
+    id: "userbot-001",
+    name: "Telegram Userbot",
+    name_id: "Userbot Telegram",
+    description: "Telegram userbot service. Price 10,000/month.",
+    description_id: "Layanan userbot Telegram. Harga 10.000/bulan.",
+    price: 10000,
+    category: "userbot",
+    badge: "Bot",
+    stock_status: "available",
+    icon: "🤖",
+  },
 ];

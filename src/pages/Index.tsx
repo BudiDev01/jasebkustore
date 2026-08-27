@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import { Sparkles, ArrowRight, Shield, Zap, HeadphonesIcon, Send, Search, X, MessageCircle, Globe, Scissors, Palette, CreditCard } from "lucide-react";
+import { Sparkles, ArrowRight, Shield, Zap, HeadphonesIcon, Send, Search, X, MessageCircle, Globe, Scissors, Palette, CreditCard, Megaphone, Bot } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -27,6 +27,8 @@ const CATEGORIES: { key: string; icon: string; desc_en?: string; desc_id?: strin
   { key: "editing", icon: "✂️" },
   { key: "design", icon: "🎨" },
   { key: "bank", icon: "🏦" },
+  { key: "jaseb", icon: "📣" },
+  { key: "userbot", icon: "🤖" },
 ];
 
 import type { LucideIcon } from "lucide-react";
@@ -37,6 +39,8 @@ const TAROT_ICONS: Record<string, LucideIcon> = {
   editing: Scissors,
   design: Palette,
   bank: CreditCard,
+  jaseb: Megaphone,
+  userbot: Bot,
 };
 const ROMAN = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII"];
 
@@ -99,6 +103,8 @@ const Index = () => {
       editing: t.catEditing,
       design: t.catDesign,
       bank: t.catBanking,
+      jaseb: t.catJaseb,
+      userbot: t.catUserbot,
     };
     return map[key] || key;
   };
@@ -218,42 +224,6 @@ const Index = () => {
             ))}
           </div>
         </div>
-      </section>
-      {/* Userbot Banner */}
-      <section className="py-6 bg-gradient-to-r from-gold/10 via-gold/5 to-gold/10 border-y border-gold/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-4 sm:grid-cols-2">
-          <a
-            href="https://t.me/OfficialJasebKuBot"
-            target="_blank"
-            rel="noreferrer"
-            className="flex items-center justify-center gap-3 px-6 py-4 rounded-2xl border border-gold/30 bg-card shadow-gold hover:bg-gold/10 transition-all group"
-          >
-            <span className="text-2xl">🤖</span>
-            <div className="text-center">
-              <span className="block text-base font-bold text-foreground group-hover:text-gold transition-colors">
-                {language === "id" ? "Gunakan Bot Telegram Kami" : "Use Our Telegram Bot"}
-              </span>
-              <span className="block text-xs text-muted-foreground">@OfficialJasebKuBot — Rp 10.000/{language === "id" ? "bulan" : "month"}</span>
-            </div>
-            <ArrowRight className="w-5 h-5 text-gold opacity-0 group-hover:opacity-100 transition-opacity" />
-          </a>
-          <a
-            href="https://t.me/jasebkuone_bot"
-            target="_blank"
-            rel="noreferrer"
-            className="flex items-center justify-center gap-3 px-6 py-4 rounded-2xl border border-gold/30 bg-card shadow-gold hover:bg-gold/10 transition-all group"
-          >
-            <span className="text-2xl">🤖</span>
-            <div className="text-center">
-              <span className="block text-base font-bold text-foreground group-hover:text-gold transition-colors">
-                {language === "id" ? "Userbot Kedua" : "Second Userbot"}
-              </span>
-              <span className="block text-xs text-muted-foreground">@jasebkuone_bot</span>
-            </div>
-            <ArrowRight className="w-5 h-5 text-gold opacity-0 group-hover:opacity-100 transition-opacity" />
-          </a>
-        </div>
-
       </section>
 
       {/* Telegram contact */}

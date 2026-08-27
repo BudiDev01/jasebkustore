@@ -29,6 +29,7 @@ interface Translations {
   // Categories
   catFreelance: string;
   catJaseb: string;
+  catUserbot: string;
   catWhatsapp: string;
   catTelegram: string;
   catSocial: string;
@@ -127,6 +128,7 @@ const translations: Record<Language, Translations> = {
     searchNoResults: "No products found. Try a different keyword.",
     catFreelance: "Freelance",
     catJaseb: "Jaseb",
+    catUserbot: "Userbot",
     catWhatsapp: "WhatsApp Numbers",
     catTelegram: "Telegram Numbers",
     catSocial: "Medsos",
@@ -217,6 +219,7 @@ const translations: Record<Language, Translations> = {
     searchNoResults: "Produk tidak ditemukan. Coba kata kunci lain.",
     catFreelance: "Freelance",
     catJaseb: "Jaseb",
+    catUserbot: "Userbot",
     catWhatsapp: "Nomor WhatsApp",
     catTelegram: "Nomor Telegram",
     catSocial: "Medsos",
