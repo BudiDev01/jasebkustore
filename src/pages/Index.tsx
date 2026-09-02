@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import { Sparkles, ArrowRight, Shield, Zap, HeadphonesIcon, Send, Search, X, MessageCircle, Globe, Scissors, Palette, CreditCard, Megaphone, Bot } from "lucide-react";
+import { Sparkles, ArrowRight, Shield, Zap, HeadphonesIcon, Send, Search, X, MessageCircle, Globe, Scissors, Palette, CreditCard, Megaphone, Bot, Activity } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -29,6 +29,7 @@ const CATEGORIES: { key: string; icon: string; desc_en?: string; desc_id?: strin
   { key: "bank", icon: "🏦" },
   { key: "jaseb", icon: "📣" },
   { key: "userbot", icon: "🤖" },
+  { key: "suntik", icon: "💉" },
 ];
 
 import type { LucideIcon } from "lucide-react";
@@ -41,6 +42,7 @@ const TAROT_ICONS: Record<string, LucideIcon> = {
   bank: CreditCard,
   jaseb: Megaphone,
   userbot: Bot,
+  suntik: Activity,
 };
 const ROMAN = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII"];
 
@@ -105,6 +107,7 @@ const Index = () => {
       bank: t.catBanking,
       jaseb: t.catJaseb,
       userbot: t.catUserbot,
+      suntik: t.catSuntik,
     };
     return map[key] || key;
   };
@@ -228,7 +231,7 @@ const Index = () => {
 
       {/* Telegram contact */}
       <section className="py-10 bg-card/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href="https://t.me/Fadgww?text=Saya%20ingin%20membeli%20produk%20dari%20JasebKu."
             target="_blank"
@@ -238,6 +241,16 @@ const Index = () => {
           >
             <Send className="w-5 h-5" />
             Admin Telegram
+          </a>
+          <a
+            href="https://t.me/JasebKu_1"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="JasebKu channel"
+            className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-gold/40 bg-card text-gold font-semibold shadow-card hover:bg-gold/5 transition-colors text-sm"
+          >
+            <Send className="w-5 h-5" />
+            Channel @JasebKu_1
           </a>
         </div>
       </section>
