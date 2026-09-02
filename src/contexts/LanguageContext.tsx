@@ -45,10 +45,11 @@ interface Translations {
   catCoding: string;
   catRekber: string;
   catBanking: string;
-  catSuntik: string;
-  catGaming: string;
-  catOther: string;
-  catFavorites: string;
+    catSuntik: string;
+    catLegalitas: string;
+    catGaming: string;
+    catOther: string;
+    catFavorites: string;
   // Auth
   emailLabel: string;
   passwordLabel: string;
@@ -146,6 +147,7 @@ const translations: Record<Language, Translations> = {
     catRekber: "Rekber",
     catBanking: "Bank & E-Wallet",
     catSuntik: "Injection Services",
+    catLegalitas: "Legality Services",
     catGaming: "Game Boosting",
     catOther: "Other Services",
     catFavorites: "Favorites",
@@ -238,6 +240,7 @@ const translations: Record<Language, Translations> = {
     catRekber: "Rekber",
     catBanking: "Bank & E-Wallet",
     catSuntik: "Jasa Suntik",
+    catLegalitas: "Jasa Legalitas",
     catGaming: "Jasa Joki Game",
     catOther: "Layanan Lainnya",
     catFavorites: "Favorit",
