@@ -253,4 +253,18 @@ export const PRODUCTS: Product[] = [
     stock_status: "available",
     icon: "💉",
   },
+
+  {
+    id: "legalitas-001",
+    name: "Legality Services",
+    name_id: "Jasa Legalitas",
+    description: "Professional legality services. Contact admin for details.",
+    description_id: "Jasa legalitas profesional. Hubungi admin untuk detail.",
+    price: 0,
+    price_hidden: true,
+    category: "legalitas",
+    badge: "Service",
+    stock_status: "available",
+    icon: "⚖️",
+  },
 ];
