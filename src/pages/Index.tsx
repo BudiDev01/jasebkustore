@@ -110,6 +110,7 @@ const Index = () => {
       jaseb: t.catJaseb,
       userbot: t.catUserbot,
       suntik: t.catSuntik,
+      legalitas: t.catLegalitas,
     };
     return map[key] || key;
   };
