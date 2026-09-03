@@ -8,7 +8,6 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useToast } from "@/hooks/use-toast";
 import { Product } from "@/data/products";
 import { Send } from "lucide-react";
-import { speak } from "@/lib/speak";
 import confetti from "canvas-confetti";
 
 const ADMIN_TG = "https://t.me/Fadgww";
@@ -17,10 +16,6 @@ interface ProductCardProps {
   product: Product;
   onTouch?: (productId: string) => void;
 }
-
-const speakText = (text: string) => {
-  speak(text, "id-ID");
-};
 
 const ProductCard = ({ product, onTouch }: ProductCardProps) => {
   const { t, language } = useLanguage();
