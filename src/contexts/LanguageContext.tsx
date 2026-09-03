@@ -44,12 +44,13 @@ interface Translations {
   catVideo: string;
   catCoding: string;
   catRekber: string;
-  catBanking: string;
+    catBanking: string;
     catSuntik: string;
     catLegalitas: string;
     catGaming: string;
     catOther: string;
     catFavorites: string;
+    catBotWa: string;
   // Auth
   emailLabel: string;
   passwordLabel: string;
@@ -151,6 +152,7 @@ const translations: Record<Language, Translations> = {
     catGaming: "Game Boosting",
     catOther: "Other Services",
     catFavorites: "Favorites",
+    catBotWa: "WhatsApp Bot",
     emailLabel: "Email Address",
     passwordLabel: "Password",
     usernameLabel: "Username",
@@ -244,6 +246,7 @@ const translations: Record<Language, Translations> = {
     catGaming: "Jasa Joki Game",
     catOther: "Layanan Lainnya",
     catFavorites: "Favorit",
+    catBotWa: "Bot WhatsApp",
     emailLabel: "Alamat Email",
     passwordLabel: "Kata Sandi",
     usernameLabel: "Nama Pengguna",

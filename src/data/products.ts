@@ -108,7 +108,7 @@ export const PRODUCTS: Product[] = [
     description_id: "Layanan bot WhatsApp untuk otomatisasi. Hubungi admin untuk detail.",
     price: 0,
     price_hidden: true,
-    category: "whatsapp",
+    category: "bot-wa",
     badge: "Bot",
     stock_status: "available",
     icon: "🤖",

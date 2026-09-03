@@ -22,6 +22,7 @@ import heroVideo from "@/assets/hero-video.mp4.asset.json";
 
 const CATEGORIES: { key: string; icon: string; desc_en?: string; desc_id?: string }[] = [
   { key: "whatsapp", icon: "📱" },
+  { key: "bot-wa", icon: "🤖" },
   { key: "telegram", icon: "✈️" },
   { key: "website", icon: "🌐" },
   { key: "editing", icon: "✂️" },
@@ -36,6 +37,7 @@ const CATEGORIES: { key: string; icon: string; desc_en?: string; desc_id?: strin
 import type { LucideIcon } from "lucide-react";
 const TAROT_ICONS: Record<string, LucideIcon> = {
   whatsapp: MessageCircle,
+  "bot-wa": Bot,
   telegram: Send,
   website: Globe,
   editing: Scissors,
@@ -102,6 +104,7 @@ const Index = () => {
   const categoryLabel = (key: string) => {
     const map: Record<string, string> = {
       whatsapp: t.catWhatsapp,
+      "bot-wa": t.catBotWa,
       telegram: t.catTelegram,
       website: t.catWebsite,
       editing: t.catEditing,
