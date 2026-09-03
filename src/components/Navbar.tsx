@@ -29,19 +29,7 @@ const Navbar = ({ theme, toggleTheme }: NavbarProps) => {
   const handleLogoClick = useCallback(() => {
     setLogoAnimating(true);
     setTimeout(() => setLogoAnimating(false), 600);
-
-    if ("speechSynthesis" in window) {
-      window.speechSynthesis.cancel();
-      const isId = language === "id";
-      const utterance = new SpeechSynthesisUtterance(
-        isId ? "Selamat datang di JasebKu Store" : "Welcome to JasebKu Store"
-      );
-      utterance.rate = 1;
-      utterance.pitch = 1.1;
-      utterance.lang = isId ? "id-ID" : "en-US";
-      window.speechSynthesis.speak(utterance);
-    }
-  }, [language]);
+  }, []);
 
   const handleSignOut = async () => {
     await signOut();

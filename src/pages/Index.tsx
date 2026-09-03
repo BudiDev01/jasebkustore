@@ -12,7 +12,7 @@ import Footer from "@/components/Footer";
 import MusicPlayer from "@/components/MusicPlayer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
-import SoundBoard from "@/components/SoundBoard";
+
 
 import { PRODUCTS } from "@/data/products";
 import { supabase } from "@/integrations/supabase/client";
@@ -369,7 +369,7 @@ const Index = () => {
         </div>
       </section>
 
-      <SoundBoard />
+      
       <MusicPlayer />
       <Footer />
       <WhatsAppButton />

@@ -8,7 +8,6 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useToast } from "@/hooks/use-toast";
 import { Product } from "@/data/products";
 import { Send } from "lucide-react";
-import { speak } from "@/lib/speak";
 import confetti from "canvas-confetti";
 
 const ADMIN_TG = "https://t.me/Fadgww";
@@ -17,10 +16,6 @@ interface ProductCardProps {
   product: Product;
   onTouch?: (productId: string) => void;
 }
-
-const speakText = (text: string) => {
-  speak(text, "id-ID");
-};
 
 const ProductCard = ({ product, onTouch }: ProductCardProps) => {
   const { t, language } = useLanguage();
@@ -33,7 +28,7 @@ const ProductCard = ({ product, onTouch }: ProductCardProps) => {
 
   const handleCardTouch = () => {
     setTouched(true);
-    speakText("JasebKu");
+    
     onTouch?.(product.id);
     setTimeout(() => setTouched(false), 400);
   };
@@ -136,7 +131,7 @@ const ProductCard = ({ product, onTouch }: ProductCardProps) => {
               <Button
                 size="sm"
                 disabled={product.stock_status !== "available"}
-                onClick={(e) => { e.stopPropagation(); speakText("gas"); handleBuyClick(); }}
+                onClick={(e) => { e.stopPropagation(); handleBuyClick(); }}
                 className="gradient-gold text-primary-foreground hover:opacity-90 shadow-gold text-xs gap-1.5 disabled:opacity-40"
               >
                 Tanya Dulu
@@ -146,7 +141,7 @@ const ProductCard = ({ product, onTouch }: ProductCardProps) => {
             <Button
               size="sm"
               disabled={product.stock_status !== "available"}
-              onClick={(e) => { e.stopPropagation(); speakText("beli sekarang"); handleBuyClick(); }}
+              onClick={(e) => { e.stopPropagation(); handleBuyClick(); }}
               className="gradient-gold text-primary-foreground hover:opacity-90 shadow-gold text-xs gap-1.5 disabled:opacity-40"
             >
               <ShoppingCart className="w-3 h-3" />
