@@ -99,6 +99,21 @@ export const PRODUCTS: Product[] = [
 
 
 
+
+  {
+    id: "wa-bot",
+    name: "WhatsApp Bot",
+    name_id: "Bot WhatsApp",
+    description: "WhatsApp bot service for automation. Contact admin for details.",
+    description_id: "Layanan bot WhatsApp untuk otomatisasi. Hubungi admin untuk detail.",
+    price: 0,
+    price_hidden: true,
+    category: "whatsapp",
+    badge: "Bot",
+    stock_status: "available",
+    icon: "🤖",
+  },
+
   {
     id: "tg-id",
     name: "Telegram Number Indonesia",
@@ -188,9 +203,9 @@ export const PRODUCTS: Product[] = [
     id: "jaseb-001",
     name: "Jaseb Service",
     name_id: "Jasa Jaseb",
-    description: "Price 10,000/month, done every day, and promoted to many groups.",
-    description_id: "Harga 10.000/bulan, dilakukan setiap hari, dan dipromosikan ke banyak grup.",
-    price: 10000,
+    description: "Price 15,000/month, done every day, and promoted to many groups.",
+    description_id: "Harga 15.000/bulan, dilakukan setiap hari, dan dipromosikan ke banyak grup.",
+    price: 15000,
     category: "jaseb",
     badge: "Popular",
     stock_status: "available",
