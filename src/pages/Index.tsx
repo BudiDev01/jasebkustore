@@ -179,14 +179,16 @@ const Index = () => {
                 <Sparkles className="w-3 h-3 mr-1" /> JasebKu Store
               </Badge>
               <div className="max-w-2xl mx-auto mb-8 rounded-xl overflow-hidden border border-border bg-card shadow-card">
-                <video
-                  controls
-                  preload="metadata"
-                  className="w-full aspect-video bg-black"
-                >
-                  <source src={heroVideo.url} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
+               <video
+  src={heroVideo}
+  controls
+  autoPlay
+  muted
+  loop
+  playsInline
+  preload="metadata"
+  className="w-full aspect-video bg-black"
+/>
               </div>
               <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tight mb-6 text-foreground leading-tight">
                 {t.heroTitle}
