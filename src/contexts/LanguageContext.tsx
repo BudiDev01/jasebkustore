@@ -35,15 +35,18 @@ interface Translations {
   catSocial: string;
   catGworkspace: string;
   catPremium: string;
-  catWebsite: string;
-  catDomain: string;
-  catHosting: string;
-  catDesign: string;
-  catEditing: string;
-  catPanelbot: string;
-  catVideo: string;
-  catCoding: string;
-  catRekber: string;
+    catWebsite: string;
+    catDomain: string;
+    catHosting: string;
+    catCpanel: string;
+    catAdminPanel: string;
+    catVps: string;
+    catDesign: string;
+    catEditing: string;
+    catPanelbot: string;
+    catVideo: string;
+    catCoding: string;
+    catRekber: string;
     catBanking: string;
     catSuntik: string;
     catLegalitas: string;
@@ -139,7 +142,10 @@ const translations: Record<Language, Translations> = {
     catPremium: "Premium Apps",
     catWebsite: "Website Services",
     catDomain: "Domain",
-    catHosting: "Hosting & VPS",
+    catHosting: "Hosting",
+    catCpanel: "cPanel",
+    catAdminPanel: "Admin Panel",
+    catVps: "VPS",
     catDesign: "Design",
     catEditing: "Editing Services",
     catPanelbot: "Bot Panel",
@@ -233,7 +239,10 @@ const translations: Record<Language, Translations> = {
     catPremium: "Aplikasi Premium",
     catWebsite: "Jasa Website",
     catDomain: "Domain",
-    catHosting: "Hosting & VPS",
+    catHosting: "Hosting",
+    catCpanel: "cPanel",
+    catAdminPanel: "Admin Panel",
+    catVps: "VPS",
     catDesign: "Desain",
     catEditing: "Jasa Editing",
     catPanelbot: "Panel Bot",

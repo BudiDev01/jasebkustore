@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import { Sparkles, ArrowRight, Shield, Zap, HeadphonesIcon, Send, Search, X, MessageCircle, Globe, Scissors, Palette, CreditCard, Megaphone, Bot, Activity, Scale } from "lucide-react";
+import { Sparkles, ArrowRight, Shield, Zap, HeadphonesIcon, Send, Search, X, MessageCircle, Globe, Scissors, Palette, CreditCard, Megaphone, Bot, Activity, Scale, Globe2, Server, LayoutDashboard, UserCog, Cpu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -32,6 +32,11 @@ const CATEGORIES: { key: string; icon: string; desc_en?: string; desc_id?: strin
   { key: "userbot", icon: "🤖" },
   { key: "suntik", icon: "💉" },
   { key: "legalitas", icon: "⚖️" },
+  { key: "domain", icon: "🌐" },
+  { key: "hosting", icon: "🖥️" },
+  { key: "cpanel", icon: "🎛️" },
+  { key: "admin-panel", icon: "🛡️" },
+  { key: "vps", icon: "⚡" },
 ];
 
 import type { LucideIcon } from "lucide-react";
@@ -47,6 +52,11 @@ const TAROT_ICONS: Record<string, LucideIcon> = {
   userbot: Bot,
   suntik: Activity,
   legalitas: Scale,
+  domain: Globe2,
+  hosting: Server,
+  cpanel: LayoutDashboard,
+  "admin-panel": UserCog,
+  vps: Cpu,
 };
 const ROMAN = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII"];
 
@@ -114,6 +124,11 @@ const Index = () => {
       userbot: t.catUserbot,
       suntik: t.catSuntik,
       legalitas: t.catLegalitas,
+      domain: t.catDomain,
+      hosting: t.catHosting,
+      cpanel: t.catCpanel,
+      "admin-panel": t.catAdminPanel,
+      vps: t.catVps,
     };
     return map[key] || key;
   };
