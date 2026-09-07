@@ -17,7 +17,8 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import { PRODUCTS } from "@/data/products";
 import { supabase } from "@/integrations/supabase/client";
 import confetti from "canvas-confetti";
-const heroVideo = "/vidio.mp4";
+import heroVideoAsset from "@/assets/hero-video.mp4.asset.json";
+const heroVideo = heroVideoAsset.url;
 
 
 const CATEGORIES: { key: string; icon: string; desc_en?: string; desc_id?: string }[] = [
