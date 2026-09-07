@@ -23,18 +23,6 @@ const Footer = () => {
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">{t.footerTagline}</p>
           </div>
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="font-semibold text-sm mb-3 text-foreground">{t.footerLinks}</h3>
-            <ul className="space-y-2">
-              <li><Link to="/" className="text-sm text-muted-foreground hover:text-gold transition-colors">{t.home}</Link></li>
-              <li><a href="#products" className="text-sm text-muted-foreground hover:text-gold transition-colors">{t.products}</a></li>
-              <li><Link to="/dashboard" className="text-sm text-muted-foreground hover:text-gold transition-colors">{t.dashboard}</Link></li>
-              <li><Link to="/vip" className="text-sm text-muted-foreground hover:text-gold transition-colors">VIP</Link></li>
-              <li><a href="https://t.me/Fadgww?text=Halo%20JasebKu,%20saya%20tertarik%20dengan%20layanan%20Domain%20dan%20Hosting.%20Bisa%20info%20lebih%20lanjut%3F" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-gold transition-colors">Domain & Hosting</a></li>
-            </ul>
-          </div>
         </div>
 
         <div className="mt-8 pt-6 border-t border-border/50 flex flex-col sm:flex-row items-center justify-between gap-2">
