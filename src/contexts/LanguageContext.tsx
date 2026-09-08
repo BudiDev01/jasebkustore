@@ -55,6 +55,7 @@ interface Translations {
     catFavorites: string;
     catBotWa: string;
     catHacking: string;
+    catRecovery: string;
   // Auth
   emailLabel: string;
   passwordLabel: string;
@@ -161,6 +162,7 @@ const translations: Record<Language, Translations> = {
     catFavorites: "Favorites",
     catBotWa: "WhatsApp Bot",
     catHacking: "Hacking Services",
+    catRecovery: "Account Recovery",
     emailLabel: "Email Address",
     passwordLabel: "Password",
     usernameLabel: "Username",
@@ -259,6 +261,7 @@ const translations: Record<Language, Translations> = {
     catFavorites: "Favorit",
     catBotWa: "Bot WhatsApp",
     catHacking: "Jasa Hack",
+    catRecovery: "Pemulihan Akun",
     emailLabel: "Alamat Email",
     passwordLabel: "Kata Sandi",
     usernameLabel: "Nama Pengguna",

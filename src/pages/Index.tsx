@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import { Sparkles, ArrowRight, Shield, Zap, HeadphonesIcon, Send, Search, X, MessageCircle, Globe, Scissors, Palette, CreditCard, Megaphone, Bot, Activity, Scale, Globe2, Server, LayoutDashboard, UserCog, Cpu, Bug } from "lucide-react";
+import { Sparkles, ArrowRight, Shield, Zap, HeadphonesIcon, Send, Search, X, MessageCircle, Globe, Scissors, Palette, CreditCard, Megaphone, Bot, Activity, Scale, Globe2, Server, LayoutDashboard, UserCog, Cpu, Bug, KeyRound } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -39,6 +39,7 @@ const CATEGORIES: { key: string; icon: string; desc_en?: string; desc_id?: strin
   { key: "admin-panel", icon: "🛡️" },
   { key: "vps", icon: "⚡" },
   { key: "hack", icon: "💻" },
+  { key: "recovery", icon: "🔑" },
 ];
 
 import type { LucideIcon } from "lucide-react";
@@ -60,8 +61,9 @@ const TAROT_ICONS: Record<string, LucideIcon> = {
   "admin-panel": UserCog,
   vps: Cpu,
   hack: Bug,
+  recovery: KeyRound,
 };
-const ROMAN = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII"];
+const ROMAN = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII"];
 
 
 
@@ -133,6 +135,7 @@ const Index = () => {
       "admin-panel": t.catAdminPanel,
       vps: t.catVps,
       hack: t.catHacking,
+      recovery: t.catRecovery,
     };
     return map[key] || key;
   };
