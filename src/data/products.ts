@@ -366,4 +366,18 @@ export const PRODUCTS: Product[] = [
     stock_status: "available",
     icon: "💻",
   },
+
+  {
+    id: "recovery-001",
+    name: "Account Recovery Service",
+    name_id: "Jasa Pemulihan Akun",
+    description: "Professional account recovery service for locked, hacked, or suspended accounts. Contact admin for details.",
+    description_id: "Jasa pemulihan akun profesional untuk akun yang terkunci, diretas, atau ditangguhkan. Hubungi admin untuk detail.",
+    price: 0,
+    price_hidden: true,
+    category: "recovery",
+    badge: "Service",
+    stock_status: "available",
+    icon: "🔑",
+  },
 ];
