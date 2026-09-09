@@ -27,7 +27,6 @@ interface Translations {
   searchPlaceholder: string;
   searchNoResults: string;
   scrollToViewProducts: string;
-  tarotTouchCard: string;
   tarotTapToReveal: string;
   tarotCardSpoken: string;
   tarotTapToClose: string;
@@ -141,7 +140,6 @@ const translations: Record<Language, Translations> = {
     searchPlaceholder: "Search products...",
     searchNoResults: "No products found. Try a different keyword.",
     scrollToViewProducts: "To view the contents of this product, please scroll to the bottom of this website to view the product description.",
-    tarotTouchCard: "Touch a card to reveal its offerings",
     tarotTapToReveal: "Tap to Reveal",
     tarotCardSpoken: "The cards have spoken. Your offerings await below.",
     tarotTapToClose: "Tap to close",
@@ -246,7 +244,6 @@ const translations: Record<Language, Translations> = {
     searchPlaceholder: "Cari produk...",
     searchNoResults: "Produk tidak ditemukan. Coba kata kunci lain.",
     scrollToViewProducts: "Untuk melihat isi produk ini, silakan scroll ke bagian paling bawah website ini untuk melihat deskripsi produk.",
-    tarotTouchCard: "Sentuh kartu untuk mengungkap rincian produk",
     tarotTapToReveal: "Ketuk untuk Buka",
     tarotCardSpoken: "Kartu telah terbuka. Lihat rincian produk di bawah.",
     tarotTapToClose: "Ketuk untuk Tutup",
