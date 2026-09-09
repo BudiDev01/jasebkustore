@@ -26,6 +26,7 @@ interface Translations {
   outOfStock: string;
   searchPlaceholder: string;
   searchNoResults: string;
+  scrollToViewProducts: string;
   // Categories
   catFreelance: string;
   catJaseb: string;
@@ -134,6 +135,7 @@ const translations: Record<Language, Translations> = {
     outOfStock: "Out of Stock",
     searchPlaceholder: "Search products...",
     searchNoResults: "No products found. Try a different keyword.",
+    scrollToViewProducts: "To view the contents of this product, please scroll to the bottom of this website to view the product description.",
     catFreelance: "Freelance",
     catJaseb: "Jaseb",
     catUserbot: "Userbot",
@@ -233,6 +235,7 @@ const translations: Record<Language, Translations> = {
     outOfStock: "Habis",
     searchPlaceholder: "Cari produk...",
     searchNoResults: "Produk tidak ditemukan. Coba kata kunci lain.",
+    scrollToViewProducts: "Untuk melihat isi produk ini, silakan scroll ke bagian paling bawah website ini untuk melihat deskripsi produk.",
     catFreelance: "Freelance",
     catJaseb: "Jaseb",
     catUserbot: "Userbot",

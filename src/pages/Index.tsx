@@ -369,7 +369,13 @@ const Index = () => {
                       ✕ {language === "id" ? "Tutup" : "Close"}
                     </button>
                   </div>
-                  <div className="p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                  <p
+                    className="text-center text-gold/80 text-sm italic px-6 py-4"
+                    style={{ fontFamily: "Lora, serif" }}
+                  >
+                    {t.scrollToViewProducts}
+                  </p>
+                  <div className="p-4 pt-0 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                     {PRODUCTS.filter((p) => p.category === activeCategory).map((product) => (
                       <ProductCard key={product.id} product={product} onTouch={handleProductTouch} />
                     ))}
