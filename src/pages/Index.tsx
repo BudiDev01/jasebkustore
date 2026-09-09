@@ -323,9 +323,6 @@ const Index = () => {
           ) : (
             // --- Tarot cards mode ---
             <>
-              <p className="text-center text-gold/70 text-xs uppercase tracking-[0.4em] italic mb-8" style={{ fontFamily: "Lora, serif" }}>
-                {t.tarotTouchCard}
-              </p>
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 sm:gap-6 max-w-5xl mx-auto">
                 {CATEGORIES.map((cat, idx) => {
                   const Icon = TAROT_ICONS[cat.key];
