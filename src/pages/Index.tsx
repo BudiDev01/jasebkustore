@@ -9,7 +9,6 @@ import Navbar from "@/components/Navbar";
 import ProductCard from "@/components/ProductCard";
 import TarotCard from "@/components/TarotCard";
 import Footer from "@/components/Footer";
-import MusicPlayer from "@/components/MusicPlayer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 
@@ -17,8 +16,6 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import { PRODUCTS } from "@/data/products";
 import { supabase } from "@/integrations/supabase/client";
 import confetti from "canvas-confetti";
-import heroVideoAsset from "@/assets/hero-video.mp4.asset.json";
-const heroVideo = heroVideoAsset.url;
 
 
 const CATEGORIES: { key: string; icon: string; desc_en?: string; desc_id?: string }[] = [
@@ -185,18 +182,6 @@ const Index = () => {
               <Badge className="gradient-gold text-primary-foreground border-0 mb-6 text-xs px-3 py-1 shadow-gold">
                 <Sparkles className="w-3 h-3 mr-1" /> JasebKu Store
               </Badge>
-              <div className="max-w-2xl mx-auto mb-8 rounded-xl overflow-hidden border border-border bg-card shadow-card">
-               <video
-  src={heroVideo}
-  controls
-  autoPlay
-  muted
-  loop
-  playsInline
-  preload="metadata"
-  className="w-full aspect-video bg-black"
-/>
-              </div>
               <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tight mb-6 text-foreground leading-tight">
                 {t.heroTitle}
               </h1>
@@ -397,7 +382,6 @@ const Index = () => {
       </section>
 
       
-      <MusicPlayer />
       <Footer />
       <WhatsAppButton />
     </div>
