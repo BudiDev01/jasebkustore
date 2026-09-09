@@ -56,9 +56,6 @@ const Navbar = ({ theme, toggleTheme }: NavbarProps) => {
             <Link to="/" className="px-3 py-2 rounded-md text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-colors">
               {t.home}
             </Link>
-            <a href="#products" className="px-3 py-2 rounded-md text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-colors">
-              {t.products}
-            </a>
             {user && (
               <>
                 <Link to="/dashboard" className="px-3 py-2 rounded-md text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-colors">
@@ -143,9 +140,6 @@ const Navbar = ({ theme, toggleTheme }: NavbarProps) => {
             <Link to="/" onClick={() => setMenuOpen(false)} className="block px-3 py-2 rounded-md text-sm font-medium hover:bg-muted transition-colors">
               {t.home}
             </Link>
-            <a href="#products" onClick={() => setMenuOpen(false)} className="block px-3 py-2 rounded-md text-sm font-medium hover:bg-muted transition-colors">
-              {t.products}
-            </a>
             {user && (
               <>
                 <Link to="/dashboard" onClick={() => setMenuOpen(false)} className="block px-3 py-2 rounded-md text-sm font-medium hover:bg-muted transition-colors">
