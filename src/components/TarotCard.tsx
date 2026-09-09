@@ -1,6 +1,7 @@
 import React from "react";
 import type { LucideIcon } from "lucide-react";
 import { Sparkles } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface TarotCardProps {
   icon: LucideIcon;
@@ -15,6 +16,8 @@ interface TarotCardProps {
  * triggers the parent to show that category's products below the grid.
  */
 const TarotCard = ({ icon: Icon, title, ordinal, isActive, onClick }: TarotCardProps) => {
+  const { t } = useLanguage();
+
   return (
     <div
       className="relative w-full aspect-[2/3] [perspective:1200px] cursor-pointer select-none"
@@ -69,7 +72,7 @@ const TarotCard = ({ icon: Icon, title, ordinal, isActive, onClick }: TarotCardP
             className="text-gold/60 text-[10px] tracking-[0.2em] italic pb-1"
             style={{ fontFamily: "Lora, serif" }}
           >
-            Tap to Reveal
+            {t.tarotTapToReveal}
           </span>
         </div>
 
@@ -93,10 +96,10 @@ const TarotCard = ({ icon: Icon, title, ordinal, isActive, onClick }: TarotCardP
             {title}
           </h3>
           <p className="text-gold/70 text-[11px] italic leading-relaxed mb-4" style={{ fontFamily: "Lora, serif" }}>
-            The cards have spoken. Your offerings await below.
+            {t.tarotCardSpoken}
           </p>
           <span className="text-gold/50 text-[10px] uppercase tracking-[0.25em]" style={{ fontFamily: "Cinzel, serif" }}>
-            Tap to close
+            {t.tarotTapToClose}
           </span>
         </div>
       </div>
