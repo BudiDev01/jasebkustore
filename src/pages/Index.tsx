@@ -324,7 +324,7 @@ const Index = () => {
             // --- Tarot cards mode ---
             <>
               <p className="text-center text-gold/70 text-xs uppercase tracking-[0.4em] italic mb-8" style={{ fontFamily: "Lora, serif" }}>
-                {language === "id" ? "Sentuh kartu untuk mengungkap rincian produk" : "Touch a card to reveal its offerings"}
+                {t.tarotTouchCard}
               </p>
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 sm:gap-6 max-w-5xl mx-auto">
                 {CATEGORIES.map((cat, idx) => {
@@ -366,7 +366,7 @@ const Index = () => {
                       className="text-gold/70 hover:text-gold text-xs uppercase tracking-[0.2em] transition-colors"
                       style={{ fontFamily: "Cinzel, serif" }}
                     >
-                      ✕ {language === "id" ? "Tutup" : "Close"}
+                      ✕ {t.close}
                     </button>
                   </div>
                   <p
