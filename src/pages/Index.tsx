@@ -382,7 +382,6 @@ const Index = () => {
       </section>
 
       
-      <MusicPlayer />
       <Footer />
       <WhatsAppButton />
     </div>
