@@ -380,4 +380,32 @@ export const PRODUCTS: Product[] = [
     stock_status: "available",
     icon: "🔑",
   },
+
+  {
+    id: "topup-001",
+    name: "Game Top Up",
+    name_id: "Top Up Game",
+    description: "Game top-up service for various games. Contact admin for details and pricing.",
+    description_id: "Layanan top up game untuk berbagai game. Hubungi admin untuk detail dan harga.",
+    price: 0,
+    price_hidden: true,
+    category: "topup-game",
+    badge: "Service",
+    stock_status: "available",
+    icon: "🎮",
+  },
+
+  {
+    id: "jualakun-001",
+    name: "Social Media Account",
+    name_id: "Jual Akun Media Sosial",
+    description: "Buy social media accounts. Contact admin for available accounts and pricing.",
+    description_id: "Jual akun media sosial. Hubungi admin untuk akun yang tersedia dan harga.",
+    price: 0,
+    price_hidden: true,
+    category: "jual-akun",
+    badge: "Account",
+    stock_status: "available",
+    icon: "👤",
+  },
 ];
