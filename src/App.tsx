@@ -13,7 +13,6 @@ import Dashboard from "./pages/Dashboard";
 import VipLogin from "./pages/VipLogin";
 import VipDashboard from "./pages/VipDashboard";
 import VipForgotPassword from "./pages/VipForgotPassword";
-import AdminUserView from "./pages/AdminUserView";
 import ForgotPassword from "./pages/ForgotPassword";
 import NotFound from "./pages/NotFound";
 import OAuthConsent from "./pages/OAuthConsent";
@@ -40,7 +39,6 @@ const App = () => (
               <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="/vip" element={<VipLogin />} />
               <Route path="/vip/dashboard" element={<ProtectedAdminRoute><VipDashboard /></ProtectedAdminRoute>} />
-              <Route path="/vip/user/:userId" element={<ProtectedAdminRoute><AdminUserView /></ProtectedAdminRoute>} />
               <Route path="/vip/forgot-password" element={<VipForgotPassword />} />
               <Route path="/.lovable/oauth/consent" element={<OAuthConsent />} />
               <Route path="*" element={<NotFound />} />
