@@ -69,33 +69,6 @@ export const PRODUCTS: Product[] = [
     icon: "🛡️",
   },
 
-  {
-    id: "wa-verified",
-    name: "WhatsApp Number Verified",
-    name_id: "Nomor WhatsApp Terverifikasi",
-    description: "Verified WhatsApp number. Contact admin for details.",
-    description_id: "Nomor WhatsApp terverifikasi. Hubungi admin untuk detail.",
-    price: 0,
-    price_hidden: true,
-    category: "whatsapp",
-    badge: "Verified",
-    stock_status: "available",
-    icon: "✅",
-  },
-
-  {
-    id: "wa-unban",
-    name: "WhatsApp Unban Service",
-    name_id: "Jasa Unban WhatsApp",
-    description: "Professional WhatsApp account unban service. We help recover banned or suspended WhatsApp numbers quickly and securely.",
-    description_id: "Jasa unban akun WhatsApp profesional. Kami membantu memulihkan nomor WhatsApp yang dibanned atau ditangguhkan dengan cepat dan aman.",
-    price: 0,
-    price_hidden: true,
-    category: "whatsapp",
-    badge: "Service",
-    stock_status: "available",
-    icon: "🔓",
-  },
 
 
 
