@@ -56,6 +56,34 @@ export const PRODUCTS: Product[] = [
   },
 
   {
+    id: "wa-blue-check",
+    name: "WhatsApp Blue Check Number",
+    name_id: "Nomor WhatsApp Centang Biru",
+    description: "WhatsApp number with blue verification checkmark. Contact admin for details.",
+    description_id: "Nomor WhatsApp dengan centang biru terverifikasi. Hubungi admin untuk detail.",
+    price: 0,
+    price_hidden: true,
+    category: "whatsapp",
+    badge: "Verified",
+    stock_status: "available",
+    icon: "✅",
+  },
+
+  {
+    id: "wa-meta-one",
+    name: "WhatsApp Meta One Number",
+    name_id: "Nomor WhatsApp Meta One",
+    description: "WhatsApp number with Meta One feature. Contact admin for details.",
+    description_id: "Nomor WhatsApp dengan fitur Meta One. Hubungi admin untuk detail.",
+    price: 0,
+    price_hidden: true,
+    category: "whatsapp",
+    badge: "Meta One",
+    stock_status: "available",
+    icon: "💠",
+  },
+
+  {
     id: "wa-strengthen-tricks",
     name: "WhatsApp Number Strengthening Tricks",
     name_id: "Trik Perkuat Nomor",
