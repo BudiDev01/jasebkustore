@@ -144,6 +144,34 @@ export const PRODUCTS: Product[] = [
   },
 
   {
+    id: "tg-premium",
+    name: "Telegram Premium",
+    name_id: "Telegram Premium",
+    description: "Telegram Premium subscription at a special price. Loyal customers get a cheaper price.",
+    description_id: "Langganan Telegram Premium harga spesial. Pelanggan tetap mendapat harga lebih murah.",
+    price: 0,
+    price_hidden: true,
+    category: "telegram",
+    badge: "Premium",
+    stock_status: "available",
+    icon: "⭐",
+  },
+
+  {
+    id: "tg-stars",
+    name: "Telegram Stars",
+    name_id: "Telegram Stars",
+    description: "Telegram Stars top-up. Loyal customers get a cheaper price.",
+    description_id: "Top up Telegram Stars. Pelanggan tetap mendapat harga lebih murah.",
+    price: 0,
+    price_hidden: true,
+    category: "telegram",
+    badge: "Stars",
+    stock_status: "available",
+    icon: "🌟",
+  },
+
+  {
     id: "web-001",
     name: "Website Creation Service",
     name_id: "Jasa Pembuatan Website",
