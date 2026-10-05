@@ -426,6 +426,48 @@ export const PRODUCTS: Product[] = [
   },
 
   {
+    id: "topup-002",
+    name: "Mobile Credit (Pulsa)",
+    name_id: "Pulsa",
+    description: "Mobile credit top-up for all operators. Contact admin for details and pricing.",
+    description_id: "Top up pulsa semua operator. Hubungi admin untuk detail dan harga.",
+    price: 0,
+    price_hidden: true,
+    category: "topup-digital",
+    badge: "Service",
+    stock_status: "available",
+    icon: "📱",
+  },
+
+  {
+    id: "topup-003",
+    name: "Electricity Token",
+    name_id: "Token Listrik",
+    description: "PLN electricity token top-up. Contact admin for details and pricing.",
+    description_id: "Top up token listrik PLN. Hubungi admin untuk detail dan harga.",
+    price: 0,
+    price_hidden: true,
+    category: "topup-digital",
+    badge: "Service",
+    stock_status: "available",
+    icon: "⚡",
+  },
+
+  {
+    id: "topup-004",
+    name: "Internet Data Package",
+    name_id: "Kuota Internet",
+    description: "Internet data package top-up for all operators. Contact admin for details and pricing.",
+    description_id: "Top up kuota internet semua operator. Hubungi admin untuk detail dan harga.",
+    price: 0,
+    price_hidden: true,
+    category: "topup-digital",
+    badge: "Service",
+    stock_status: "available",
+    icon: "📶",
+  },
+
+  {
     id: "jualakun-001",
     name: "Facebook Accounts - 5 Accounts",
     name_id: "Akun Facebook - 5 Akun",

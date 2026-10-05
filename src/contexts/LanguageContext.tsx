@@ -62,6 +62,7 @@ interface Translations {
     catHacking: string;
     catTopupGame: string;
     catJualAkun: string;
+    catTopupDigital: string;
   // Auth
   emailLabel: string;
   passwordLabel: string;
@@ -175,6 +176,7 @@ const translations: Record<Language, Translations> = {
     catHacking: "Hacking Services",
     catTopupGame: "Game Top Up",
     catJualAkun: "Social Media Accounts",
+    catTopupDigital: "Pulsa, Token & Internet Data",
     emailLabel: "Email Address",
     passwordLabel: "Password",
     usernameLabel: "Username",
@@ -280,6 +282,7 @@ const translations: Record<Language, Translations> = {
     catHacking: "Jasa Hack",
     catTopupGame: "Top Up Game",
     catJualAkun: "Jual Akun Media Sosial",
+    catTopupDigital: "Pulsa, Token Listrik & Kuota Internet",
     emailLabel: "Alamat Email",
     passwordLabel: "Kata Sandi",
     usernameLabel: "Nama Pengguna",
