@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ShoppingBag } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import SocialLinks from "@/components/SocialLinks";
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -23,9 +22,6 @@ const Footer = () => {
               </span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">{t.footerTagline}</p>
-            <div className="mt-5">
-              <SocialLinks />
-            </div>
           </div>
         </div>
 
