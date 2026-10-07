@@ -253,7 +253,8 @@ const Index = () => {
 
       {/* Telegram contact */}
       <section className="py-10 bg-card/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center gap-5">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href="https://t.me/Fadgww?text=Saya%20ingin%20membeli%20produk%20dari%20JasebKu."
             target="_blank"
@@ -274,6 +275,7 @@ const Index = () => {
             <Send className="w-5 h-5" />
             Channel
           </a>
+          </div>
           <SocialLinks />
         </div>
       </section>
