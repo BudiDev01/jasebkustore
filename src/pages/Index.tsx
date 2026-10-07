@@ -271,8 +271,9 @@ const Index = () => {
             className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-gold/40 bg-card text-gold font-semibold shadow-card hover:bg-gold/5 transition-colors text-sm"
           >
             <Send className="w-5 h-5" />
-            Channel
+            Send
           </a>
+          <SocialLinks />
         </div>
       </section>
 
