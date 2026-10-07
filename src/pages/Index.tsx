@@ -10,6 +10,7 @@ import ProductCard from "@/components/ProductCard";
 import TarotCard from "@/components/TarotCard";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import SocialLinks from "@/components/SocialLinks";
 
 
 
