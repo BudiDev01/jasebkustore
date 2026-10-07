@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ShoppingBag } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import SocialLinks from "@/components/SocialLinks";
 
 const Footer = () => {
   const { t } = useLanguage();
