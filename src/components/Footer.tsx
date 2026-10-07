@@ -23,6 +23,9 @@ const Footer = () => {
               </span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">{t.footerTagline}</p>
+            <div className="mt-5">
+              <SocialLinks />
+            </div>
           </div>
         </div>
 
